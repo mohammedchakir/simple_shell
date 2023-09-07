@@ -291,4 +291,4 @@ Simple shell 1.0 +
 -----------------
 ## Collaborators:
 
-[MOHAMMED CHAKIR](https://github.com/mohammedchakir) & [Saleh Elmouiny](https://github.com/) 
+[MOHAMMED CHAKIR](https://github.com/mohammedchakir) & [SALEH ELMOUINY](https://github.com/Elmouinysaleh) 
