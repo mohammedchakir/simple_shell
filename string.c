@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _strcat - concatenates strings
- * @dest: fst string
- * @src: scd string
- * Return: the two stringd
+ * concatenateStrings - Combines two strings.
+ * @dest: The first string.
+ * @src: The second string.
+ * Return: The concatenated strings.
  */
-char *_strcat(char *dest, const char *src)
+char *concatenateStrings(char *dest, const char *src)
 {
 	int i;
 	int j;
@@ -21,13 +21,14 @@ char *_strcat(char *dest, const char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
 /**
- * *_strcpy - copies string
- * @dest: fst string
- * @src: scd string
- * Return: the destination
+ * copyString - Copies a string.
+ * @dest: The first string.
+ * @src: The second string.
+ * Return: The destination string.
  */
-char *_strcpy(char *dest, char *src)
+char *copyString(char *dest, char *src)
 {
 
 	size_t i;
@@ -37,13 +38,14 @@ char *_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
 /**
- * _strcmp - compares two strings.
- * @s1: fst string
- * @s2: scd string
- * Return: 0, 1 or -1
+ * compareStrings - Compares two strings.
+ * @s1: The first string.
+ * @s2: The second string.
+ * Return: 0 if equal, 1 if the first is greater, -1 if the second is greater.
  */
-int _strcmp(char *s1, char *s2)
+int compareStrings(char *s1, char *s2)
 {
 	int i;
 
@@ -55,13 +57,14 @@ int _strcmp(char *s1, char *s2)
 		return (-1);
 	return (0);
 }
+
 /**
- * _strchr - searches for a char
- * @s: string
- * @c: the  character
- * Return: occcurence of char
+ * findCharacter - Searches for a character in a string.
+ * @s: The input string.
+ * @c: The character to search for.
+ * Return: Pointer to the first occurrence of the character in the string, or NULL if not found.
  */
-char *_strchr(char *s, char c)
+char *findCharacter(char *s, char c)
 {
 	unsigned int i = 0;
 
@@ -72,13 +75,14 @@ char *_strchr(char *s, char c)
 		return (s + i);
 	return ('\0');
 }
+
 /**
- * _strspn - length of substring.
- * @s: init segment.
- * @accept: allowed bytes.
- * Return: number of allowed bytes.
+ * countAcceptedBytes - Calculates the length of the initial segment containing only allowed bytes.
+ * @s: The initial segment to check.
+ * @accept: The set of bytes that are allowed.
+ * Return: The number of allowed bytes in the initial segment.
  */
-int _strspn(char *s, char *accept)
+int countAcceptedBytes(char *s, char *accept)
 {
 	int i, j, bool;
 
