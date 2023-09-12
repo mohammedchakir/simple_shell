@@ -3,7 +3,7 @@
 /**
  * removeComments - Eliminates comments from the input.
  *
- * @input: The input string containing comments.
+ * @in: The input string containing comments.
  * Return: The input string with comments removed.
  */
 char *removeComments(char *in)
@@ -34,7 +34,7 @@ char *removeComments(char *in)
 
 /**
  * shellLoop - Implements the main shell loop.
- * @shellInfo: Shell-related information.
+ * @datash: Shell-related information.
  * Return: No return value.
  */
 void shellLoop(data_shell *datash)
@@ -74,7 +74,7 @@ void shellLoop(data_shell *datash)
 
 /**
  * readInput - Reads input data.
- * @getlineReturnValue: Return value of the getline function.
+ * @i_eof: Return value of the getline function.
  * Return: Input data as a string.
  */
 char *readInput(int *i_eof)
