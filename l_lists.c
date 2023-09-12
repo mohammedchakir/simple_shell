@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * add_sep_end - add separator node at the end of list
- * @head: head of list.
- * @sep: separator.
- * Return: address of head.
+ * addSeparatorAtEnd - Appends a separator node at the end of the list.
+ * @head: The head of the list.
+ * @sep: The separator node to add.
+ * Return: The address of the updated head.
  */
-sep_list *add_sep_end(sep_list **head, char sep)
+sep_list *addSeparatorAtEnd(sep_list **head, char sep)
 {
 	sep_list *new_node;
 	sep_list *temp_node;
@@ -32,11 +32,11 @@ sep_list *add_sep_end(sep_list **head, char sep)
 }
 
 /**
- * sep_list_free - free a separator list
- * @head: head of the list.
- * Return: non
+ * freeSeparatorList - Deallocate memory for a list containing separators.
+ * @head: The head of the list.
+ * Return: None.
  */
-void sep_list_free(sep_list **head)
+void freeSeparatorList(sep_list **head)
 {
 	sep_list *temp_node;
 	sep_list *curr_node;
@@ -54,12 +54,12 @@ void sep_list_free(sep_list **head)
 }
 
 /**
- * add_line__end - adds the current line at the end of thelist.
- * @head: head of the list.
- * @line: current line.
- * Return: address of head.
+ * appendLineToEnd - Appends the current line to the end of the list.
+ * @head: The head of the list.
+ * @line: The current line to add.
+ * Return: The address of the updated head.
  */
-line_list *add_line_end(line_list **head, char *line)
+line_list *appendLineToEnd(line_list **head, char *line)
 {
 	line_list *new_node, *temp_node;
 
@@ -86,11 +86,11 @@ line_list *add_line_end(line_list **head, char *line)
 }
 
 /**
- * line_list_free - frees the list
- * @head: head of the list.
- * Return: Non
+ * freeLineList - Deallocates memory for the list.
+ * @head: The head of the list.
+ * Return: None.
  */
-void line_list_free(line_list **head)
+void freeLineList(line_list **head)
 {
 	line_list *temp_node;
 	line_list *curr_node;
