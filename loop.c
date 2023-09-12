@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * remove_comment - removes the comments
+ * removeComments - Eliminates comments from the input.
  *
- * @in: input
- * Return: input without the comments
+ * @input: The input string containing comments.
+ * Return: The input string with comments removed.
  */
-char *remove_comment(char *in)
+char *removeComments(char *in)
 {
 	int i, position;
 
@@ -33,11 +33,11 @@ char *remove_comment(char *in)
 }
 
 /**
- * loop_shell - the shell loop
- * @datash: shell info
- * Return: no return.
+ * shellLoop - Implements the main shell loop.
+ * @shellInfo: Shell-related information.
+ * Return: No return value.
  */
-void loop_shell(data_shell *datash)
+void shellLoop(data_shell *datash)
 {
 	int lp, i_eof;
 	char *inp;
@@ -73,11 +73,11 @@ void loop_shell(data_shell *datash)
 }
 
 /**
- * _readline - reads from input.
- * @i_eof: return value of getline
- * Return: input in form of a string
+ * readInput - Reads input data.
+ * @getlineReturnValue: Return value of the getline function.
+ * Return: Input data as a string.
  */
-char *_readline(int *i_eof)
+char *readInput(int *i_eof)
 {
 	char *inp = NULL;
 	size_t size = 0;
