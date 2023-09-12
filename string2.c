@@ -1,27 +1,29 @@
 #include "main.h"
+
 /**
- * _strdup - func to deplicate string
- * @s: Char pointer of the string.
- * Return: new String pointer.
+ * duplicateString - Duplicates a string.
+ * @s: Pointer to the string to be duplicated.
+ * Return: Pointer to the new duplicated string.
  */
-char *_strdup(const char *s)
+char *duplicateString(const char *s)
 {
 	char *n;
 	size_t length;
 
-	length = _strlen(s);
+	length = getStringLength(s);
 	n = malloc(sizeof(char) * (length + 1));
 	if (n == NULL)
 		return (NULL);
-	_memcpy(n, s, length + 1);
+	copyData(n, s, length + 1);
 	return (n);
 }
+
 /**
- * _strlen - string length
- * @s: string pointer
- * Return: length
+ * getStringLength - Calculate the length of a string.
+ * @s: Pointer to the string.
+ * Return: The length of the string.
  */
-int _strlen(const char *s)
+int getStringLength(const char *s)
 {
 	int length;
 
@@ -30,13 +32,14 @@ int _strlen(const char *s)
 	}
 	return (length);
 }
+
 /**
- * cmp_chars - compares two strings
- * @str: the string
- * @delim: the delimiters
- * Return: 1 or 0
+ * compareStrings - Compares two strings.
+ * @str: The input string.
+ * @delim: The delimiter string.
+ * Return: 1 if equal, 0 if not equal.
  */
-int cmp_chars(char str[], const char *delim)
+int compareStrings(char str[], const char *delim)
 {
 	unsigned int i, j, k;
 
@@ -57,12 +60,12 @@ int cmp_chars(char str[], const char *delim)
 }
 
 /**
- * _strtok - splits the string by the delimiter
- * @str: the string.
- * @delim: the delimiter.
- * Return: splitted string
+ * tokenizeString - Splits a string into tokens using a delimiter.
+ * @str: The input string.
+ * @delim: The delimiter string.
+ * Return: Pointer to the tokenized string.
  */
-char *_strtok(char str[], const char *delim)
+char *tokenizeString(char str[], const char *delim)
 {
 	static char *splitted, *str_end;
 	char *str_begin;
@@ -70,10 +73,10 @@ char *_strtok(char str[], const char *delim)
 
 	if (str != NULL)
 	{
-		if (cmp_chars(str, delim))
+		if (compareStrings(str, delim))
 			return (NULL);
 		splitted = str;
-		i = _strlen(str);
+		i = getStringLength(str);
 		str_end = &str[i];
 	}
 	str_begin = splitted;
@@ -101,12 +104,13 @@ char *_strtok(char str[], const char *delim)
 		return (NULL);
 	return (str_begin);
 }
+
 /**
- * _isdigit - checks for numbers
- * @s: string
- * Return: 1 or 0
+ * isDigit - Checks if a character is a digit.
+ * @s: The character to check.
+ * Return: 1 if it's a digit, 0 otherwise.
  */
-int _isdigit(const char *s)
+int isDigit(const char *s)
 {
 	unsigned int i;
 
