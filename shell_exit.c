@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * shell_exit - exits shel
- * @datash: shell info
- * Return: 0 or 1.
+ * exitShell - Exits the shell.
+ * @datash: Shell-related information.
+ * Return: 0 for success, 1 for failure.
  */
-int shell_exit(data_shell *datash)
+int exitShell(data_shell *datash)
 {
 	unsigned int _status;
 	int check_digit, str_length, big_num;
@@ -28,10 +28,10 @@ int shell_exit(data_shell *datash)
 }
 
 /**
- * _sigint - ctrl c functionality
- * @sig: handler
+ * handleCtrlC - Functionality for handling Ctrl+C.
+ * @sig: Signal handler.
  */
-void _sigint(int sig)
+void handleCtrlC(int sig)
 {
 	(void)sig;
 	write(STDOUT_FILENO, "\n--> ", 5);
