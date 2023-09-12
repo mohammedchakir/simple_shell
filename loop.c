@@ -46,10 +46,10 @@ void shellLoop(data_shell *datash)
 	while (lp == 1)
 	{
 		write(STDIN_FILENO, "--> ", 4);
-		inp = _readline(&i_eof);
+		inp = readInput(&i_eof);
 		if (i_eof != -1)
 		{
-			inp = remove_comment(inp);
+			inp = removeComments(inp);
 			if (inp == NULL)
 				continue;
 
