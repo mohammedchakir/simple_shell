@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * _memcpy - copies info from one pointer to another.
- * @newptr: destination .
- * @ptr: source .
- * @size: size of the destination.
- * Return: Non.
+ * copyData - Copies information from one pointer to another.
+ * @newptr: Destination pointer.
+ * @ptr: Source pointer.
+ * @size: Size of the destination.
+ * Return: None.
  */
-void _memcpy(void *newptr, const void *ptr, unsigned int size)
+void copyData(void *newptr, const void *ptr, unsigned int size)
 {
 	char *_ptr = (char *)ptr;
 	char *_newptr = (char *)newptr;
@@ -20,57 +20,57 @@ void _memcpy(void *newptr, const void *ptr, unsigned int size)
 }
 
 /**
- * _realloc - reallocates memory with the new size.
- * @ptr: initial memory
- * @old_size: old size of memory
- * @new_size: new size of memory
- * Return: ptr of the relevant mem.
+ * resizeMemory - Reallocates memory to a new size.
+ * @ptr: Initial memory to be reallocated.
+ * @oldSize: Old size of the memory.
+ * @newSize: New size of the memory.
+ * Return: Pointer to the reallocated memory.
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *resizeMemory(void *ptr, unsigned int oldSize, unsigned int newSize)
 {
 	void *new_ptr;
 
 	if (ptr == NULL)
-		return (malloc(new_size));
-	if (new_size == 0)
+		return (malloc(newSize));
+	if (newSize == 0)
 	{
 		free(ptr);
 		return (NULL);
 	}
-	if (new_size == old_size)
+	if (newSize == oldSize)
 		return (ptr);
-	new_ptr = malloc(new_size);
+	new_ptr = malloc(newSize);
 	if (new_ptr == NULL)
 		return (NULL);
-	if (new_size < old_size)
-		_memcpy(new_ptr, ptr, new_size);
+	if (newSize < oldSize)
+		copyData(new_ptr, ptr, newSize);
 	else
-		_memcpy(new_ptr, ptr, old_size);
+		copyData(new_ptr, ptr, oldSize);
 
 	free(ptr);
 	return (new_ptr);
 }
 
 /**
- * _reallocdp - reallocates a memory of double pointers.
- * @ptr: initial memory
- * @old_size: old size of memory
- * @new_size: new size of memory
- * Return: ptr of the relevant mem.
+ * resizeDblePtrMem - Reallocates memory for an array of pointers.
+ * @ptr: Initial memory to be reallocated.
+ * @oldSize: Old size of the memory.
+ * @newSize: New size of the memory.
+ * Return: Pointer to the reallocated memory.
  */
-char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size)
+char **resizeDblePtrMem(char **ptr, unsigned int oldSize, unsigned int newSize)
 {
 	char **new_ptr;
 	unsigned int i;
 
 	if (ptr == NULL)
-		return (malloc(sizeof(char *) * new_size));
-	if (new_size == old_size)
+		return (malloc(sizeof(char *) * newSize));
+	if (newSize == oldSize)
 		return (ptr);
-	new_ptr = malloc(sizeof(char *) * new_size);
+	new_ptr = malloc(sizeof(char *) * newSize);
 	if (new_ptr == NULL)
 		return (NULL);
-	for (i = 0; i < old_size; i++)
+	for (i = 0; i < oldSize; i++)
 	{
 		new_ptr[i] = ptr[i];
 	}
