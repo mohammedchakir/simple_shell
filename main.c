@@ -54,9 +54,9 @@ int main(int ac, char **av)
 	(void) ac;
 
 	signal(SIGINT, _sigint);
-	set_dt(&datash, av);
-	loop_shell(&datash);
-	free_dt(&datash);
+	initializeData(&datash, av);
+	shellLoop(&datash);
+	freeData(&datash);
 	if (datash.status < 0)
 		return (255);
 	return (datash.status);
