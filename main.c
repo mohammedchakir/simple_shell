@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * free_dt - frees data
- * @datash: shell info
- * Return: Non
+ * freeData - Deallocates memory used by data.
+ * @datash: Shell information.
+ * Return: None.
  */
-void free_dt(data_shell *datash)
+void freeData(data_shell *datash)
 {
 	unsigned int i;
 
@@ -14,14 +14,15 @@ void free_dt(data_shell *datash)
 	free(datash->_environ);
 	free(datash->pid);
 }
+
 /**
- * set_dt - Initialize data
+ * initializeData - Initialize shell data.
  *
- * @datash: shell info
- * @av: arguments
- * Return: Non
+ * @datash: Shell information.
+ * @av: Arguments.
+ * Return: None.
  */
-void set_dt(data_shell *datash, char **av)
+void initializeData(data_shell *datash, char **av)
 {
 	unsigned int i;
 
@@ -42,10 +43,10 @@ void set_dt(data_shell *datash, char **av)
 }
 
 /**
- * main - Entry point
- * @ac: argument count
- * @av: argument vector
- * Return: 0 on success.
+ * main - Entry point of the program.
+ * @ac: Argument count.
+ * @av: Argument vector.
+ * Return: 0 on successful execution.
  */
 int main(int ac, char **av)
 {
