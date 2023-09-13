@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * par_cd - change to parent directory
- * @datash: shell info
- * Return: Non.
+ * par_cd - Change to the parent directory.
+ * @datash: Shell information.
+ * Return: None.
  */
 void par_cd(data_shell *datash)
 {
@@ -50,9 +50,9 @@ void par_cd(data_shell *datash)
 }
 
 /**
- * cd_to - change directory
- * @datash: shell info
- * Return: Non
+ * cd_to - Change the current directory.
+ * @datash: Shell information.
+ * Return: None.
  */
 void cd_to(data_shell *datash)
 {
@@ -78,9 +78,9 @@ void cd_to(data_shell *datash)
 }
 
 /**
- * cd_prev - move to previous directory
- * @datash: shell info
- * Return: Non
+ * cd_prev - Navigate to the previous directory.
+ * @datash: Shell information.
+ * Return: None.
  */
 void cd_prev(data_shell *datash)
 {
@@ -110,9 +110,9 @@ void cd_prev(data_shell *datash)
 }
 
 /**
- * cd_home - move to home
- * @datash: shell info
- * Return: Non
+ * cd_home - Change to the home directory.
+ * @datash: Shell information.
+ * Return: None.
  */
 void cd_home(data_shell *datash)
 {
