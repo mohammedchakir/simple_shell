@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * char_swap - swaps | and &
- * @input: input
- * @bool: swap type
- * Return: swapped input
+ * swapchar - Swaps the characters '|' and '&' in the input string.
+ * @input: The input string to perform the swap on.
+ * @bool: The type of swap to perform.
+ * Return: The input string with the specified characters swapped.
  */
-char *char_swap(char *input, int bool)
+char *swapchar(char *input, int bool)
 {
 	int i;
 
@@ -42,18 +42,18 @@ char *char_swap(char *input, int bool)
 }
 
 /**
- * add_nodes - add separators and command in the lists
- * @head_s: head of separator list
- * @head_l: head of command lines list
- * @input: input
- * Return: Non
+ * addnodes - Adds separators and command lines to their respective lists.
+ * @head_s: The head of the separator list.
+ * @head_l: The head of the command lines list.
+ * @input: The input to be processed.
+ * Return: None.
  */
-void add_nodes(sep_list **head_s, line_list **head_l, char *input)
+void addnodes(sep_list **head_s, line_list **head_l, char *input)
 {
 	int i;
 	char *line_ptr;
 
-	input = char_swap(input, 0);
+	input = swapchar(input, 0);
 
 	for (i = 0; input[i]; i++)
 	{
@@ -68,7 +68,7 @@ void add_nodes(sep_list **head_s, line_list **head_l, char *input)
 	}
 	line_ptr = tokenizeString(input, ";|&");
 	do {
-		line_ptr = char_swap(line_ptr, 1);
+		line_ptr = swapchar(line_ptr, 1);
 		appendLineToEnd(head_l, line_ptr);
 		line_ptr = tokenizeString(NULL, ";|&");
 	}
@@ -77,13 +77,13 @@ void add_nodes(sep_list **head_s, line_list **head_l, char *input)
 }
 
 /**
- * next_cmd_line - move to the next cmd line
- * @list_s: separator list
- * @list_l: command line list
- * @datash: shell info
- * Return: Non
+ * nextcmdline - Proceed to the next command line.
+ * @list_s: The separator list.
+ * @list_l: The command line list.
+ * @datash: Shell information.
+ * Return: None.
  */
-void next_cmd_line(sep_list **list_s, line_list **list_l, data_shell *datash)
+void nextcmdline(sep_list **list_s, line_list **list_l, data_shell *datash)
 {
 	int lp_sep;
 	sep_list *ls_sep;
@@ -117,12 +117,12 @@ void next_cmd_line(sep_list **list_s, line_list **list_l, data_shell *datash)
 }
 
 /**
- * command_split - splits command lines
- * @datash: shell info
- * @input: input
- * Return: 0 or 1
+ * cmdsplit - Splits command lines into components.
+ * @datash: Shell information.
+ * @input: The input to be processed.
+ * Return: 0 if successful, 1 if there was an error.
  */
-int command_split(data_shell *datash, char *input)
+int cmdsplit(data_shell *datash, char *input)
 {
 
 	sep_list *head_sep, *list_sep;
@@ -131,7 +131,7 @@ int command_split(data_shell *datash, char *input)
 
 	head_sep = NULL;
 	head_line = NULL;
-	add_nodes(&head_sep, &head_line, input);
+	addnodes(&head_sep, &head_line, input);
 	list_sep = head_sep;
 	list_line = head_line;
 	while (list_line != NULL)
@@ -142,7 +142,7 @@ int command_split(data_shell *datash, char *input)
 		free(datash->args);
 		if (lp == 0)
 			break;
-		next_cmd_line(&list_sep, &list_line, datash);
+		nextcmdline(&list_sep, &list_line, datash);
 
 		if (list_line != NULL)
 			list_line = list_line->next;
@@ -155,11 +155,11 @@ int command_split(data_shell *datash, char *input)
 }
 
 /**
- * tokenize_line - tokenize the string
- * @input: input
- * Return: splitted string.
+ * tokenizeline - Tokenizes the input string.
+ * @input: The input string to be tokenized.
+ * Return: A collection of tokens obtained from the input string.
  */
-char **tokenize_line(char *input)
+char **tokenizeline(char *input)
 {
 	size_t size;
 	size_t i;
