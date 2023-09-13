@@ -11,26 +11,26 @@ void par_cd(data_shell *datash)
 	char *dir, *cpy_pwd, *cpy_strtok_pwd;
 
 	getcwd(_pwd, sizeof(_pwd));
-	cpy_pwd = _strdup(_pwd);
+	cpy_pwd = duplicateString(_pwd);
 	environ_set("OLDPWD", cpy_pwd, datash);
 	dir = datash->args[1];
-	if (_strcmp(".", dir) == 0)
+	if (compareStrings(".", dir) == 0)
 	{
 		environ_set("PWD", cpy_pwd, datash);
 		free(cpy_pwd);
 		return;
 	}
-	if (_strcmp("/", cpy_pwd) == 0)
+	if (compareStrings("/", cpy_pwd) == 0)
 	{
 		free(cpy_pwd);
 		return;
 	}
 	cpy_strtok_pwd = cpy_pwd;
 	rev_string(cpy_strtok_pwd);
-	cpy_strtok_pwd = _strtok(cpy_strtok_pwd, "/");
+	cpy_strtok_pwd = tokenizeString(cpy_strtok_pwd, "/");
 	if (cpy_strtok_pwd != NULL)
 	{
-		cpy_strtok_pwd = _strtok(NULL, "\0");
+		cpy_strtok_pwd = tokenizeString(NULL, "\0");
 
 		if (cpy_strtok_pwd != NULL)
 			rev_string(cpy_strtok_pwd);
@@ -67,9 +67,9 @@ void cd_to(data_shell *datash)
 		err_get(datash, 2);
 		return;
 	}
-	cpy_pwd = _strdup(_pwd);
+	cpy_pwd = duplicateString(_pwd);
 	environ_set("OLDPWD", cpy_pwd, datash);
-	cpy_dir = _strdup(dir);
+	cpy_dir = duplicateString(dir);
 	environ_set("PWD", cpy_dir, datash);
 	free(cpy_pwd);
 	free(cpy_dir);
@@ -88,19 +88,19 @@ void cd_prev(data_shell *datash)
 	char *p_c_pwd, *p_old_pwd, *cpy_pwd, *cpy_oldpwd;
 
 	getcwd(_pwd, sizeof(_pwd));
-	cpy_pwd = _strdup(_pwd);
+	cpy_pwd = duplicateString(_pwd);
 	p_old_pwd = _getenv("OLDPWD", datash->_environ);
 	if (p_old_pwd == NULL)
 		cpy_oldpwd = cpy_pwd;
 	else
-		cpy_oldpwd = _strdup(p_old_pwd);
+		cpy_oldpwd = duplicateString(p_old_pwd);
 	environ_set("OLDPWD", cpy_pwd, datash);
 	if (chdir(cpy_oldpwd) == -1)
 		environ_set("PWD", cpy_pwd, datash);
 	else
 		environ_set("PWD", cpy_oldpwd, datash);
 	p_c_pwd = _getenv("PWD", datash->_environ);
-	write(STDOUT_FILENO, p_c_pwd, _strlen(p_c_pwd));
+	write(STDOUT_FILENO, p_c_pwd, getStringLength(p_c_pwd));
 	write(STDOUT_FILENO, "\n", 1);
 	free(cpy_pwd);
 	if (p_old_pwd)
@@ -120,7 +120,7 @@ void cd_home(data_shell *datash)
 	char _pwd[PATH_MAX];
 
 	getcwd(_pwd, sizeof(_pwd));
-	p_c_pwd = _strdup(_pwd);
+	p_c_pwd = duplicateString(_pwd);
 	hom = _getenv("HOME", datash->_environ);
 	if (hom == NULL)
 	{
