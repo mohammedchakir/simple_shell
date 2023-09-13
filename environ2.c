@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * info_cp - copies information
- * @name: name
- * @value: value
- * Return: new environ or alias.
+ * info_cp - Copies information.
+ * @name: The name of the item to copy.
+ * @value: The value of the item to copy.
+ * Return: A new environment or alias containing the copied information.
  */
 char *info_cp(char *name, char *value)
 {
@@ -23,11 +23,11 @@ char *info_cp(char *name, char *value)
 }
 
 /**
- * environ_set - sets an env variable
- * @name: name of the env variable
- * @value: value of the env variable
- * @datash: shell info
- * Return: Non
+ * environ_set - Sets an environment variable.
+ * @name: The name of the environment variable to set.
+ * @value: The value to assign to the environment variable.
+ * @datash: Shell information.
+ * Return: None.
  */
 void environ_set(char *name, char *value, data_shell *datash)
 {
@@ -53,9 +53,9 @@ void environ_set(char *name, char *value, data_shell *datash)
 }
 
 /**
- * _setenv - compares env variables
- * @datash: shell info
- * Return: 1
+ * _setenv - Sets environment variables.
+ * @datash: Shell information.
+ * Return: 1 to indicate successful execution.
  */
 int _setenv(data_shell *datash)
 {
@@ -69,9 +69,9 @@ int _setenv(data_shell *datash)
 }
 
 /**
- * _unsetenv - deletes env variable
- * @datash: shell info
- * Return: 1
+ * _unsetenv - Deletes an environment variable.
+ * @datash: Shell information.
+ * Return: 1 to indicate successful execution.
  */
 int _unsetenv(data_shell *datash)
 {
