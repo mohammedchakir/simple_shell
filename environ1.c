@@ -1,28 +1,28 @@
 #include "main.h"
 
 /**
- * comp_env_names - compares env variables
- * @nenv: name of the env variable
- * @name: name
- * Return: 0 or other number.
+ * comp_env_names - Compares environment variable names.
+ * @nenv: The name of an environment variable.
+ * @name: The name to compare against.
+ * Return: 0 if the names match, otherwise a non-zero value.
  */
 int comp_env_names(const char *nenv, const char *name)
 {
-	int i;
+	int n;
 
-	for (i = 0; nenv[i] != '='; i++)
+	for (n = 0; nenv[n] != '='; n++)
 	{
-		if (nenv[i] != name[i])
+		if (nenv[n] != name[n])
 			return (0);
 	}
-	return (i + 1);
+	return (n + 1);
 }
 
 /**
- * _getenv - get env variable
- * @name: name of the env variable
- * @_environ: env variable
- * Return: value of the env variable or NULL if not found
+ * _getenv - Retrieve the value of an environment variable.
+ * @name: The name of the environment variable to find.
+ * @_environ: The environment variable array.
+ * Return: The value of the environment variable, or NULL if not found.
  */
 char *_getenv(const char *name, char **_environ)
 {
@@ -45,20 +45,20 @@ char *_getenv(const char *name, char **_environ)
 }
 
 /**
- * env_printer - prints  env variables
- * @datash: shell info
- * Return: 1
+ * env_printer - Prints environment variables.
+ * @datash: Shell information.
+ * Return: 1 to indicate successful execution.
  */
 int env_printer(data_shell *datash)
 {
-	int i, j;
+	int n, m;
 
-	for (i = 0; datash->_environ[i]; i++)
+	for (n = 0; datash->_environ[n]; n++)
 	{
 
-		for (j = 0; datash->_environ[i][j]; j++)
+		for (m = 0; datash->_environ[n][m]; m++)
 			;
-		write(STDOUT_FILENO, datash->_environ[i], j);
+		write(STDOUT_FILENO, datash->_environ[n], m);
 		write(STDOUT_FILENO, "\n", 1);
 	}
 	datash->status = 0;
