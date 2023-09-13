@@ -89,55 +89,71 @@ typedef struct builtin_s
 	int (*f)(data_shell *datash);
 } builtin_t;
 
-void free_dt(data_shell *datash);
-void set_dt(data_shell *datash, char **av);
 
-sep_list *add_sep_end(sep_list **head, char sep);
-void sep_list_free(sep_list **head);
-line_list *add_line_end(line_list **head, char *line);
-void line_list_free(line_list **head);
+sep_list *addSeparatorAtEnd(sep_list **head, char sep)
+void freeSeparatorList(sep_list **head)
+line_list *appendLineToEnd(line_list **head, char *line)
+void freeLineList(line_list **head)
 
-r_var *add_var_end(r_var **head, int lvar, char *var, int lval);
-void var_list_free(r_var **head);
+r_var *appendVariableToEnd(r_var **head, int lvar, char *val, int lval)
+void freeVarList(r_var **head)
+char *readInput(int *i_eof)
 
-char *_strcat(char *dest, const char *src);
-char *_strcpy(char *dest, char *src);
-int _strcmp(char *s1, char *s2);
-char *_strchr(char *s, char c);
-int _strspn(char *s, char *accept);
+void shellLoop(data_shell *datash)
+char *removeComments(char *in)
+void freeData(data_shell *datash)
+void initializeData(data_shell *datash, char **av)
+int main(int ac, char **av)
 
-void _memcpy(void *newptr, const void *ptr, unsigned int size);
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size);
+void copyData(void *newptr, const void *ptr, unsigned int size)
+void *resizeMemory(void *ptr, unsigned int oldSize, unsigned int newSize)
+char **resizeDblePtrMem(char **ptr, unsigned int oldSize, unsigned int newSize)
+int exitShell(data_shell *datash)
+void handleCtrlC(int sig)
 
-char *_strdup(const char *s);
-int _strlen(const char *s);
-int cmp_chars(char str[], const char *delim);
-char *_strtok(char str[], const char *delim);
-int _isdigit(const char *s);
+char *concatenateStrings(char *dest, const char *src)
+char *copyString(char *dest, char *src)
+int compareStrings(char *s1, char *s2)
+char *findCharacter(char *s, char c)
+int countAcceptedBytes(char *s, char *accept)
+char *duplicateString(const char *s)
+int getStringLength(const char *s)
 
-void rev_string(char *s);
+int compareStrings(char str[], const char *delim)
+char *tokenizeString(char str[], const char *delim)
+int isDigit(const char *s)
 
-int char_repeat(char *input, int i);
-int syntax_err_op(char *input, int i, char last);
-int fst_char(char *input, int *i);
-void syntax_err_printer(data_shell *datash, char *input, int i, int bool);
-int syntax_err_checker(data_shell *datash, char *input);
+void reverseString(char *s)
+int charRepetitions(char *input, int i)
+int syntaxErrorPosition(char *input, int i, char last)
+int firstChar(char *input, int *i)
 
-char *remove_comment(char *in);
-void loop_shell(data_shell *datash);
-char *_readline(int *i_eof);
+void printSyntaxError(data_shell *datash, char *input, int i, int bool)
+int checkSyntaxError(data_shell *datash, char *input)
+void checkIfEnvVariable(r_var **h, char *in, data_shell *data)
+int checkVariable(r_var **h, char *in, char *st, data_shell *data)
+char *convertToVariables(r_var **head, char *input, char *new_input, int nlen)
+char *replaceVariables(char *input, data_shell *datash)
+
+
+
+
+
+
+
+
+
+
+
+
+
+second part:
 
 char *char_swap(char *input, int bool);
 void add_nodes(sep_list **head_s, line_list **head_l, char *input);
 void next_cmd_line(sep_list **list_s, line_list **list_l, data_shell *datash);
 int command_split(data_shell *datash, char *input);
 char **tokenize_line(char *input);
-
-void env_checker(r_var **h, char *in, data_shell *data);
-int var_checker(r_var **h, char *in, char *st, data_shell *data);
-char *var_input(r_var **head, char *input, char *new_input, int nlen);
-char *replace_var(char *input, data_shell *datash);
 
 int execute_line(data_shell *datash);
 
@@ -162,10 +178,8 @@ void cd_prev(data_shell *datash);
 void cd_home(data_shell *datash);
 
 int change_dir(data_shell *datash);
-
 int (*get_built_in(char *cmd))(data_shell *datash);
 
-int shell_exit(data_shell *datash);
 
 int get_len(int n);
 char *aux_itoa(int n);
@@ -184,7 +198,7 @@ char *path_denied_err(data_shell *datash);
 
 int err_get(data_shell *datash, int eval);
 
-void _sigint(int sig);
+
 
 void _help_env(void);
 void _help_setenv(void);
