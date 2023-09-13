@@ -34,12 +34,12 @@ int getStringLength(const char *s)
 }
 
 /**
- * compareStrings - Compares two strings.
+ * cmpStrings - Compares two strings.
  * @str: The input string.
  * @delim: The delimiter string.
  * Return: 1 if equal, 0 if not equal.
  */
-int compareStrings(char str[], const char *delim)
+int cmpStrings(char str[], const char *delim)
 {
 	unsigned int i, j, k;
 
