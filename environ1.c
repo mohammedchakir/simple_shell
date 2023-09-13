@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * comp_env_names - compares env variables
- * @nenv: name of the env variable
- * @name: name
- * Return: 0 or other number.
+ * compenvnames - Compares environment variable names.
+ * @nenv: The name of an environment variable.
+ * @name: The name to compare against.
+ * Return: 0 if the names match, otherwise a non-zero value.
  */
-int comp_env_names(const char *nenv, const char *name)
+int compenvnames(const char *nenv, const char *name)
 {
 	int i;
 
@@ -19,12 +19,12 @@ int comp_env_names(const char *nenv, const char *name)
 }
 
 /**
- * _getenv - get env variable
- * @name: name of the env variable
- * @_environ: env variable
- * Return: value of the env variable or NULL if not found
+ * getenv - Retrieve the value of an environment variable.
+ * @name: The name of the environment variable to find.
+ * @_environ: The environment variable array.
+ * Return: The value of the environment variable, or NULL if not found.
  */
-char *_getenv(const char *name, char **_environ)
+char *getenv(const char *name, char **_environ)
 {
 	char *env_ptr;
 	int i;
@@ -34,7 +34,7 @@ char *_getenv(const char *name, char **_environ)
 
 	for (i = 0; _environ[i]; i++)
 	{
-		checker = comp_env_names(_environ[i], name);
+		checker = compenvnames(_environ[i], name);
 		if (checker)
 		{
 			env_ptr = _environ[i];
@@ -45,11 +45,11 @@ char *_getenv(const char *name, char **_environ)
 }
 
 /**
- * env_printer - prints  env variables
- * @datash: shell info
- * Return: 1
+ * envprinter - Prints environment variables.
+ * @datash: Shell information.
+ * Return: 1 to indicate successful execution.
  */
-int env_printer(data_shell *datash)
+int envprinter(data_shell *datash)
 {
 	int i, j;
 
