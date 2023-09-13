@@ -140,7 +140,7 @@ char *replaceVariables(char *input, data_shell *datash)
 	char *st, *n_input;
 	int olen, nlen;
 
-	st = aux_itoa(datash->status);
+	st = auxitoa(datash->status);
 	h = NULL;
 	olen = checkVariable(&h, input, st, datash);
 	if (h == NULL)
