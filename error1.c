@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * cd_strcat- concats cd error message
- * @datash: data from current shell
- * @message: message to print
- * @err: error message
- * @str_var: count
- * Return: full error message
+ * cdstrcat - Concatenates a CD error message.
+ * @datash: Data from the current shell.
+ * @message: Message to print.
+ * @err: Error message.
+ * @str_var: Count.
+ * Return: The complete error message.
  */
-char *cd_strcat(data_shell *datash, char *message, char *err, char *str_var)
+char *cdstrcat(data_shell *datash, char *message, char *err, char *str_var)
 {
 	char *illegal_f;
 
@@ -35,17 +35,17 @@ char *cd_strcat(data_shell *datash, char *message, char *err, char *str_var)
 }
 
 /**
- * get_cd_err - cd error message
- * @datash: data from current shell
- * Return: Full error message
+ * getcderr - Retrieve a CD error message.
+ * @datash: Data from the current shell.
+ * Return: The complete error message.
  */
-char *get_cd_err(data_shell *datash)
+char *getcderr(data_shell *datash)
 {
 	int len, l_id;
 	char *err, *str_var;
 	char *message;
 
-	str_var = aux_itoa(datash->counter);
+	str_var = auxitoa(datash->counter);
 	if (datash->args[1][0] == '-')
 	{
 		message = ": Illegal option ";
@@ -64,22 +64,22 @@ char *get_cd_err(data_shell *datash)
 		free(str_var);
 		return (NULL);
 	}
-	err = cd_strcat(datash, message, err, str_var);
+	err = cdstrcat(datash, message, err, str_var);
 	free(str_var);
 	return (err);
 }
 
 /**
- * not_found_err - generic error message for command not found
- * @datash: data from current shell
- * Return: Full error message
+ * notfounderr - Generates a generic error message for "command not found."
+ * @datash: Data from the current shell.
+ * Return: The complete error message.
  */
-char *not_found_err(data_shell *datash)
+char *notfounderr(data_shell *datash)
 {
 	int len;
 	char *err, *str_var;
 
-	str_var = aux_itoa(datash->counter);
+	str_var = auxitoa(datash->counter);
 	len = getStringLength(datash->av[0]) + getStringLength(str_var);
 	len += getStringLength(datash->args[0]) + 16;
 	err = malloc(sizeof(char) * (len + 1));
@@ -101,16 +101,16 @@ char *not_found_err(data_shell *datash)
 }
 
 /**
- * exit_shell_err - generic error message for exit in get_exit
- * @datash: data from current shell
- * Return: Full error message
+ * exitshellerr - Creates generic error message for "exit" command in get_exit function.
+ * @datash: Data from the current shell.
+ * Return: The complete error message.
  */
-char *exit_shell_err(data_shell *datash)
+char *exitshellerr(data_shell *datash)
 {
 	int len;
 	char *err, *str_var;
 
-	str_var = aux_itoa(datash->counter);
+	str_var = auxitoa(datash->counter);
 	len = getStringLength(datash->av[0]) + getStringLength(str_var);
 	len += getStringLength(datash->args[0]) + getStringLength(datash->args[1]) + 23;
 	err = malloc(sizeof(char) * (len + 1));
