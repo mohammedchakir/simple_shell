@@ -18,13 +18,13 @@
 
 extern char **environ;
 /**
- * struct data - shell struct containing relevant information
- * @av: arg vector.
- * @input: string input from user
- * @args: tokens of commands
+ * struct data - the shell struct contains informations.
+ * @av: the arg vector.
+ * @input: the string input from user.
+ * @args: the tokens of commands.
  * @status: update on status.
- * @counter: current line count.
- * @_environ: environ variable
+ * @counter: the current line count.
+ * @_environ: the environ variable.
  * @pid: pid the shell process.
  */
 typedef struct data
@@ -39,10 +39,10 @@ typedef struct data
 } data_shell;
 
 /**
- * struct sep_list_s - singly-linked-list
- * @separator: separator
- * @next: proceedig node
- * Description: stores separator
+ * struct sep_list_s - singly-linked-list.
+ * @separator: the separator.
+ * @next: the proceedig node.
+ * Description: the stores separators.
  */
 typedef struct sep_list_s
 {
@@ -51,10 +51,10 @@ typedef struct sep_list_s
 } sep_list;
 
 /**
- * struct line_list_s - singly-linked-list
- * @line: cmd line
- * @next: proceeding node
- * Description: stores cmd line.
+ * struct line_list_s - singly-linked-list.
+ * @line: the cmd line.
+ * @next: the proceeding node.
+ * Description: the stores cmd line.
  */
 typedef struct line_list_s
 {
@@ -63,12 +63,12 @@ typedef struct line_list_s
 } line_list;
 
 /**
- * struct r_var_list - singly-linked-list
- * @len_var: length of variable
- * @val: value of variable
- * @len_val: length of value
- * @next: proceeding node
- * Description: singly-linked-list to store variables
+ * struct r_var_list - singly-linked-list.
+ * @len_var: the length of the variable.
+ * @val: the value of the variable.
+ * @len_val: the length of the value.
+ * @next: the proceeding node.
+ * Description: the singly-linked-list to store variables.
  */
 typedef struct r_var_list
 {
@@ -80,7 +80,7 @@ typedef struct r_var_list
 
 /**
  * struct builtin_s - struct cointaing cmd arguments.
- * @name: abr. for built-n cmd
+ * @name: the abriviation of built-n cmd.
  * @f: pointer function.
  */
 typedef struct builtin_s
