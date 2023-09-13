@@ -119,7 +119,7 @@ int countAcceptedBytes(char *s, char *accept)
 char *duplicateString(const char *s)
 int getStringLength(const char *s)
 
-int compareStrings(char str[], const char *delim)
+int cmpStrings(char str[], const char *delim)
 char *tokenizeString(char str[], const char *delim)
 int isDigit(const char *s)
 
