@@ -8,21 +8,21 @@
 int gethelp(data_shell *datash)
 {
 	if (datash->args[1] == 0)
-		_help_general();
+		helpgeneral();
 	else if (compareStrings(datash->args[1], "setenv") == 0)
-		_help_setenv();
+		helpsetenv();
 	else if (compareStrings(datash->args[1], "env") == 0)
-		_help_env();
+		helpenv();
 	else if (compareStrings(datash->args[1], "unsetenv") == 0)
-		_help_unsetenv();
+		helpunsetenv();
 	else if (compareStrings(datash->args[1], "help") == 0)
-		_help();
+		help();
 	else if (compareStrings(datash->args[1], "exit") == 0)
-		_help_exit();
+		helpexit();
 	else if (compareStrings(datash->args[1], "cd") == 0)
-		_help_cd();
+		helpcd();
 	else if (compareStrings(datash->args[1], "alias") == 0)
-		_help_alias();
+		helpalias();
 	else
 		write(STDERR_FILENO, datash->args[0],
 		      getStringLength(datash->args[0]));
