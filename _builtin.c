@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * get_built_in - calls builtin function from command
- * @cmd: command
- * Return: function pointer to the builtin command
+ * get_builtin - Retrieves pointer to the corresponding built-in function for a given command.
+ * @cmd: The command for which to fetch the built-in function.
+ * Return: A function pointer to the built-in command.
  */
-int (*get_built_in(char *cmd))(data_shell *)
+int (*get_builtin(char *cmd))(data_shell *)
 {
 	builtin_t built[] = {
 		{ "env", env_printer },
