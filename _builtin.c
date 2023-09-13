@@ -20,7 +20,7 @@ int (*get_built_in(char *cmd))(data_shell *)
 
 	for (j = 0; built[j].name; j++)
 	{
-		if (_strcmp(built[j].name, cmd) == 0)
+		if (compareStrings(built[j].name, cmd) == 0)
 			break;
 	}
 	return (built[j].f);
