@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * err_get - executes the error according to the permission, syntax or builtin
- * @datash: shell info
- * @eval: value of errror
- * Return: err
+ * err_get - Executes error handling based on permission, syntax, or built-in command issues.
+ * @datash: Shell information.
+ * @eval: Error code.
+ * Return: Error information.
  */
 int err_get(data_shell *datash, int eval)
 {
