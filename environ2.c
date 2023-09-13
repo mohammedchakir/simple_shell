@@ -41,14 +41,14 @@ void environset(char *name, char *value, data_shell *datash)
 		if (compareStrings(name_environ, name) == 0)
 		{
 			free(datash->_environ[i]);
-			datash->_environ[i] = info_cp(name_environ, value);
+			datash->_environ[i] = infocp(name_environ, value);
 			free(var_environ);
 			return;
 		}
 		free(var_environ);
 	}
 	datash->_environ = resizeDblePtrMem(datash->_environ, i, sizeof(char *) * (i + 2));
-	datash->_environ[i] = info_cp(name, value);
+	datash->_environ[i] = infocp(name, value);
 	datash->_environ[i + 1] = NULL;
 }
 
@@ -61,7 +61,7 @@ int setenv(data_shell *datash)
 {
 	if (datash->args[1] == NULL || datash->args[2] == NULL)
 	{
-		err_get(datash, -1);
+		geterr(datash, -1);
 		return (1);
 	}
 	environset(datash->args[1], datash->args[2], datash);
@@ -81,7 +81,7 @@ int unsetenv(data_shell *datash)
 
 	if (datash->args[1] == NULL)
 	{
-		err_get(datash, -1);
+		geterr(datash, -1);
 		return (1);
 	}
 	a = -1;
@@ -95,7 +95,7 @@ int unsetenv(data_shell *datash)
 	}
 	if (a == -1)
 	{
-		err_get(datash, -1);
+		geterr(datash, -1);
 		return (1);
 	}
 	realloc_environ = malloc(sizeof(char *) * (i));
