@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * help_get - function to call builtin help
- * @datash: shell_info
- * Return: Return 1
-*/
+ * help_get - Invokes the built-in help function.
+ * @datash: A pointer to shell information.
+ * Return: Returns 1.
+ */
 int help_get(data_shell *datash)
 {
 	if (datash->args[1] == 0)
