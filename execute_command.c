@@ -32,28 +32,28 @@ char *locate_cmd(char *cmd, char **_environ)
 	_path = _getenv("PATH", _environ);
 	if (_path)
 	{
-		path_ptr = _strdup(_path);
-		cmd_len = _strlen(cmd);
-		path_token = _strtok(path_ptr, ":");
+		path_ptr = duplicateString(_path);
+		cmd_len = getStringLength(cmd);
+		path_token = tokenizeString(path_ptr, ":");
 		i = 0;
 		while (path_token != NULL)
 		{
 			if (searchable_cdir(_path, &i))
 				if (stat(cmd, &st) == 0)
 					return (cmd);
-			dir_len = _strlen(path_token);
+			dir_len = getStringLength(path_token);
 			dir = malloc(dir_len + cmd_len + 2);
-			_strcpy(dir, path_token);
-			_strcat(dir, "/");
-			_strcat(dir, cmd);
-			_strcat(dir, "\0");
+			copyString(dir, path_token);
+			concatenateStrings(dir, "/");
+			concatenateStrings(dir, cmd);
+			concatenateStrings(dir, "\0");
 			if (stat(dir, &st) == 0)
 			{
 				free(path_ptr);
 				return (dir);
 			}
 			free(dir);
-			path_token = _strtok(NULL, ":");
+			path_token = tokenizeString(NULL, ":");
 		}
 		free(path_ptr);
 		if (stat(cmd, &st) == 0)
@@ -124,7 +124,7 @@ int check_cmd_err(char *dir, data_shell *datash)
 		err_get(datash, 127);
 		return (1);
 	}
-	if (_strcmp(datash->args[0], dir) != 0)
+	if (compareStrings(datash->args[0], dir) != 0)
 	{
 		if (access(dir, X_OK) == -1)
 		{
