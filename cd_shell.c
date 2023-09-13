@@ -13,21 +13,21 @@ int change_dir(data_shell *datash)
 	dir = datash->args[1];
 	if (dir != NULL)
 	{
-		home = _strcmp("$HOME", dir);
-		home2 = _strcmp("~", dir);
-		dash = _strcmp("--", dir);
+		home = compareStrings("$HOME", dir);
+		home2 = compareStrings("~", dir);
+		dash = compareStrings("--", dir);
 	}
 	if (dir == NULL || !home || !home2 || !dash)
 	{
 		cd_home(datash);
 		return (1);
 	}
-	if (_strcmp("-", dir) == 0)
+	if (compareStrings("-", dir) == 0)
 	{
 		cd_prev(datash);
 		return (1);
 	}
-	if (_strcmp(".", dir) == 0 || _strcmp("..", dir) == 0)
+	if (compareStrings(".", dir) == 0 || compareStrings("..", dir) == 0)
 	{
 		par_cd(datash);
 		return (1);
