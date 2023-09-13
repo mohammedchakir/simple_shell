@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * change_dir - changes current working directory
- * @datash: data relevant
- * Return: 1 on success
+ * changedir - Changes the current working directory.
+ * @datash: Relevant data.
+ * Return: 1 if successful.
  */
-int change_dir(data_shell *datash)
+int changedir(data_shell *datash)
 {
 	char *dir;
 	int home, home2, dash;
