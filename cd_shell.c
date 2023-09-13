@@ -19,19 +19,19 @@ int changedir(data_shell *datash)
 	}
 	if (dir == NULL || !home || !home2 || !dash)
 	{
-		cd_home(datash);
+		cdhome(datash);
 		return (1);
 	}
 	if (compareStrings("-", dir) == 0)
 	{
-		cd_prev(datash);
+		cdprev(datash);
 		return (1);
 	}
 	if (compareStrings(".", dir) == 0 || compareStrings("..", dir) == 0)
 	{
-		par_cd(datash);
+		parcd(datash);
 		return (1);
 	}
-	cd_to(datash);
+	cdto(datash);
 	return (1);
 }
