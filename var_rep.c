@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * env_checker - checks if the variable is an env variable
- * @h: head of list
- * @in: input
- * @data: shell info
- * Return: Non.
+ * checkIfEnvVariable - Verifies whether a variable is an environment variable.
+ * @h: The head of the list.
+ * @in: The input variable.
+ * @data: Shell-related information.
+ * Return: None.
  */
-void env_checker(r_var **h, char *in, data_shell *data)
+void checkIfEnvVariable(r_var **h, char *in, data_shell *data)
 {
 	int rw, ch, i, lval;
 	char **_envrn;
@@ -19,7 +19,7 @@ void env_checker(r_var **h, char *in, data_shell *data)
 		{
 			if (_envrn[rw][ch] == '=')
 			{
-				lval = _strlen(_envrn[rw] + ch + 1);
+				lval = getStringLength(_envrn[rw] + ch + 1);
 				add_var_end(h, i, _envrn[rw] + ch + 1, lval);
 				return;
 			}
@@ -40,19 +40,19 @@ void env_checker(r_var **h, char *in, data_shell *data)
 }
 
 /**
- * var_checker - check if the typed variable is either $$ or $.
- * @h: head of the list
- * @in: input.
- * @st: status of shell
- * @data: shell info
- * Return: Non.
+ * checkVariable - Verify if the provided variable is either "$$" or "$".
+ * @h: The head of the list.
+ * @in: The input variable.
+ * @st: The shell's status.
+ * @data: Shell-related information.
+ * Return: None.
  */
-int var_checker(r_var **h, char *in, char *st, data_shell *data)
+int checkVariable(r_var **h, char *in, char *st, data_shell *data)
 {
 	int i, l_st, l_pid;
 
-	l_st = _strlen(st);
-	l_pid = _strlen(data->pid);
+	l_st = getStringLength(st);
+	l_pid = getStringLength(data->pid);
 	for (i = 0; in[i]; i++)
 	{
 		if (in[i] == '$')
@@ -79,14 +79,14 @@ int var_checker(r_var **h, char *in, char *st, data_shell *data)
 }
 
 /**
- * var_input - changes the input string into variables
- * @head: head of the list
- * @input: input
- * @new_input: replaced string
- * @nlen: new length
- * Return: new replaced string
+ * convertToVariables - Converts the input string into variables.
+ * @head: The head of the list.
+ * @input: The input string.
+ * @new_input: The string with replacements.
+ * @nlen: The new length of the string.
+ * Return: The modified string with variable substitutions.
  */
-char *var_input(r_var **head, char *input, char *new_input, int nlen)
+char *convertToVariables(r_var **head, char *input, char *new_input, int nlen)
 {
 	r_var *ind;
 	int i, j, k;
@@ -129,12 +129,12 @@ char *var_input(r_var **head, char *input, char *new_input, int nlen)
 }
 
 /**
- * replace_var -replaced string into vars
- * @input: input
- * @datash: shell info
- * Return: replaced string
+ * replaceVariables - Replaces variables within an input string.
+ * @input: The input string.
+ * @datash: Shell-related information.
+ * Return: The string with variables replaced.
  */
-char *replace_var(char *input, data_shell *datash)
+char *replaceVariables(char *input, data_shell *datash)
 {
 	r_var *h, *ind;
 	char *st, *n_input;
@@ -142,7 +142,7 @@ char *replace_var(char *input, data_shell *datash)
 
 	st = aux_itoa(datash->status);
 	h = NULL;
-	olen = var_checker(&h, input, st, datash);
+	olen = checkVariable(&h, input, st, datash);
 	if (h == NULL)
 	{
 		free(st);
@@ -158,9 +158,9 @@ char *replace_var(char *input, data_shell *datash)
 	nlen += olen;
 	n_input = malloc(sizeof(char) * (nlen + 1));
 	n_input[nlen] = '\0';
-	n_input = var_input(&h, input, n_input, nlen);
+	n_input = convertToVariables(&h, input, n_input, nlen);
 	free(input);
 	free(st);
-	var_list_free(&h);
+	freeVarList(&h);
 	return (n_input);
 }
