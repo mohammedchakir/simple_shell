@@ -12,25 +12,25 @@ char *cd_strcat(data_shell *datash, char *message, char *err, char *str_var)
 {
 	char *illegal_f;
 
-	_strcpy(err, datash->av[0]);
-	_strcat(err, ": ");
-	_strcat(err, str_var);
-	_strcat(err, ": ");
-	_strcat(err, datash->args[0]);
-	_strcat(err, message);
+	copyString(err, datash->av[0]);
+	concatenateStrings(err, ": ");
+	concatenateStrings(err, str_var);
+	concatenateStrings(err, ": ");
+	concatenateStrings(err, datash->args[0]);
+	concatenateStrings(err, message);
 	if (datash->args[1][0] == '-')
 	{
 		illegal_f = malloc(3);
 		illegal_f[0] = '-';
 		illegal_f[1] = datash->args[1][1];
 		illegal_f[2] = '\0';
-		_strcat(err, illegal_f);
+		concatenateStrings(err, illegal_f);
 		free(illegal_f);
 	}
 	else
-		_strcat(err, datash->args[1]);
-	_strcat(err, "\n");
-	_strcat(err, "\0");
+		concatenateStrings(err, datash->args[1]);
+	concatenateStrings(err, "\n");
+	concatenateStrings(err, "\0");
 	return (err);
 }
 
@@ -54,10 +54,10 @@ char *get_cd_err(data_shell *datash)
 	else
 	{
 		message = ": can't cd to ";
-		l_id = _strlen(datash->args[1]);
+		l_id = getStringLength(datash->args[1]);
 	}
-	len = _strlen(datash->av[0]) + _strlen(datash->args[0]);
-	len += _strlen(str_var) + _strlen(message) + l_id + 5;
+	len = getStringLength(datash->av[0]) + getStringLength(datash->args[0]);
+	len += getStringLength(str_var) + getStringLength(message) + l_id + 5;
 	err = malloc(sizeof(char) * (len + 1));
 	if (err == 0)
 	{
@@ -80,8 +80,8 @@ char *not_found_err(data_shell *datash)
 	char *err, *str_var;
 
 	str_var = aux_itoa(datash->counter);
-	len = _strlen(datash->av[0]) + _strlen(str_var);
-	len += _strlen(datash->args[0]) + 16;
+	len = getStringLength(datash->av[0]) + getStringLength(str_var);
+	len += getStringLength(datash->args[0]) + 16;
 	err = malloc(sizeof(char) * (len + 1));
 	if (err == 0)
 	{
@@ -89,13 +89,13 @@ char *not_found_err(data_shell *datash)
 		free(str_var);
 		return (NULL);
 	}
-	_strcpy(err, datash->av[0]);
-	_strcat(err, ": ");
-	_strcat(err, str_var);
-	_strcat(err, ": ");
-	_strcat(err, datash->args[0]);
-	_strcat(err, ": not found\n");
-	_strcat(err, "\0");
+	copyString(err, datash->av[0]);
+	concatenateStrings(err, ": ");
+	concatenateStrings(err, str_var);
+	concatenateStrings(err, ": ");
+	concatenateStrings(err, datash->args[0]);
+	concatenateStrings(err, ": not found\n");
+	concatenateStrings(err, "\0");
 	free(str_var);
 	return (err);
 }
@@ -111,22 +111,22 @@ char *exit_shell_err(data_shell *datash)
 	char *err, *str_var;
 
 	str_var = aux_itoa(datash->counter);
-	len = _strlen(datash->av[0]) + _strlen(str_var);
-	len += _strlen(datash->args[0]) + _strlen(datash->args[1]) + 23;
+	len = getStringLength(datash->av[0]) + getStringLength(str_var);
+	len += getStringLength(datash->args[0]) + getStringLength(datash->args[1]) + 23;
 	err = malloc(sizeof(char) * (len + 1));
 	if (err == 0)
 	{
 		free(str_var);
 		return (NULL);
 	}
-	_strcpy(err, datash->av[0]);
-	_strcat(err, ": ");
-	_strcat(err, str_var);
-	_strcat(err, ": ");
-	_strcat(err, datash->args[0]);
-	_strcat(err, ": Illegal number: ");
-	_strcat(err, datash->args[1]);
-	_strcat(err, "\n\0");
+	copyString(err, datash->av[0]);
+	concatenateStrings(err, ": ");
+	concatenateStrings(err, str_var);
+	concatenateStrings(err, ": ");
+	concatenateStrings(err, datash->args[0]);
+	concatenateStrings(err, ": Illegal number: ");
+	concatenateStrings(err, datash->args[1]);
+	concatenateStrings(err, "\n\0");
 	free(str_var);
 	return (err);
 }
