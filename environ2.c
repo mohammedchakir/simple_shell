@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * info_cp - copies information
- * @name: name
- * @value: value
- * Return: new environ or alias.
+ * infocp - Copies information.
+ * @name: The name of the item to copy.
+ * @value: The value of the item to copy.
+ * Return: A new environment or alias containing the copied information.
  */
-char *info_cp(char *name, char *value)
+char *infocp(char *name, char *value)
 {
 	char *new_ptr;
 	int name_l, value_l, length;
@@ -23,13 +23,13 @@ char *info_cp(char *name, char *value)
 }
 
 /**
- * environ_set - sets an env variable
- * @name: name of the env variable
- * @value: value of the env variable
- * @datash: shell info
- * Return: Non
+ * environset - Sets an environment variable.
+ * @name: The name of the environment variable to set.
+ * @value: The value to assign to the environment variable.
+ * @datash: Shell information.
+ * Return: None.
  */
-void environ_set(char *name, char *value, data_shell *datash)
+void environset(char *name, char *value, data_shell *datash)
 {
 	int i;
 	char *var_environ, *name_environ;
@@ -53,27 +53,27 @@ void environ_set(char *name, char *value, data_shell *datash)
 }
 
 /**
- * _setenv - compares env variables
- * @datash: shell info
- * Return: 1
+ * setenv - Sets environment variables.
+ * @datash: Shell information.
+ * Return: 1 to indicate successful execution.
  */
-int _setenv(data_shell *datash)
+int setenv(data_shell *datash)
 {
 	if (datash->args[1] == NULL || datash->args[2] == NULL)
 	{
 		err_get(datash, -1);
 		return (1);
 	}
-	environ_set(datash->args[1], datash->args[2], datash);
+	environset(datash->args[1], datash->args[2], datash);
 	return (1);
 }
 
 /**
- * _unsetenv - deletes env variable
- * @datash: shell info
- * Return: 1
+ * unsetenv - Deletes an environment variable.
+ * @datash: Shell information.
+ * Return: 1 to indicate successful execution.
  */
-int _unsetenv(data_shell *datash)
+int unsetenv(data_shell *datash)
 {
 	char **realloc_environ;
 	char *var_environ, *name_environ;
