@@ -1,22 +1,22 @@
 #include "main.h"
 
 /**
- * get_len - gets length of int
- * @n: the integer
- * Return: The length
+ * get_len - Determines the length of an integer.
+ * @i: The integer to measure.
+ * Return: The length of the integer.
  */
-int get_len(int n)
+int get_len(int i)
 {
 	unsigned int num;
 	int length = 1;
 
-	if (n < 0)
+	if (i < 0)
 	{
 		length++;
-		num = n * -1;
+		num = i * -1;
 	}
 	else
-		num = n;
+		num = i;
 	while (num > 9)
 	{
 		length++;
@@ -25,11 +25,11 @@ int get_len(int n)
 	return (length);
 }
 /**
- * aux_itoa - to int to string.
- * @n: the integer
- * Return: the string
+ * aux_itoa - Converts an integer to a string representation.
+ * @i: The integer to be converted.
+ * Return: The resulting string.
  */
-char *aux_itoa(int n)
+char *aux_itoa(int i)
 {
 	unsigned int num;
 	int length = get_len(n);
@@ -39,13 +39,13 @@ char *aux_itoa(int n)
 	if (buff == 0)
 		return (NULL);
 	*(buff + length) = '\0';
-	if (n < 0)
+	if (i < 0)
 	{
-		num = n * -1;
+		num = i * -1;
 		buff[0] = '-';
 	}
 	else
-		num = n;
+		num = i;
 	length--;
 	do {
 		*(buff + length) = (num % 10) + '0';
@@ -57,9 +57,9 @@ char *aux_itoa(int n)
 	return (buff);
 }
 /**
- * _atoi - string to integer.
- * @s: string.
- * Return: integer
+ * _atoi - Converts a string to an integer.
+ * @s: The input string.
+ * Return: The integer value parsed from the string.
  */
 int _atoi(char *s)
 {
