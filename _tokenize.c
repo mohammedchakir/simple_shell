@@ -137,8 +137,8 @@ int cmdsplit(data_shell *datash, char *input)
 	while (list_line != NULL)
 	{
 		datash->input = list_line->line;
-		datash->args = tokenize_line(datash->input);
-		lp = execute_line(datash);
+		datash->args = tokenizeline(datash->input);
+		lp = executeline(datash);
 		free(datash->args);
 		if (lp == 0)
 			break;
