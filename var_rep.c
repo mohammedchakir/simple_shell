@@ -36,7 +36,7 @@ void checkIfEnvVariable(r_var **h, char *in, data_shell *data)
 			break;
 	}
 
-	add_var_end(h, i, NULL, 0);
+	appendVariableToEnd(h, i, NULL, 0);
 }
 
 /**
@@ -58,21 +58,21 @@ int checkVariable(r_var **h, char *in, char *st, data_shell *data)
 		if (in[i] == '$')
 		{
 			if (in[i + 1] == '?')
-				add_var_end(h, 2, st, l_st), i++;
+				appendVariableToEnd(h, 2, st, l_st), i++;
 			else if (in[i + 1] == '$')
-				add_var_end(h, 2, data->pid, l_pid), i++;
+				appendVariableToEnd(h, 2, data->pid, l_pid), i++;
 			else if (in[i + 1] == '\n')
-				add_var_end(h, 0, NULL, 0);
+				appendVariableToEnd(h, 0, NULL, 0);
 			else if (in[i + 1] == '\0')
-				add_var_end(h, 0, NULL, 0);
+				appendVariableToEnd(h, 0, NULL, 0);
 			else if (in[i + 1] == ' ')
-				add_var_end(h, 0, NULL, 0);
+				appendVariableToEnd(h, 0, NULL, 0);
 			else if (in[i + 1] == '\t')
-				add_var_end(h, 0, NULL, 0);
+				appendVariableToEnd(h, 0, NULL, 0);
 			else if (in[i + 1] == ';')
-				add_var_end(h, 0, NULL, 0);
+				appendVariableToEnd(h, 0, NULL, 0);
 			else
-				env_checker(h, in + i, data);
+				checkIfEnvVariable(h, in + i, data);
 		}
 	}
 	return (i);
