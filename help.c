@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _help_env - env info
- * Return: Non
+ * helpenv - Displays information about the environment.
+ * Return: None.
  */
-void _help_env(void)
+void helpenv(void)
 {
 	char *help = "env: env [option] [name=value] [command [args]]\n\t";
 
@@ -13,11 +13,12 @@ void _help_env(void)
 	write(STDOUT_FILENO, help, getStringLength(help));
 
 }
+
 /**
- * _help_setenv - setenv info
- * Return: Non
+ * helpsetenv - Provides information about the setenv command.
+ * Return: None.
  */
-void _help_setenv(void)
+void helpsetenv(void)
 {
 
 	char *help = "setenv: setenv (const char *name, const char *value,";
@@ -28,11 +29,12 @@ void _help_setenv(void)
 	help = "Add a new definition to the environment\n";
 	write(STDOUT_FILENO, help, getStringLength(help));
 }
+
 /**
- * _help_unsetenv - unsetenv info
- * Return: Non
+ * helpunsetenv - Provides information about the unsetenv command.
+ * Return: None.
  */
-void _help_unsetenv(void)
+void helpunsetenv(void)
 {
 	char *help = "unsetenv: unsetenv (const char *name)\n\t";
 
@@ -41,12 +43,11 @@ void _help_unsetenv(void)
 	write(STDOUT_FILENO, help, getStringLength(help));
 }
 
-
 /**
- * _help_general - help general info
- * Return: Non
+ * helpgeneral - Provides general help information.
+ * Return: None.
  */
-void _help_general(void)
+void helpgeneral(void)
 {
 	char *help = "^-^ bash, version 1.0(1)-release\n";
 
@@ -64,11 +65,12 @@ void _help_general(void)
 	help = "unsetenv [variable]\n";
 	write(STDOUT_FILENO, help, getStringLength(help));
 }
+
 /**
- * _help_exit - exit info
- * Return: Non
+ * helpexit - Provides information about the exit command.
+ * Return: None.
  */
-void _help_exit(void)
+void helpexit(void)
 {
 	char *help = "exit: exit [n]\n Exit shell.\n";
 
