@@ -26,7 +26,7 @@ char *removeComments(char *in)
 	}
 	if (position != 0)
 	{
-		in = _realloc(in, i, position + 1);
+		in = resizeMemory(in, i, position + 1);
 		in[position] = '\0';
 	}
 	return (in);
@@ -53,13 +53,13 @@ void shellLoop(data_shell *datash)
 			if (inp == NULL)
 				continue;
 
-			if (syntax_err_checker(datash, inp) == 1)
+			if (checkSyntaxError(datash, inp) == 1)
 			{
 				datash->status = 2;
 				free(inp);
 				continue;
 			}
-			inp = replace_var(inp, datash);
+			inp = replaceVariables(inp, datash);
 			lp = command_split(datash, inp);
 			datash->counter += 1;
 			free(inp);
