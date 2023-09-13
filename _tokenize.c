@@ -58,19 +58,19 @@ void add_nodes(sep_list **head_s, line_list **head_l, char *input)
 	for (i = 0; input[i]; i++)
 	{
 		if (input[i] == ';')
-			add_sep_end(head_s, input[i]);
+			addSeparatorAtEnd(head_s, input[i]);
 
 		if (input[i] == '|' || input[i] == '&')
 		{
-			add_sep_end(head_s, input[i]);
+			addSeparatorAtEnd(head_s, input[i]);
 			i++;
 		}
 	}
-	line_ptr = _strtok(input, ";|&");
+	line_ptr = tokenizeString(input, ";|&");
 	do {
 		line_ptr = char_swap(line_ptr, 1);
-		add_line_end(head_l, line_ptr);
-		line_ptr = _strtok(NULL, ";|&");
+		appendLineToEnd(head_l, line_ptr);
+		line_ptr = tokenizeString(NULL, ";|&");
 	}
 
 	while (line_ptr != NULL);
@@ -147,8 +147,8 @@ int command_split(data_shell *datash, char *input)
 		if (list_line != NULL)
 			list_line = list_line->next;
 	}
-	sep_list_free(&head_sep);
-	line_list_free(&head_line);
+	freeSeparatorList(&head_sep);
+	freeLineList(&head_line);
 	if (lp == 0)
 		return (0);
 	return (1);
@@ -173,21 +173,21 @@ char **tokenize_line(char *input)
 		write(STDERR_FILENO, ": allocation error\n", 18);
 		exit(EXIT_FAILURE);
 	}
-	token = _strtok(input, TOK_DELIM);
+	token = tokenizeString(input, TOK_DELIM);
 	token_arr[0] = token;
 	for (i = 1; token != NULL; i++)
 	{
 		if (i == size)
 		{
 			size += TOK_BUFSIZE;
-			token_arr = _reallocdp(token_arr, i, sizeof(char *) * size);
+			token_arr = resizeDblePtrMem(token_arr, i, sizeof(char *) * size);
 			if (token_arr == NULL)
 			{
 				write(STDERR_FILENO, ": allocation error\n", 18);
 				exit(EXIT_FAILURE);
 			}
 		}
-		token = _strtok(NULL, TOK_DELIM);
+		token = tokenizeString(NULL, TOK_DELIM);
 		token_arr[i] = token;
 	}
 	return (token_arr);
