@@ -1,28 +1,28 @@
 #include "main.h"
 
 /**
- * char_repeat - counts the repetitions of a char
+ * charRepetitions - Counts the number of repetitions of a character.
  *
- * @input: input
- * @i: index to check
- * Return: no. of repetitions
+ * @input: The input string.
+ * @i: The index to check.
+ * Return: The number of repetitions.
  */
-int char_repeat(char *input, int i)
+int charRepetitions(char *input, int i)
 {
 	if (*(input - 1) == *input)
-		return (char_repeat(input - 1, i + 1));
+		return (charRepetitions(input - 1, i + 1));
 
 	return (i);
 }
 
 /**
- * syntax_err_op - look for syntax errors
- * @input: input
- * @i: index
- * @last: the last character that was read
- * Return: index of the error position or 0
+ * syntaxErrorPosition - Searches for syntax errors in input.
+ * @input: The input string.
+ * @i: The current index to check.
+ * @last: The last character that was read.
+ * Return: The index of the error position or 0 if none is found.
  */
-int syntax_err_op(char *input, int i, char last)
+int syntaxErrorPosition(char *input, int i, char last)
 {
 	int counter;
 
@@ -31,7 +31,7 @@ int syntax_err_op(char *input, int i, char last)
 		return (0);
 
 	if (*input == ' ' || *input == '\t')
-		return (syntax_err_op(input + 1, i + 1, last));
+		return (syntaxErrorPosition(input + 1, i + 1, last));
 
 	if (*input == ';')
 		if (last == '|' || last == '&' || last == ';')
@@ -43,7 +43,7 @@ int syntax_err_op(char *input, int i, char last)
 			return (i);
 		if (last == '|')
 		{
-			counter = char_repeat(input, 0);
+			counter = charRepetitions(input, 0);
 			if (counter == 0 || counter > 1)
 				return (i);
 		}
@@ -54,21 +54,21 @@ int syntax_err_op(char *input, int i, char last)
 			return (i);
 		if (last == '&')
 		{
-			counter = char_repeat(input, 0);
+			counter = charRepetitions(input, 0);
 			if (counter == 0 || counter > 1)
 				return (i);
 		}
 	}
-	return (syntax_err_op(input + 1, i + 1, *input));
+	return (syntaxErrorPosition(input + 1, i + 1, *input));
 }
 
 /**
- * fst_char - finds index of the first char
- * @input: input
- * @i: index
- * Return: 1 or 0
+ * firstChar - Locates the index of the first character in a string.
+ * @input: The input string.
+ * @i: The starting index for the search.
+ * Return: 1 if found, 0 if not found.
  */
-int fst_char(char *input, int *i)
+int firstChar(char *input, int *i)
 {
 
 	for (*i = 0; input[*i]; *i += 1)
@@ -83,14 +83,14 @@ int fst_char(char *input, int *i)
 }
 
 /**
- * syntax_err_printer - error message when syntax error is found
- * @datash: shell info
- * @input: input
- * @i: position of error
- * @bool: controls message error
- * Return: Non
+ * printSyntaxError - Outputs an error message when a syntax error is encountered.
+ * @datash: Shell-related information.
+ * @input: The input string.
+ * @i: The position of the error.
+ * @bool: Controls whether to display the error message.
+ * Return: None.
  */
-void syntax_err_printer(data_shell *datash, char *input, int i, int bool)
+void printSyntaxError(data_shell *datash, char *input, int i, int bool)
 {
 	char *message, *message2, *message3, *err, *count;
 	int len;
@@ -109,48 +109,48 @@ void syntax_err_printer(data_shell *datash, char *input, int i, int bool)
 	message2 = ": Syntax error: \"";
 	message3 = "\" unexpected\n";
 	count = aux_itoa(datash->counter);
-	len = _strlen(datash->av[0]) + _strlen(count);
-	len += _strlen(message) + _strlen(message2) + _strlen(message3) + 2;
+	len = getStringLength(datash->av[0]) + getStringLength(count);
+	len += getStringLength(message) + getStringLength(message2) + getStringLength(message3) + 2;
 	err = malloc(sizeof(char) * (len + 1));
 	if (err == 0)
 	{
 		free(count);
 		return;
 	}
-	_strcpy(err, datash->av[0]);
-	_strcat(err, ": ");
-	_strcat(err, count);
-	_strcat(err, message2);
-	_strcat(err, message);
-	_strcat(err, message3);
-	_strcat(err, "\0");
+	copyString(err, datash->av[0]);
+	concatenateStrings(err, ": ");
+	concatenateStrings(err, count);
+	concatenateStrings(err, message2);
+	concatenateStrings(err, message);
+	concatenateStrings(err, message3);
+	concatenateStrings(err, "\0");
 	write(STDERR_FILENO, err, len);
 	free(err);
 	free(count);
 }
 
 /**
- * syntax_err_checker - finds and prints syntax error
- * @datash: shell info
- * @input: input
- * Return: 1 or 0
+ * checkSyntaxError - Identifies and displays syntax errors.
+ * @datash: Shell-related information.
+ * @input: The input string.
+ * Return: 1 if a syntax error is found, 0 otherwise.
  */
-int syntax_err_checker(data_shell *datash, char *input)
+int checkSyntaxError(data_shell *datash, char *input)
 {
 	int start = 0;
 	int first_char = 0;
 	int i = 0;
 
-	first_char = fst_char(input, &start);
+	first_char = firstChar(input, &start);
 	if (first_char == -1)
 	{
-		syntax_err_printer(datash, input, start, 0);
+		printSyntaxError(datash, input, start, 0);
 		return (1);
 	}
-	i = syntax_err_op(input + start, 0, *(input + start));
+	i = syntaxErrorPosition(input + start, 0, *(input + start));
 	if (i != 0)
 	{
-		syntax_err_printer(datash, input, start + i, 1);
+		printSyntaxError(datash, input, start + i, 1);
 		return (1);
 	}
 	return (0);
