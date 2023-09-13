@@ -147,69 +147,74 @@ char *replaceVariables(char *input, data_shell *datash)
 
 
 
-second part:
 
-char *char_swap(char *input, int bool);
-void add_nodes(sep_list **head_s, line_list **head_l, char *input);
-void next_cmd_line(sep_list **list_s, line_list **list_l, data_shell *datash);
-int command_split(data_shell *datash, char *input);
-char **tokenize_line(char *input);
+int (*get_builtin(char *cmd))(data_shell *)
+int gethelp(data_shell *datash)
 
-int execute_line(data_shell *datash);
+int getlen(int n)
+char *auxitoa(int n)
+int atoi(char *s)
 
-int searchable_cdir(char *path, int *i);
-char *locate_cmd(char *cmd, char **_environ);
-int check_executable(data_shell *datash);
-int check_cmd_err(char *dir, data_shell *datash);
-int exe_cmd(data_shell *datash);
+char *swapchar(char *input, int bool)
+void addnodes(sep_list **head_s, line_list **head_l, char *input)
+void nextcmdline(sep_list **list_s, line_list **list_l, data_shell *datash)
+int cmdsplit(data_shell *datash, char *input)
+char **tokenizeline(char *input)
 
-int comp_env_names(const char *nenv, const char *name);
-char *_getenv(const char *name, char **_environ);
-int env_printer(data_shell *datash);
+int changedir(data_shell *datash)
+void parcd(data_shell *datash)
+void cdto(data_shell *datash)
+void cdprev(data_shell *datash)
+void cdhome(data_shell *datash)
 
-char *info_cp(char *name, char *value);
-void environ_set(char *name, char *value, data_shell *datash);
-int _setenv(data_shell *datash);
-int _unsetenv(data_shell *datash);
+int compenvnames(const char *nenv, const char *name)
+char *getenv(const char *name, char **_environ)
 
-void par_cd(data_shell *datash);
-void cd_to(data_shell *datash);
-void cd_prev(data_shell *datash);
-void cd_home(data_shell *datash);
+int envprinter(data_shell *datash)
+char *infocp(char *name, char *value)
+void environset(char *name, char *value, data_shell *datash)
+int setenv(data_shell *datash)
+int unsetenv(data_shell *datash)
 
-int change_dir(data_shell *datash);
-int (*get_built_in(char *cmd))(data_shell *datash);
+char *cdstrcat(data_shell *datash, char *message, char *err, char *str_var)
+char *getcderr(data_shell *datash)
+char *notfounderr(data_shell *datash)
+char *exitshellerr(data_shell *datash)
+char *enverr(data_shell *datash)
+char *pathdeniederr(data_shell *datash)
+
+int geterr(data_shell *datash, int eval)
+int searchablecdir(char *path, int *i)
+char *locatecmd(char *cmd, char **_environ)
+int checkexecutable(data_shell *datash)
+int checkcmderr(char *dir, data_shell *datash)
+int execmd(data_shell *datash)
+int executeline(data_shell *datash)
+
+void helpenv(void)
+void helpsetenv(void)
+void helpunsetenv(void)
+void helpgeneral(void)
+void helpexit(void)
+void help(void)
+void helpalias(void)
+void helpcd(void)
 
 
-int get_len(int n);
-char *aux_itoa(int n);
-int _atoi(char *s);
 
-char *cd_strcat(data_shell *, char *, char *, char *);
-char *get_cd_err(data_shell *datash);
-char *not_found_err(data_shell *datash);
-char *exit_shell_err(data_shell *datash);
+
+
+
+
+
+
+
+
 
 char *error_get_alias(char **args);
-char *env_err(data_shell *datash);
+
 char *error_syntax(char **args);
 char *error_permission(char **args);
-char *path_denied_err(data_shell *datash);
 
-int err_get(data_shell *datash, int eval);
-
-
-
-void _help_env(void);
-void _help_setenv(void);
-void _help_unsetenv(void);
-void _help_general(void);
-void _help_exit(void);
-
-void _help(void);
-void _help_alias(void);
-void _help_cd(void);
-
-int help_get(data_shell *datash);
 
 #endif
