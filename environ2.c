@@ -11,14 +11,14 @@ char *info_cp(char *name, char *value)
 	char *new_ptr;
 	int name_l, value_l, length;
 
-	name_l = _strlen(name);
-	value_l = _strlen(value);
+	name_l = getStringLength(name);
+	value_l = getStringLength(value);
 	length = name_l + value_l + 2;
 	new_ptr = malloc(sizeof(char) * (length));
-	_strcpy(new_ptr, name);
-	_strcat(new_ptr, "=");
-	_strcat(new_ptr, value);
-	_strcat(new_ptr, "\0");
+	copyString(new_ptr, name);
+	concatenateStrings(new_ptr, "=");
+	concatenateStrings(new_ptr, value);
+	concatenateStrings(new_ptr, "\0");
 	return (new_ptr);
 }
 
@@ -36,9 +36,9 @@ void environ_set(char *name, char *value, data_shell *datash)
 
 	for (i = 0; datash->_environ[i]; i++)
 	{
-		var_environ = _strdup(datash->_environ[i]);
-		name_environ = _strtok(var_environ, "=");
-		if (_strcmp(name_environ, name) == 0)
+		var_environ = duplicateString(datash->_environ[i]);
+		name_environ = tokenizeString(var_environ, "=");
+		if (compareStrings(name_environ, name) == 0)
 		{
 			free(datash->_environ[i]);
 			datash->_environ[i] = info_cp(name_environ, value);
@@ -47,7 +47,7 @@ void environ_set(char *name, char *value, data_shell *datash)
 		}
 		free(var_environ);
 	}
-	datash->_environ = _reallocdp(datash->_environ, i, sizeof(char *) * (i + 2));
+	datash->_environ = resizeDblePtrMem(datash->_environ, i, sizeof(char *) * (i + 2));
 	datash->_environ[i] = info_cp(name, value);
 	datash->_environ[i + 1] = NULL;
 }
@@ -87,9 +87,9 @@ int _unsetenv(data_shell *datash)
 	a = -1;
 	for (i = 0; datash->_environ[i]; i++)
 	{
-		var_environ = _strdup(datash->_environ[i]);
-		name_environ = _strtok(var_environ, "=");
-		if (_strcmp(name_environ, datash->args[1]) == 0)
+		var_environ = duplicateString(datash->_environ[i]);
+		name_environ = tokenizeString(var_environ, "=");
+		if (compareStrings(name_environ, datash->args[1]) == 0)
 			a = i;
 		free(var_environ);
 	}
