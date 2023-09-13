@@ -36,7 +36,7 @@ void initializeData(data_shell *datash, char **av)
 	datash->_environ = malloc(sizeof(char *) * (i + 1));
 	for (i = 0; environ[i]; i++)
 	{
-		datash->_environ[i] = _strdup(environ[i]);
+		datash->_environ[i] = duplicateString(environ[i]);
 	}
 	datash->_environ[i] = NULL;
 	datash->pid = aux_itoa(getpid());
