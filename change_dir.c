@@ -16,7 +16,7 @@ void parcd(data_shell *datash)
 	dir = datash->args[1];
 	if (compareStrings(".", dir) == 0)
 	{
-		environ_set("PWD", cpy_pwd, datash);
+		environset("PWD", cpy_pwd, datash);
 		free(cpy_pwd);
 		return;
 	}
@@ -38,12 +38,12 @@ void parcd(data_shell *datash)
 	if (cpy_strtok_pwd != NULL)
 	{
 		chdir(cpy_strtok_pwd);
-		environ_set("PWD", cpy_strtok_pwd, datash);
+		environset("PWD", cpy_strtok_pwd, datash);
 	}
 	else
 	{
 		chdir("/");
-		environ_set("PWD", "/", datash);
+		environset("PWD", "/", datash);
 	}
 	datash->status = 0;
 	free(cpy_pwd);
@@ -64,13 +64,13 @@ void cdto(data_shell *datash)
 	dir = datash->args[1];
 	if (chdir(dir) == -1)
 	{
-		err_get(datash, 2);
+		geterr(datash, 2);
 		return;
 	}
 	cpy_pwd = duplicateString(_pwd);
-	environ_set("OLDPWD", cpy_pwd, datash);
+	environset("OLDPWD", cpy_pwd, datash);
 	cpy_dir = duplicateString(dir);
-	environ_set("PWD", cpy_dir, datash);
+	environset("PWD", cpy_dir, datash);
 	free(cpy_pwd);
 	free(cpy_dir);
 	datash->status = 0;
@@ -89,17 +89,17 @@ void cdprev(data_shell *datash)
 
 	getcwd(_pwd, sizeof(_pwd));
 	cpy_pwd = duplicateString(_pwd);
-	p_old_pwd = _getenv("OLDPWD", datash->_environ);
+	p_old_pwd = getenv("OLDPWD", datash->_environ);
 	if (p_old_pwd == NULL)
 		cpy_oldpwd = cpy_pwd;
 	else
 		cpy_oldpwd = duplicateString(p_old_pwd);
-	environ_set("OLDPWD", cpy_pwd, datash);
+	environset("OLDPWD", cpy_pwd, datash);
 	if (chdir(cpy_oldpwd) == -1)
-		environ_set("PWD", cpy_pwd, datash);
+		environset("PWD", cpy_pwd, datash);
 	else
-		environ_set("PWD", cpy_oldpwd, datash);
-	p_c_pwd = _getenv("PWD", datash->_environ);
+		environset("PWD", cpy_oldpwd, datash);
+	p_c_pwd = getenv("PWD", datash->_environ);
 	write(STDOUT_FILENO, p_c_pwd, getStringLength(p_c_pwd));
 	write(STDOUT_FILENO, "\n", 1);
 	free(cpy_pwd);
@@ -121,21 +121,21 @@ void cdhome(data_shell *datash)
 
 	getcwd(_pwd, sizeof(_pwd));
 	p_c_pwd = duplicateString(_pwd);
-	hom = _getenv("HOME", datash->_environ);
+	hom = getenv("HOME", datash->_environ);
 	if (hom == NULL)
 	{
-		environ_set("OLDPWD", p_c_pwd, datash);
+		environset("OLDPWD", p_c_pwd, datash);
 		free(p_c_pwd);
 		return;
 	}
 	if (chdir(hom) == -1)
 	{
-		err_get(datash, 2);
+		geterr(datash, 2);
 		free(p_c_pwd);
 		return;
 	}
-	environ_set("OLDPWD", p_c_pwd, datash);
-	environ_set("PWD", hom, datash);
+	environset("OLDPWD", p_c_pwd, datash);
+	environset("PWD", hom, datash);
 	free(p_c_pwd);
 	datash->status = 0;
 }
