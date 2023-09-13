@@ -20,7 +20,7 @@ void checkIfEnvVariable(r_var **h, char *in, data_shell *data)
 			if (_envrn[rw][ch] == '=')
 			{
 				lval = getStringLength(_envrn[rw] + ch + 1);
-				add_var_end(h, i, _envrn[rw] + ch + 1, lval);
+				appendVariableToEnd(h, i, _envrn[rw] + ch + 1, lval);
 				return;
 			}
 
