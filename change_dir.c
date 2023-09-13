@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * par_cd - change to parent directory
- * @datash: shell info
- * Return: Non.
+ * parcd - Change to the parent directory.
+ * @datash: Shell information.
+ * Return: None.
  */
-void par_cd(data_shell *datash)
+void parcd(data_shell *datash)
 {
 	char _pwd[PATH_MAX];
 	char *dir, *cpy_pwd, *cpy_strtok_pwd;
@@ -26,14 +26,14 @@ void par_cd(data_shell *datash)
 		return;
 	}
 	cpy_strtok_pwd = cpy_pwd;
-	rev_string(cpy_strtok_pwd);
+	reverseString(cpy_strtok_pwd);
 	cpy_strtok_pwd = tokenizeString(cpy_strtok_pwd, "/");
 	if (cpy_strtok_pwd != NULL)
 	{
 		cpy_strtok_pwd = tokenizeString(NULL, "\0");
 
 		if (cpy_strtok_pwd != NULL)
-			rev_string(cpy_strtok_pwd);
+			reverseString(cpy_strtok_pwd);
 	}
 	if (cpy_strtok_pwd != NULL)
 	{
@@ -50,11 +50,11 @@ void par_cd(data_shell *datash)
 }
 
 /**
- * cd_to - change directory
- * @datash: shell info
- * Return: Non
+ * cdto - Change the current directory.
+ * @datash: Shell information.
+ * Return: None.
  */
-void cd_to(data_shell *datash)
+void cdto(data_shell *datash)
 {
 	char _pwd[PATH_MAX];
 	char *dir, *cpy_pwd, *cpy_dir;
@@ -78,11 +78,11 @@ void cd_to(data_shell *datash)
 }
 
 /**
- * cd_prev - move to previous directory
- * @datash: shell info
- * Return: Non
+ * cdprev - Navigate to the previous directory.
+ * @datash: Shell information.
+ * Return: None.
  */
-void cd_prev(data_shell *datash)
+void cdprev(data_shell *datash)
 {
 	char _pwd[PATH_MAX];
 	char *p_c_pwd, *p_old_pwd, *cpy_pwd, *cpy_oldpwd;
@@ -110,11 +110,11 @@ void cd_prev(data_shell *datash)
 }
 
 /**
- * cd_home - move to home
- * @datash: shell info
- * Return: Non
+ * cdhome - Change to the home directory.
+ * @datash: Shell information.
+ * Return: None.
  */
-void cd_home(data_shell *datash)
+void cdhome(data_shell *datash)
 {
 	char *p_c_pwd, *hom;
 	char _pwd[PATH_MAX];
