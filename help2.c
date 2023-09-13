@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _help - help info
- * Return: Non
+ * help - Displays general help information.
+ * Return: None.
  */
-void _help(void)
+void help(void)
 {
 	char *help = "help: help [-dms] [pattern ...]\n";
 
@@ -14,11 +14,12 @@ void _help(void)
 	help = "Displays brief summaries of builtin commands.\n";
 	write(STDOUT_FILENO, help, getStringLength(help));
 }
+
 /**
- * _help_alias - alias info
- * Return: Non
+ * helpalias - Provides information about the alias command.
+ * Return: None.
  */
-void _help_alias(void)
+void helpalias(void)
 {
 	char *help = "alias: alias [-p] [name[=value]...]\n";
 
@@ -26,11 +27,12 @@ void _help_alias(void)
 	help = "\tDefine or display aliases.\n ";
 	write(STDOUT_FILENO, help, getStringLength(help));
 }
+
 /**
- * _help_cd - cd info
- * Return: Non
+ * helpcd - Provides information about the cd (change directory) command.
+ * Return: None.
  */
-void _help_cd(void)
+void helpcd(void)
 {
 	char *help = "cd: cd [-L|[-P [-e]] [-@]] [dir]\n";
 
