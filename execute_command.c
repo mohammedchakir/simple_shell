@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * searchable_cdir - checks if is searchable.
- * @path: path to check
- * @i: pointer of index.
- * Return: 1 or 0
+ * searchable_cdir - Checks if a path is searchable.
+ * @path: The path to check.
+ * @i: Pointer to an index.
+ * Return: 1 if searchable, 0 otherwise.
  */
 int searchable_cdir(char *path, int *i)
 {
@@ -18,10 +18,10 @@ int searchable_cdir(char *path, int *i)
 }
 
 /**
- * locate_cmd - look for a command
- * @cmd: the cmd
- * @_environ: environment
- * Return: location of the cmd.
+ * locate_cmd - Searches for the location of a command.
+ * @cmd: The command to locate.
+ * @_environ: The environment.
+ * Return: The path to the command if found, or NULL if not found.
  */
 char *locate_cmd(char *cmd, char **_environ)
 {
@@ -67,9 +67,9 @@ char *locate_cmd(char *cmd, char **_environ)
 }
 
 /**
- * check_executable - checks if it is executable
- * @datash: shell info
- * Return: 0 if is not or others if it is
+ * check_executable - Determines if a file is executable.
+ * @datash: Shell information.
+ * Return: 0 if it's not executable, or a non-zero value if it is.
  */
 int check_executable(data_shell *datash)
 {
@@ -112,10 +112,10 @@ int check_executable(data_shell *datash)
 }
 
 /**
- * check_cmd_err - verifies if user has access
- * @dir: destination directory
- * @datash: shell info
- * Return: 1 or 0
+ * check_cmd_err - Checks if the user has access to a destination directory.
+ * @dir: The destination directory.
+ * @datash: Shell information.
+ * Return: 1 if the user has access, 0 otherwise.
  */
 int check_cmd_err(char *dir, data_shell *datash)
 {
@@ -146,9 +146,9 @@ int check_cmd_err(char *dir, data_shell *datash)
 }
 
 /**
- * exe_cmd- executes command
- * @datash: shell info
- * Return: 1 when successfull.
+ * exe_cmd - Executes a command.
+ * @datash: Shell information.
+ * Return: 1 on successful execution.
  */
 int exe_cmd(data_shell *datash)
 {
