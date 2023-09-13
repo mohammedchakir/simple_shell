@@ -108,7 +108,7 @@ void printSyntaxError(data_shell *datash, char *input, int i, int bool)
 		message = (input[i + 1] == '&' ? "&&" : "&");
 	message2 = ": Syntax error: \"";
 	message3 = "\" unexpected\n";
-	count = aux_itoa(datash->counter);
+	count = auxitoa(datash->counter);
 	len = getStringLength(datash->av[0]) + getStringLength(count);
 	len += getStringLength(message) + getStringLength(message2) + getStringLength(message3) + 2;
 	err = malloc(sizeof(char) * (len + 1));
