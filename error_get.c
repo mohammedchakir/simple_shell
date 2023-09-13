@@ -25,7 +25,7 @@ int geterr(data_shell *datash, int eval)
 		if (compareStrings("exit", datash->args[0]) == 0)
 			err = exitshellerr(datash);
 		else if (compareStrings("cd", datash->args[0]) == 0)
-			err = get_cd_err(datash);
+			err = getcderr(datash);
 		break;
 	}
 
