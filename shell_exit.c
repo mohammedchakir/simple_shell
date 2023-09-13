@@ -12,13 +12,13 @@ int exitShell(data_shell *datash)
 
 	if (datash->args[1] != NULL)
 	{
-		_status = _atoi(datash->args[1]);
+		_status = atoi(datash->args[1]);
 		check_digit = isDigit(datash->args[1]);
 		str_length = getStringLength(datash->args[1]);
 		big_num = _status > (unsigned int)INT_MAX;
 		if (!check_digit || str_length > 10 || big_num)
 		{
-			err_get(datash, 2);
+			geterr(datash, 2);
 			datash->status = 2;
 			return (1);
 		}
