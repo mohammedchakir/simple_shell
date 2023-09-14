@@ -7,25 +7,25 @@
  */
 char *remove_comment(char *in)
 {
-	int i, pos;
+	int n, pos;
 
 	pos = 0;
-	for (i = 0; in[i]; i++)
+	for (n = 0; in[n]; n++)
 	{
-		if (in[i] == '#')
+		if (in[n] == '#')
 		{
-			if (i == 0)
+			if (n == 0)
 			{
 				free(in);
 				return (NULL);
 			}
-			if (in[i - 1] == ' ' || in[i - 1] == '\t' || in[i - 1] == ';')
-				pos = i;
+			if (in[n - 1] == ' ' || in[n - 1] == '\t' || in[n - 1] == ';')
+				pos = n;
 		}
 	}
 	if (pos != 0)
 	{
-		in = _realloc(in, i, pos + 1);
+		in = _realloc(in, n, pos + 1);
 		in[pos] = '\0';
 	}
 	return (in);
@@ -39,7 +39,7 @@ char *remove_comment(char *in)
 void loop_shell(data_shell *datash)
 {
 	int lp, i_eof;
-	char *inp;
+	char *input;
 
 	lp = 1;
 	while (lp == 1)
@@ -48,25 +48,25 @@ void loop_shell(data_shell *datash)
 		inp = _readline(&i_eof);
 		if (i_eof != -1)
 		{
-			inp = remove_comment(inp);
+			input = remove_comment(input);
 			if (inp == NULL)
 				continue;
 
-			if (syntax_err_checker(datash, inp) == 1)
+			if (syntax_err_checker(datash, input) == 1)
 			{
 				datash->status = 2;
-				free(inp);
+				free(input);
 				continue;
 			}
-			inp = replace_var(inp, datash);
-			lp = command_split(datash, inp);
-			datash->counter += 1;
-			free(inp);
+			input = replace_var(input, datash);
+			lp = command_split(datash, input);
+			datash->ctr += 1;
+			free(input);
 		}
 		else
 		{
 			lp = 0;
-			free(inp);
+			free(input);
 		}
 	}
 }
@@ -78,10 +78,10 @@ void loop_shell(data_shell *datash)
  */
 char *_readline(int *i_eof)
 {
-	char *inp = NULL;
+	char *input = NULL;
 	size_t size = 0;
 
-	*i_eof = getline(&inp, &size, stdin);
+	*i_eof = getline(&input, &size, stdin);
 
-	return (inp);
+	return (input);
 }
