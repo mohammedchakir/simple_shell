@@ -43,28 +43,28 @@ char *get_cd_err(data_shell *datash)
 {
 	int len, l_id;
 	char *err, *str_var;
-	char *message;
+	char *msg;
 
-	str_var = aux_itoa(datash->counter);
+	str_var = aux_itoa(datash->ctr);
 	if (datash->args[1][0] == '-')
 	{
-		message = ": Illegal option ";
+		msg = ": Illegal option ";
 		l_id = 2;
 	}
 	else
 	{
-		message = ": can't cd to ";
+		msg = ": can't cd to ";
 		l_id = _strlen(datash->args[1]);
 	}
 	len = _strlen(datash->av[0]) + _strlen(datash->args[0]);
-	len += _strlen(str_var) + _strlen(message) + l_id + 5;
+	len += _strlen(str_var) + _strlen(msg) + l_id + 5;
 	err = malloc(sizeof(char) * (len + 1));
 	if (err == 0)
 	{
 		free(str_var);
 		return (NULL);
 	}
-	err = cd_strcat(datash, message, err, str_var);
+	err = cd_strcat(datash, msg, err, str_var);
 	free(str_var);
 	return (err);
 }
@@ -76,13 +76,13 @@ char *get_cd_err(data_shell *datash)
  */
 char *not_found_err(data_shell *datash)
 {
-	int len;
+	int lenght;
 	char *err, *str_var;
 
-	str_var = aux_itoa(datash->counter);
-	len = _strlen(datash->av[0]) + _strlen(str_var);
-	len += _strlen(datash->args[0]) + 16;
-	err = malloc(sizeof(char) * (len + 1));
+	str_var = aux_itoa(datash->ctr);
+	lenght = _strlen(datash->av[0]) + _strlen(str_var);
+	lenght += _strlen(datash->args[0]) + 16;
+	err = malloc(sizeof(char) * (lenght + 1));
 	if (err == 0)
 	{
 		free(err);
@@ -107,13 +107,13 @@ char *not_found_err(data_shell *datash)
  */
 char *exit_shell_err(data_shell *datash)
 {
-	int len;
+	int lenght;
 	char *err, *str_var;
 
-	str_var = aux_itoa(datash->counter);
-	len = _strlen(datash->av[0]) + _strlen(str_var);
-	len += _strlen(datash->args[0]) + _strlen(datash->args[1]) + 23;
-	err = malloc(sizeof(char) * (len + 1));
+	str_var = aux_itoa(datash->ctr);
+	lenght = _strlen(datash->av[0]) + _strlen(str_var);
+	lenght += _strlen(datash->args[0]) + _strlen(datash->args[1]) + 23;
+	err = malloc(sizeof(char) * (lenght + 1));
 	if (err == 0)
 	{
 		free(str_var);
