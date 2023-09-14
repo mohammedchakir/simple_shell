@@ -3,12 +3,12 @@
 /**
  * cd_strcat - Concatenates a CD error message.
  * @datash: Data from the current shell.
- * @message: Message to print.
+ * @msg: Message to print.
  * @err: Error message.
  * @str_var: Count.
  * Return: The complete error message.
  */
-char *cd_strcat(data_shell *datash, char *message, char *err, char *str_var)
+char *cd_strcat(data_shell *datash, char *msg, char *err, char *str_var)
 {
 	char *illegal_f;
 
@@ -17,7 +17,7 @@ char *cd_strcat(data_shell *datash, char *message, char *err, char *str_var)
 	_strcat(err, str_var);
 	_strcat(err, ": ");
 	_strcat(err, datash->args[0]);
-	_strcat(err, message);
+	_strcat(err, msg);
 	if (datash->args[1][0] == '-')
 	{
 		illegal_f = malloc(3);
@@ -45,7 +45,7 @@ char *get_cd_err(data_shell *datash)
 	char *err, *str_var;
 	char *msg;
 
-	str_var = aux_itoa(datash->ctr);
+	str_var = aux_itoa(datash->counter);
 	if (datash->args[1][0] == '-')
 	{
 		msg = ": Illegal option ";
@@ -79,7 +79,7 @@ char *not_found_err(data_shell *datash)
 	int lenght;
 	char *err, *str_var;
 
-	str_var = aux_itoa(datash->ctr);
+	str_var = aux_itoa(datash->counter);
 	lenght = _strlen(datash->av[0]) + _strlen(str_var);
 	lenght += _strlen(datash->args[0]) + 16;
 	err = malloc(sizeof(char) * (lenght + 1));
@@ -101,7 +101,7 @@ char *not_found_err(data_shell *datash)
 }
 
 /**
- * exit_shell_err - Creates a generic error message for the "exit" command in the get_exit function.
+ * exit_shell_err - Creates generic error msg for "exit" cmd in get_exit funct.
  * @datash: Data from the current shell.
  * Return: The complete error message.
  */
@@ -110,7 +110,7 @@ char *exit_shell_err(data_shell *datash)
 	int lenght;
 	char *err, *str_var;
 
-	str_var = aux_itoa(datash->ctr);
+	str_var = aux_itoa(datash->counter);
 	lenght = _strlen(datash->av[0]) + _strlen(str_var);
 	lenght += _strlen(datash->args[0]) + _strlen(datash->args[1]) + 23;
 	err = malloc(sizeof(char) * (lenght + 1));

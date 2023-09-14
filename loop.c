@@ -45,11 +45,11 @@ void loop_shell(data_shell *datash)
 	while (lp == 1)
 	{
 		write(STDIN_FILENO, "--> ", 4);
-		inp = _readline(&i_eof);
+		input = _readline(&i_eof);
 		if (i_eof != -1)
 		{
 			input = remove_comment(input);
-			if (inp == NULL)
+			if (input == NULL)
 				continue;
 
 			if (syntax_err_checker(datash, input) == 1)
@@ -60,7 +60,7 @@ void loop_shell(data_shell *datash)
 			}
 			input = replace_var(input, datash);
 			lp = command_split(datash, input);
-			datash->ctr += 1;
+			datash->counter += 1;
 			free(input);
 		}
 		else

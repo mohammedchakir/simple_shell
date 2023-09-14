@@ -63,7 +63,7 @@ int cmp_chars(char str[], const char *delim)
  * _strtok - Splits a string into tokens using a delimiter.
  * @str: The input string.
  * @delim: The delimiter string.
- * Return: The next token from the input string, or NULL if no more tokens are found.
+ * Return: The next token from the input string, or NULL if no tokens found.
  */
 char *_strtok(char str[], const char *delim)
 {
@@ -76,7 +76,7 @@ char *_strtok(char str[], const char *delim)
 		if (cmp_chars(str, delim))
 			return (NULL);
 		splitted = str;
-		m = _strlen(str);
+		n = _strlen(str);
 		str_end = &str[n];
 	}
 	str_begin = splitted;

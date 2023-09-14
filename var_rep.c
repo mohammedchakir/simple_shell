@@ -142,7 +142,7 @@ char *replace_var(char *input, data_shell *datash)
 
 	st = aux_itoa(datash->status);
 	h = NULL;
-	olen = var_checker(&h, input, st, datash);
+	mlen = var_checker(&h, input, st, datash);
 	if (h == NULL)
 	{
 		free(st);

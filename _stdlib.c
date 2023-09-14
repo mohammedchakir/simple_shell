@@ -32,7 +32,7 @@ int get_len(int i)
 char *aux_itoa(int i)
 {
 	unsigned int num;
-	int length = get_len(n);
+	int length = get_len(i);
 	char *buff;
 
 	buff = malloc(sizeof(char) * (length + 1));

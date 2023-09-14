@@ -122,7 +122,7 @@ void rev_string(char *s);
 int char_repeat(char *input, int n);
 int syntax_err_op(char *input, int n, char last);
 int fst_char(char *input, int *n);
-void syntax_err_printer(data_shell *datash, char *input, int , int m);
+void syntax_err_printer(data_shell *datash, char *input, int n, int m);
 int syntax_err_checker(data_shell *datash, char *input);
 
 char *remove_comment(char *in);
@@ -172,7 +172,7 @@ int get_len(int i);
 char *aux_itoa(int i);
 int _atoi(char *s);
 
-char *cd_strcat(data_shell *, char *, char *, char *);
+char *cd_strcat(data_shell *datash, char *msg, char *err, char *str_var);
 char *get_cd_err(data_shell *datash);
 char *not_found_err(data_shell *datash);
 char *exit_shell_err(data_shell *datash);

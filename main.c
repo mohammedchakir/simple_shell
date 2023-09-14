@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * free_data - Frees allocated data.
+ * free_dt - Frees allocated data.
  * @datash: Shell information.
  * Return: None.
  */
@@ -16,7 +16,7 @@ void free_dt(data_shell *datash)
 }
 
 /**
- * set_data - Initializes data.
+ * set_dt - Initializes data.
  * @datash: Shell information.
  * @av: Arguments.
  * Return: None.
@@ -29,7 +29,7 @@ void set_dt(data_shell *datash, char **av)
 	datash->input = NULL;
 	datash->args = NULL;
 	datash->status = 0;
-	datash->ctr = 1;
+	datash->counter = 1;
 	for (n = 0; environ[n]; n++)
 		;
 	datash->_environ = malloc(sizeof(char *) * (n + 1));

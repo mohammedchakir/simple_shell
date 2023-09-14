@@ -9,7 +9,7 @@
 int char_repeat(char *input, int n)
 {
 	if (*(input - 1) == *input)
-		return (char_repeat(input - 1, i + 1));
+		return (char_repeat(input - 1, n + 1));
 
 	return (n);
 }
@@ -107,7 +107,7 @@ void syntax_err_printer(data_shell *datash, char *input, int n, int m)
 		msg = (input[n + 1] == '&' ? "&&" : "&");
 	msg2 = ": Syntax error: \"";
 	msg3 = "\" unexpected\n";
-	count = aux_itoa(datash->ctr);
+	count = aux_itoa(datash->counter);
 	lenght = _strlen(datash->av[0]) + _strlen(count);
 	lenght += _strlen(msg) + _strlen(msg2) + _strlen(msg3) + 2;
 	err = malloc(sizeof(char) * (lenght + 1));

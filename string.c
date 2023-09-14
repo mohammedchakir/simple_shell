@@ -62,7 +62,7 @@ int _strcmp(char *s1, char *s2)
  * _strchr - Searches for a character in a string.
  * @s: The string to search in.
  * @c: The character to find.
- * Return: A pointer to the first occurrence of the character in the string, or NULL if not found.
+ * Return: A pointer to first occurence of char in string or NULL if not found.
  */
 char *_strchr(char *s, char c)
 {

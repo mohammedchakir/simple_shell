@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * err_get - Executes error handling based on permission, syntax, or built-in command issues.
+ * err_get - Execute error handle based on perm, syntax,or built-in cmd issues.
  * @datash: Shell information.
  * @eval: Error code.
  * Return: Error information.
