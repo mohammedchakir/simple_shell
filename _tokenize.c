@@ -8,34 +8,34 @@
  */
 char *char_swap(char *input, int bool)
 {
-	int i;
+	int n;
 
 	if (bool == 0)
 	{
-		for (i = 0; input[i]; i++)
+		for (n = 0; input[n]; n++)
 		{
-			if (input[i] == '|')
+			if (input[n] == '|')
 			{
-				if (input[i + 1] != '|')
-					input[i] = 16;
+				if (input[n + 1] != '|')
+					input[n] = 16;
 				else
-					i++;
+					n++;
 			}
-			if (input[i] == '&')
+			if (input[n] == '&')
 			{
-				if (input[i + 1] != '&')
-					input[i] = 12;
+				if (input[n + 1] != '&')
+					input[n] = 12;
 				else
-					i++;
+					n++;
 			}
 		}
 	}
 	else
 	{
-		for (i = 0; input[i]; i++)
+		for (n = 0; input[n]; n++)
 		{
-			input[i] = (input[i] == 16 ? '|' : input[i]);
-			input[i] = (input[i] == 12 ? '&' : input[i]);
+			input[n] = (input[n] == 16 ? '|' : input[n]);
+			input[n] = (input[n] == 12 ? '&' : input[n]);
 		}
 	}
 	return (input);
@@ -50,20 +50,20 @@ char *char_swap(char *input, int bool)
  */
 void add_nodes(sep_list **head_s, line_list **head_l, char *input)
 {
-	int i;
+	int n;
 	char *line_ptr;
 
 	input = char_swap(input, 0);
 
-	for (i = 0; input[i]; i++)
+	for (n = 0; input[n]; n++)
 	{
-		if (input[i] == ';')
-			add_sep_end(head_s, input[i]);
+		if (input[n] == ';')
+			add_sep_end(head_s, input[n]);
 
-		if (input[i] == '|' || input[i] == '&')
+		if (input[n] == '|' || input[n] == '&')
 		{
-			add_sep_end(head_s, input[i]);
-			i++;
+			add_sep_end(head_s, input[n]);
+			n++;
 		}
 	}
 	line_ptr = _strtok(input, ";|&");
@@ -162,7 +162,7 @@ int command_split(data_shell *datash, char *input)
 char **tokenize_line(char *input)
 {
 	size_t size;
-	size_t i;
+	size_t n;
 	char **token_arr;
 	char *token;
 
@@ -175,12 +175,12 @@ char **tokenize_line(char *input)
 	}
 	token = _strtok(input, TOK_DELIM);
 	token_arr[0] = token;
-	for (i = 1; token != NULL; i++)
+	for (n = 1; token != NULL; n++)
 	{
-		if (i == size)
+		if (n == size)
 		{
 			size += TOK_BUFSIZE;
-			token_arr = _reallocdp(token_arr, i, sizeof(char *) * size);
+			token_arr = _reallocdp(token_arr, n, sizeof(char *) * size);
 			if (token_arr == NULL)
 			{
 				write(STDERR_FILENO, ": allocation error\n", 18);
@@ -188,7 +188,7 @@ char **tokenize_line(char *input)
 			}
 		}
 		token = _strtok(NULL, TOK_DELIM);
-		token_arr[i] = token;
+		token_arr[n] = token;
 	}
 	return (token_arr);
 }
