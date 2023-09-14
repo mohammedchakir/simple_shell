@@ -1,8 +1,9 @@
 #include "main.h"
+
 /**
- * _strdup - func to deplicate string
- * @s: Char pointer of the string.
- * Return: new String pointer.
+ * _strdup - Duplicates a string.
+ * @s: Pointer to the string to be duplicated.
+ * Return: A pointer to the newly created duplicate string.
  */
 char *_strdup(const char *s)
 {
@@ -16,10 +17,11 @@ char *_strdup(const char *s)
 	_memcpy(n, s, length + 1);
 	return (n);
 }
+
 /**
- * _strlen - string length
- * @s: string pointer
- * Return: length
+ * _strlen - Computes the length of a string.
+ * @s: Pointer to the string.
+ * Return: The length of the string.
  */
 int _strlen(const char *s)
 {
@@ -30,37 +32,38 @@ int _strlen(const char *s)
 	}
 	return (length);
 }
+
 /**
- * cmp_chars - compares two strings
- * @str: the string
- * @delim: the delimiters
- * Return: 1 or 0
+ * cmp_chars - Compares two strings.
+ * @str: The string to compare.
+ * @delim: The delimiter string.
+ * Return: 1 if the strings match, 0 otherwise.
  */
 int cmp_chars(char str[], const char *delim)
 {
-	unsigned int i, j, k;
+	unsigned int n, m, l;
 
-	for (i = 0, k = 0; str[i]; i++)
+	for (n = 0, l = 0; str[n]; n++)
 	{
-		for (j = 0; delim[j]; j++)
+		for (m = 0; delim[m]; m++)
 		{
-			if (str[i] == delim[j])
+			if (str[n] == delim[m])
 			{
-				k++;
+				l++;
 				break;
 			}
 		}
 	}
-	if (i == k)
+	if (n == l)
 		return (1);
 	return (0);
 }
 
 /**
- * _strtok - splits the string by the delimiter
- * @str: the string.
- * @delim: the delimiter.
- * Return: splitted string
+ * _strtok - Splits a string into tokens using a delimiter.
+ * @str: The input string.
+ * @delim: The delimiter string.
+ * Return: The next token from the input string, or NULL if no more tokens are found.
  */
 char *_strtok(char str[], const char *delim)
 {
@@ -101,18 +104,19 @@ char *_strtok(char str[], const char *delim)
 		return (NULL);
 	return (str_begin);
 }
+
 /**
- * _isdigit - checks for numbers
- * @s: string
- * Return: 1 or 0
+ * _isdigit - Checks if a string contains digits.
+ * @s: The string to check.
+ * Return: 1 if the string contains only digits, 0 otherwise.
  */
 int _isdigit(const char *s)
 {
-	unsigned int i;
+	unsigned int n;
 
-	for (i = 0; s[i]; i++)
+	for (n = 0; s[n]; n++)
 	{
-		if (s[i] < 48 || s[i] > 57)
+		if (s[n] < 48 || s[n] > 57)
 			return (0);
 	}
 	return (1);
