@@ -8,16 +8,16 @@
 int change_dir(data_shell *datash)
 {
 	char *dir;
-	int home, home2, dash;
+	int home1, home2, dash;
 
 	dir = datash->args[1];
 	if (dir != NULL)
 	{
-		home = _strcmp("$HOME", dir);
+		home1 = _strcmp("$HOME", dir);
 		home2 = _strcmp("~", dir);
 		dash = _strcmp("--", dir);
 	}
-	if (dir == NULL || !home || !home2 || !dash)
+	if (dir == NULL || !home1 || !home2 || !dash)
 	{
 		cd_home(datash);
 		return (1);
