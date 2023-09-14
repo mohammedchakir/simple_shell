@@ -11,11 +11,11 @@ void _memcpy(void *newptr, const void *ptr, unsigned int size)
 {
 	char *_ptr = (char *)ptr;
 	char *_newptr = (char *)newptr;
-	unsigned int i;
+	unsigned int n;
 
-	for (i = 0; i < size; i++)
+	for (n = 0; n < size; n++)
 	{
-		_newptr[i] = _ptr[i];
+		_newptr[n] = _ptr[n];
 	}
 }
 
@@ -61,7 +61,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size)
 {
 	char **new_ptr;
-	unsigned int i;
+	unsigned int n;
 
 	if (ptr == NULL)
 		return (malloc(sizeof(char *) * new_size));
@@ -70,9 +70,9 @@ char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size)
 	new_ptr = malloc(sizeof(char *) * new_size);
 	if (new_ptr == NULL)
 		return (NULL);
-	for (i = 0; i < old_size; i++)
+	for (n = 0; n < old_size; n++)
 	{
-		new_ptr[i] = ptr[i];
+		new_ptr[n] = ptr[n];
 	}
 	free(ptr);
 	return (new_ptr);
