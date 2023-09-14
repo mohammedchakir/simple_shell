@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * free_dt - frees data
- * @datash: shell info
- * Return: Non
+ * free_data - Frees allocated data.
+ * @datash: Shell information.
+ * Return: None.
  */
 void free_dt(data_shell *datash)
 {
@@ -14,12 +14,12 @@ void free_dt(data_shell *datash)
 	free(datash->_environ);
 	free(datash->pid);
 }
+
 /**
- * set_dt - Initialize data
- *
- * @datash: shell info
- * @av: arguments
- * Return: Non
+ * set_data - Initializes data.
+ * @datash: Shell information.
+ * @av: Arguments.
+ * Return: None.
  */
 void set_dt(data_shell *datash, char **av)
 {
@@ -42,10 +42,10 @@ void set_dt(data_shell *datash, char **av)
 }
 
 /**
- * main - Entry point
- * @ac: argument count
- * @av: argument vector
- * Return: 0 on success.
+ * main - Entry point of the program.
+ * @ac: Argument count.
+ * @av: Argument vector.
+ * Return: 0 on successful execution.
  */
 int main(int ac, char **av)
 {
