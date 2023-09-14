@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * _memcpy - copies info from one pointer to another.
- * @newptr: destination .
- * @ptr: source .
- * @size: size of the destination.
- * Return: Non.
+ * _memcpy - Copies data from one memory location to another.
+ * @newptr: Destination memory location.
+ * @ptr: Source memory location.
+ * @size: Size of the destination.
+ * Return: None.
  */
 void _memcpy(void *newptr, const void *ptr, unsigned int size)
 {
@@ -20,11 +20,11 @@ void _memcpy(void *newptr, const void *ptr, unsigned int size)
 }
 
 /**
- * _realloc - reallocates memory with the new size.
- * @ptr: initial memory
- * @old_size: old size of memory
- * @new_size: new size of memory
- * Return: ptr of the relevant mem.
+ * _realloc - Reallocates memory with a new size.
+ * @ptr: Initial memory block.
+ * @old_size: Old size of the memory block.
+ * @new_size: New size of the memory block.
+ * Return: Pointer to the updated memory block.
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
@@ -52,11 +52,11 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 }
 
 /**
- * _reallocdp - reallocates a memory of double pointers.
- * @ptr: initial memory
- * @old_size: old size of memory
- * @new_size: new size of memory
- * Return: ptr of the relevant mem.
+ * _reallocdp - Reallocates memory for an array of pointers.
+ * @ptr: Initial memory block.
+ * @old_size: Old size of the memory block.
+ * @new_size: New size of the memory block.
+ * Return: Pointer to the reallocated memory.
  */
 char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size)
 {
