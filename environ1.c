@@ -27,17 +27,17 @@ int comp_env_names(const char *nenv, const char *name)
 char *_getenv(const char *name, char **_environ)
 {
 	char *env_ptr;
-	int i;
+	int n;
 	int checker = 0;
 
 	env_ptr = NULL;
 
-	for (i = 0; _environ[i]; i++)
+	for (n = 0; _environ[n]; n++)
 	{
-		checker = comp_env_names(_environ[i], name);
+		checker = comp_env_names(_environ[n], name);
 		if (checker)
 		{
-			env_ptr = _environ[i];
+			env_ptr = _environ[n];
 			break;
 		}
 	}
