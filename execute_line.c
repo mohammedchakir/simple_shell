@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * execute_line - gets commands and builtins
- * @datash: shell info
- * Return: 1.
+ * execute_line - Processes commands and built-ins.
+ * @datash: Shell information.
+ * Return: 1 upon successful execution.
  */
 int execute_line(data_shell *datash)
 {
