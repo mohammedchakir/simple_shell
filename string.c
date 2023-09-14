@@ -1,31 +1,32 @@
 #include "main.h"
 
 /**
- * _strcat - concatenates strings
- * @dest: fst string
- * @src: scd string
- * Return: the two stringd
+ * _strcat - Concatenates two strings.
+ * @dest: The first string.
+ * @src: The second string.
+ * Return: The combined string.
  */
 char *_strcat(char *dest, const char *src)
 {
-	int i;
-	int j;
+	int n;
+	int m;
 
-	for (i = 0; dest[i] != '\0'; i++)
+	for (n = 0; dest[n] != '\0'; n++)
 		;
-	for (j = 0; src[j] != '\0'; j++)
+	for (m = 0; src[m] != '\0'; m++)
 	{
-		dest[i] = src[j];
-		i++;
+		dest[n] = src[m];
+		n++;
 	}
-	dest[i] = '\0';
+	dest[n] = '\0';
 	return (dest);
 }
+
 /**
- * *_strcpy - copies string
- * @dest: fst string
- * @src: scd string
- * Return: the destination
+ * *_strcpy - Copies a string.
+ * @dest: The destination string.
+ * @src: The source string.
+ * Return: A pointer to the destination string.
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -37,29 +38,31 @@ char *_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
 /**
- * _strcmp - compares two strings.
- * @s1: fst string
- * @s2: scd string
- * Return: 0, 1 or -1
+ * _strcmp - Compares two strings.
+ * @s1: The first string.
+ * @s2: The second string.
+ * Return: 0 if equal, 1 if s1 is greater, -1 if s2 is greater.
  */
 int _strcmp(char *s1, char *s2)
 {
-	int i;
+	int n;
 
-	for (i = 0; s1[i] == s2[i] && s1[i]; i++)
+	for (n = 0; s1[n] == s2[n] && s1[n]; n++)
 		;
-	if (s1[i] > s2[i])
+	if (s1[n] > s2[n])
 		return (1);
-	if (s1[i] < s2[i])
+	if (s1[n] < s2[n])
 		return (-1);
 	return (0);
 }
+
 /**
- * _strchr - searches for a char
- * @s: string
- * @c: the  character
- * Return: occcurence of char
+ * _strchr - Searches for a character in a string.
+ * @s: The string to search in.
+ * @c: The character to find.
+ * Return: A pointer to the first occurrence of the character in the string, or NULL if not found.
  */
 char *_strchr(char *s, char c)
 {
@@ -72,22 +75,23 @@ char *_strchr(char *s, char c)
 		return (s + i);
 	return ('\0');
 }
+
 /**
- * _strspn - length of substring.
- * @s: init segment.
- * @accept: allowed bytes.
- * Return: number of allowed bytes.
+ * _strspn - Computes the length of a substring.
+ * @s: The initial segment.
+ * @accept: The set of allowed bytes.
+ * Return: The number of allowed bytes at the beginning of s.
  */
 int _strspn(char *s, char *accept)
 {
-	int i, j, bool;
+	int n, m, bool;
 
-	for (i = 0; *(s + i) != '\0'; i++)
+	for (n = 0; *(s + n) != '\0'; n++)
 	{
 		bool = 1;
-		for (j = 0; *(accept + j) != '\0'; j++)
+		for (m = 0; *(accept + m) != '\0'; m++)
 		{
-			if (*(s + i) == *(accept + j))
+			if (*(s + n) == *(accept + m))
 			{
 				bool = 0;
 				break;
@@ -97,5 +101,5 @@ int _strspn(char *s, char *accept)
 			break;
 	}
 
-	return (i);
+	return (n);
 }
