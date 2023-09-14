@@ -8,13 +8,13 @@
 char *_strdup(const char *s)
 {
 	char *n;
-	size_t length;
+	size_t len;
 
-	length = _strlen(s);
-	n = malloc(sizeof(char) * (length + 1));
+	len = _strlen(s);
+	n = malloc(sizeof(char) * (len + 1));
 	if (n == NULL)
 		return (NULL);
-	_memcpy(n, s, length + 1);
+	_memcpy(n, s, len + 1);
 	return (n);
 }
 
@@ -25,12 +25,12 @@ char *_strdup(const char *s)
  */
 int _strlen(const char *s)
 {
-	int length;
+	int len;
 
-	for (length = 0; s[length] != 0; length++)
+	for (len = 0; s[len] != 0; len++)
 	{
 	}
-	return (length);
+	return (len);
 }
 
 /**
@@ -69,27 +69,27 @@ char *_strtok(char str[], const char *delim)
 {
 	static char *splitted, *str_end;
 	char *str_begin;
-	unsigned int i, bool;
+	unsigned int n, m;
 
 	if (str != NULL)
 	{
 		if (cmp_chars(str, delim))
 			return (NULL);
 		splitted = str;
-		i = _strlen(str);
-		str_end = &str[i];
+		m = _strlen(str);
+		str_end = &str[n];
 	}
 	str_begin = splitted;
 	if (str_begin == str_end)
 		return (NULL);
-	for (bool = 0; *splitted; splitted++)
+	for (m = 0; *splitted; splitted++)
 	{
 		if (splitted != str_begin)
 			if (*splitted && *(splitted - 1) == '\0')
 				break;
-		for (i = 0; delim[i]; i++)
+		for (n = 0; delim[n]; n++)
 		{
-			if (*splitted == delim[i])
+			if (*splitted == delim[n])
 			{
 				*splitted = '\0';
 				if (splitted == str_begin)
@@ -97,10 +97,10 @@ char *_strtok(char str[], const char *delim)
 				break;
 			}
 		}
-		if (bool == 0 && *splitted)
-			bool = 1;
+		if (m == 0 && *splitted)
+			m = 1;
 	}
-	if (bool == 0)
+	if (m == 0)
 		return (NULL);
 	return (str_begin);
 }
