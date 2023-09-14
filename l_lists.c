@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * add_sep_end - add separator node at the end of list
- * @head: head of list.
- * @sep: separator.
- * Return: address of head.
+ * add_sep_end - Appends a separator node to the end of a list.
+ * @head: The head of the list.
+ * @sep: The separator to add.
+ * Return: The address of the head.
  */
 sep_list *add_sep_end(sep_list **head, char sep)
 {
@@ -32,9 +32,9 @@ sep_list *add_sep_end(sep_list **head, char sep)
 }
 
 /**
- * sep_list_free - free a separator list
- * @head: head of the list.
- * Return: non
+ * sep_list_free - Frees a separator list.
+ * @head: The head of the list.
+ * Return: None.
  */
 void sep_list_free(sep_list **head)
 {
@@ -54,10 +54,10 @@ void sep_list_free(sep_list **head)
 }
 
 /**
- * add_line__end - adds the current line at the end of thelist.
- * @head: head of the list.
- * @line: current line.
- * Return: address of head.
+ * add_line_end - Appends the current line to the end of the list.
+ * @head: The head of the list.
+ * @line: The current line to add.
+ * Return: The address of the head.
  */
 line_list *add_line_end(line_list **head, char *line)
 {
@@ -86,9 +86,9 @@ line_list *add_line_end(line_list **head, char *line)
 }
 
 /**
- * line_list_free - frees the list
- * @head: head of the list.
- * Return: Non
+ * line_list_free - Frees the linked list.
+ * @head: The head of the list.
+ * Return: None.
  */
 void line_list_free(line_list **head)
 {
