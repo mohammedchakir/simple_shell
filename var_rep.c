@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * env_checker - checks if the variable is an env variable
- * @h: head of list
- * @in: input
- * @data: shell info
- * Return: Non.
+ * env_checker - Verifies if a variable is an environment variable.
+ * @h: Head of the list of environment variables.
+ * @in: The input variable to check.
+ * @data: Shell information.
+ * Return: None.
  */
 void env_checker(r_var **h, char *in, data_shell *data)
 {
@@ -40,99 +40,99 @@ void env_checker(r_var **h, char *in, data_shell *data)
 }
 
 /**
- * var_checker - check if the typed variable is either $$ or $.
- * @h: head of the list
- * @in: input.
- * @st: status of shell
- * @data: shell info
- * Return: Non.
+ * var_checker - Checks if the input represents either "$$" or "$".
+ * @h: Head of the list.
+ * @in: The input string to check.
+ * @st: The shell status.
+ * @data: Shell information.
+ * Return: None.
  */
 int var_checker(r_var **h, char *in, char *st, data_shell *data)
 {
-	int i, l_st, l_pid;
+	int n, l_st, l_pid;
 
 	l_st = _strlen(st);
 	l_pid = _strlen(data->pid);
-	for (i = 0; in[i]; i++)
+	for (n = 0; in[n]; n++)
 	{
-		if (in[i] == '$')
+		if (in[n] == '$')
 		{
-			if (in[i + 1] == '?')
-				add_var_end(h, 2, st, l_st), i++;
-			else if (in[i + 1] == '$')
-				add_var_end(h, 2, data->pid, l_pid), i++;
-			else if (in[i + 1] == '\n')
+			if (in[n + 1] == '?')
+				add_var_end(h, 2, st, l_st), n++;
+			else if (in[n + 1] == '$')
+				add_var_end(h, 2, data->pid, l_pid), n++;
+			else if (in[n + 1] == '\n')
 				add_var_end(h, 0, NULL, 0);
-			else if (in[i + 1] == '\0')
+			else if (in[n + 1] == '\0')
 				add_var_end(h, 0, NULL, 0);
-			else if (in[i + 1] == ' ')
+			else if (in[n + 1] == ' ')
 				add_var_end(h, 0, NULL, 0);
-			else if (in[i + 1] == '\t')
+			else if (in[n + 1] == '\t')
 				add_var_end(h, 0, NULL, 0);
-			else if (in[i + 1] == ';')
+			else if (in[n + 1] == ';')
 				add_var_end(h, 0, NULL, 0);
 			else
-				env_checker(h, in + i, data);
+				env_checker(h, in + n, data);
 		}
 	}
-	return (i);
+	return (n);
 }
 
 /**
- * var_input - changes the input string into variables
- * @head: head of the list
- * @input: input
- * @new_input: replaced string
- * @nlen: new length
- * Return: new replaced string
+ * var_input - Replaces variables in the input string with their values.
+ * @head: Head of the list containing variables.
+ * @input: The original input string.
+ * @new_input: The resulting string with variables replaced.
+ * @nlen: The new length of the string.
+ * Return: The new string with variables replaced.
  */
 char *var_input(r_var **head, char *input, char *new_input, int nlen)
 {
 	r_var *ind;
-	int i, j, k;
+	int n, m, l;
 
 	ind = *head;
-	for (j = i = 0; i < nlen; i++)
+	for (m = n = 0; n < nlen; n++)
 	{
-		if (input[j] == '$')
+		if (input[m] == '$')
 		{
 			if (!(ind->len_var) && !(ind->len_val))
 			{
-				new_input[i] = input[j];
-				j++;
+				new_input[n] = input[m];
+				m++;
 			}
 			else if (ind->len_var && !(ind->len_val))
 			{
-				for (k = 0; k < ind->len_var; k++)
-					j++;
-				i--;
+				for (l = 0; l < ind->len_var; l++)
+					m++;
+				n--;
 			}
 			else
 			{
-				for (k = 0; k < ind->len_val; k++)
+				for (l = 0; l < ind->len_val; l++)
 				{
-					new_input[i] = ind->val[k];
-					i++;
+					new_input[n] = ind->val[l];
+					n++;
 				}
-				j += (ind->len_var);
-				i--;
+				m += (ind->len_var);
+				n--;
 			}
 			ind = ind->next;
 		}
 		else
 		{
-			new_input[i] = input[j];
-			j++;
+			new_input[n] = input[m];
+			m++;
 		}
 	}
 	return (new_input);
 }
 
 /**
- * replace_var -replaced string into vars
- * @input: input
- * @datash: shell info
- * Return: replaced string
+ * replace_var - Replaces variables in the input string with their values.
+ * @input: The input string to be processed.
+ * @datash: Shell information.
+ * Return: The input string with variables replaced.
  */
 char *replace_var(char *input, data_shell *datash)
 {
