@@ -1,11 +1,10 @@
 #include "main.h"
 
 /**
- * char_repeat - counts the repetitions of a char
- *
- * @input: input
- * @i: index to check
- * Return: no. of repetitions
+ * char_repeat - Counts the repetitions of a character in a string.
+ * @input: The input string.
+ * @i: The character index to check.
+ * Return: The number of times the character repeats.
  */
 int char_repeat(char *input, int i)
 {
@@ -16,17 +15,17 @@ int char_repeat(char *input, int i)
 }
 
 /**
- * syntax_err_op - look for syntax errors
- * @input: input
- * @i: index
- * @last: the last character that was read
- * Return: index of the error position or 0
+ * syntax_err_op - Searches for syntax errors in the input.
+ * @input: The input string.
+ * @i: The current index in the string.
+ * @last: The last character that was read.
+ * Return: The index of the error position or 0 if no error is found.
  */
 int syntax_err_op(char *input, int i, char last)
 {
-	int counter;
+	int ctr;
 
-	counter = 0;
+	ctr = 0;
 	if (*input == '\0')
 		return (0);
 
@@ -43,8 +42,8 @@ int syntax_err_op(char *input, int i, char last)
 			return (i);
 		if (last == '|')
 		{
-			counter = char_repeat(input, 0);
-			if (counter == 0 || counter > 1)
+			ctr = char_repeat(input, 0);
+			if (ctr == 0 || ctr > 1)
 				return (i);
 		}
 	}
@@ -54,8 +53,8 @@ int syntax_err_op(char *input, int i, char last)
 			return (i);
 		if (last == '&')
 		{
-			counter = char_repeat(input, 0);
-			if (counter == 0 || counter > 1)
+			ctr = char_repeat(input, 0);
+			if (ctr == 0 || ctr > 1)
 				return (i);
 		}
 	}
@@ -63,10 +62,10 @@ int syntax_err_op(char *input, int i, char last)
 }
 
 /**
- * fst_char - finds index of the first char
- * @input: input
- * @i: index
- * Return: 1 or 0
+ * fst_char - Finds the index of the first non-whitespace character.
+ * @input: The input string.
+ * @i: The starting index for the search.
+ * Return: 1 if a non-whitespace character is found, 0 otherwise.
  */
 int fst_char(char *input, int *i)
 {
@@ -83,12 +82,12 @@ int fst_char(char *input, int *i)
 }
 
 /**
- * syntax_err_printer - error message when syntax error is found
- * @datash: shell info
- * @input: input
- * @i: position of error
- * @bool: controls message error
- * Return: Non
+ * syntax_err_printer - Prints an error message when a syntax error is found.
+ * @datash: Shell information.
+ * @input: The input string.
+ * @i: The position of the error.
+ * @bool: Controls whether to print the error message.
+ * Return: None.
  */
 void syntax_err_printer(data_shell *datash, char *input, int i, int bool)
 {
@@ -130,10 +129,10 @@ void syntax_err_printer(data_shell *datash, char *input, int i, int bool)
 }
 
 /**
- * syntax_err_checker - finds and prints syntax error
- * @datash: shell info
- * @input: input
- * Return: 1 or 0
+ * syntax_err_checker - Identifies and reports syntax errors in the input.
+ * @datash: Shell information.
+ * @input: The input string.
+ * Return: 1 if a syntax error is found, 0 otherwise.
  */
 int syntax_err_checker(data_shell *datash, char *input)
 {
