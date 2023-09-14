@@ -16,12 +16,12 @@ int (*get_built_in(char *cmd))(data_shell *)
 		{ "help", help_get },
 		{ NULL, NULL }
 	};
-	int j;
+	int m;
 
-	for (j = 0; built[j].name; j++)
+	for (m = 0; built[m].name; m++)
 	{
-		if (_strcmp(built[j].name, cmd) == 0)
+		if (_strcmp(built[m].name, cmd) == 0)
 			break;
 	}
-	return (built[j].f);
+	return (built[m].f);
 }
