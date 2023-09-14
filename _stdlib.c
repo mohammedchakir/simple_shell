@@ -63,27 +63,27 @@ char *aux_itoa(int i)
  */
 int _atoi(char *s)
 {
-	unsigned int counter = 0, size = 0;
+	unsigned int ctr = 0, size = 0;
 	int final = 0, sign = 1, power = 1;
-	unsigned int i;
+	unsigned int n;
 
-	while (*(s + counter) != '\0')
+	while (*(s + ctr) != '\0')
 	{
-		if (size > 0 && (*(s + counter) < '0' || *(s + counter) > '9'))
+		if (size > 0 && (*(s + ctr) < '0' || *(s + ctr) > '9'))
 			break;
-		if (*(s + counter) == '-')
+		if (*(s + ctr) == '-')
 			sign *= -1;
-		if ((*(s + counter) >= '0') && (*(s + counter) <= '9'))
+		if ((*(s + ctr) >= '0') && (*(s + ctr) <= '9'))
 		{
 			if (size > 0)
 				power *= 10;
 			size++;
 		}
-		counter++;
+		ctr++;
 	}
-	for (i = counter - size; i < counter; i++)
+	for (n = ctr - size; n < ctr; n++)
 	{
-		final = final + ((*(s + i) - 48) * power);
+		final = final + ((*(s + n) - 48) * power);
 		power /= 10;
 	}
 	return (final * sign);
