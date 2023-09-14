@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * add_var_end - adds a variable node at the end of the list
- * @head: head of the list.
- * @lvar: length of variable.
- * @val: value of variable.
- * @lval: length of value.
- * Return: address of  head.
+ * add_var_end - Appends a variable node to the end of the list.
+ * @head: The head of the list.
+ * @lvar: Length of the variable.
+ * @val: Value of the variable.
+ * @lval: Length of the value.
+ * Return: The address of the head.
  */
 r_var *add_var_end(r_var **head, int lvar, char *val, int lval)
 {
@@ -34,9 +34,9 @@ r_var *add_var_end(r_var **head, int lvar, char *val, int lval)
 }
 
 /**
- * var_list_free - frees the var list
- * @head: head of the list.
- * Return: Non.
+ * var_list_free - Frees the variable list.
+ * @head: The head of the list.
+ * Return: None.
  */
 void var_list_free(r_var **head)
 {
