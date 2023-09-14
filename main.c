@@ -7,10 +7,10 @@
  */
 void free_dt(data_shell *datash)
 {
-	unsigned int i;
+	unsigned int n;
 
-	for (i = 0; datash->_environ[i]; i++)
-		free(datash->_environ[i]);
+	for (n = 0; datash->_environ[n]; n++)
+		free(datash->_environ[n]);
 	free(datash->_environ);
 	free(datash->pid);
 }
@@ -23,21 +23,21 @@ void free_dt(data_shell *datash)
  */
 void set_dt(data_shell *datash, char **av)
 {
-	unsigned int i;
+	unsigned int n;
 
 	datash->av = av;
 	datash->input = NULL;
 	datash->args = NULL;
 	datash->status = 0;
-	datash->counter = 1;
-	for (i = 0; environ[i]; i++)
+	datash->ctr = 1;
+	for (n = 0; environ[n]; n++)
 		;
-	datash->_environ = malloc(sizeof(char *) * (i + 1));
-	for (i = 0; environ[i]; i++)
+	datash->_environ = malloc(sizeof(char *) * (n + 1));
+	for (n = 0; environ[n]; n++)
 	{
-		datash->_environ[i] = _strdup(environ[i]);
+		datash->_environ[n] = _strdup(environ[n]);
 	}
-	datash->_environ[i] = NULL;
+	datash->_environ[n] = NULL;
 	datash->pid = aux_itoa(getpid());
 }
 
