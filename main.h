@@ -18,14 +18,14 @@
 
 extern char **environ;
 /**
- * struct data - shell struct containing relevant information
- * @av: arg vector.
- * @input: string input from user
- * @args: tokens of commands
- * @status: update on status.
- * @counter: current line count.
- * @_environ: environ variable
- * @pid: pid the shell process.
+ * struct data - A shell structure containing relevant information.
+ * @av: Argument vector.
+ * @input: User-input string.
+ * @args: Tokens of commands.
+ * @status: Updated status information.
+ * @counter: Current line count.
+ * @_environ: Environment variables.
+ * @pid: Process ID of the shell.
  */
 typedef struct data
 {
@@ -39,10 +39,10 @@ typedef struct data
 } data_shell;
 
 /**
- * struct sep_list_s - singly-linked-list
- * @separator: separator
- * @next: proceedig node
- * Description: stores separator
+ * struct sep_list_s - A singly-linked list node.
+ * @separator: The stored separator value.
+ * @next: Pointer to the next node in the list.
+ * Description: This structure stores a separator in a singly-linked list.
  */
 typedef struct sep_list_s
 {
@@ -51,10 +51,10 @@ typedef struct sep_list_s
 } sep_list;
 
 /**
- * struct line_list_s - singly-linked-list
- * @line: cmd line
- * @next: proceeding node
- * Description: stores cmd line.
+ * struct line_list_s - A singly-linked list node.
+ * @line: The stored command line.
+ * @next: Pointer to the next node in the list.
+ * Description: This structure stores a command line in a singly-linked list.
  */
 typedef struct line_list_s
 {
@@ -63,12 +63,12 @@ typedef struct line_list_s
 } line_list;
 
 /**
- * struct r_var_list - singly-linked-list
- * @len_var: length of variable
- * @val: value of variable
- * @len_val: length of value
- * @next: proceeding node
- * Description: singly-linked-list to store variables
+ * struct r_var_list - A singly-linked list node.
+ * @len_var: Length of the variable.
+ * @val: Value of the variable.
+ * @len_val: Length of the value.
+ * @next: Pointer to the next node in the list.
+ * Description: This singly-linked list is used to store variables.
  */
 typedef struct r_var_list
 {
@@ -79,9 +79,10 @@ typedef struct r_var_list
 } r_var;
 
 /**
- * struct builtin_s - struct cointaing cmd arguments.
- * @name: abr. for built-n cmd
- * @f: pointer function.
+ * struct builtin_s - A structure containing command arguments.
+ * @name: Abbreviation for built-in command.
+ * @f: Pointer to the corresponding function.
+ * Description: This structure holds information about built-in commands.
  */
 typedef struct builtin_s
 {
@@ -167,8 +168,8 @@ int (*get_built_in(char *cmd))(data_shell *datash);
 
 int shell_exit(data_shell *datash);
 
-int get_len(int n);
-char *aux_itoa(int n);
+int get_len(int i);
+char *aux_itoa(int i);
 int _atoi(char *s);
 
 char *cd_strcat(data_shell *, char *, char *, char *);
