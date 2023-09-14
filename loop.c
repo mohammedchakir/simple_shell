@@ -1,16 +1,15 @@
 #include "main.h"
 
 /**
- * remove_comment - removes the comments
- *
- * @in: input
- * Return: input without the comments
+ * remove_comment - Removes comments from the input.
+ * @in: The input string.
+ * Return: The input string with comments removed.
  */
 char *remove_comment(char *in)
 {
-	int i, position;
+	int i, pos;
 
-	position = 0;
+	pos = 0;
 	for (i = 0; in[i]; i++)
 	{
 		if (in[i] == '#')
@@ -21,21 +20,21 @@ char *remove_comment(char *in)
 				return (NULL);
 			}
 			if (in[i - 1] == ' ' || in[i - 1] == '\t' || in[i - 1] == ';')
-				position = i;
+				pos = i;
 		}
 	}
-	if (position != 0)
+	if (pos != 0)
 	{
-		in = _realloc(in, i, position + 1);
-		in[position] = '\0';
+		in = _realloc(in, i, pos + 1);
+		in[pos] = '\0';
 	}
 	return (in);
 }
 
 /**
- * loop_shell - the shell loop
- * @datash: shell info
- * Return: no return.
+ * loop_shell - The main shell loop.
+ * @datash: Shell information.
+ * Return: No return value.
  */
 void loop_shell(data_shell *datash)
 {
@@ -73,9 +72,9 @@ void loop_shell(data_shell *datash)
 }
 
 /**
- * _readline - reads from input.
- * @i_eof: return value of getline
- * Return: input in form of a string
+ * _readline - Reads input from the user.
+ * @i_eof: Return value of the getline function.
+ * Return: The user's input as a string.
  */
 char *_readline(int *i_eof)
 {
