@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * _help_env - env info
- * Return: Non
+ * _help_env - Displays information about the environment.
+ * Return: None.
  */
 void _help_env(void)
 {
@@ -13,9 +13,10 @@ void _help_env(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 
 }
+
 /**
- * _help_setenv - setenv info
- * Return: Non
+ * _help_setenv - Provides information about the setenv command.
+ * Return: None.
  */
 void _help_setenv(void)
 {
@@ -28,9 +29,10 @@ void _help_setenv(void)
 	help = "Add a new definition to the environment\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 }
+
 /**
- * _help_unsetenv - unsetenv info
- * Return: Non
+ * _help_unsetenv - Provides information about the unsetenv command.
+ * Return: None.
  */
 void _help_unsetenv(void)
 {
@@ -41,10 +43,9 @@ void _help_unsetenv(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 }
 
-
 /**
- * _help_general - help general info
- * Return: Non
+ * _help_general - Provides general help information.
+ * Return: None.
  */
 void _help_general(void)
 {
@@ -64,9 +65,10 @@ void _help_general(void)
 	help = "unsetenv [variable]\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 }
+
 /**
- * _help_exit - exit info
- * Return: Non
+ * _help_exit - Provides information about the exit command.
+ * Return: None.
  */
 void _help_exit(void)
 {
