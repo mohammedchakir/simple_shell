@@ -9,34 +9,34 @@
  */
 void env_checker(r_var **h, char *in, data_shell *data)
 {
-	int rw, ch, i, lval;
+	int rw, ch, n, lval;
 	char **_envrn;
 
 	_envrn = data->_environ;
 	for (rw = 0; _envrn[rw]; rw++)
 	{
-		for (i = 1, ch = 0; _envrn[rw][ch]; ch++)
+		for (n = 1, ch = 0; _envrn[rw][ch]; ch++)
 		{
 			if (_envrn[rw][ch] == '=')
 			{
 				lval = _strlen(_envrn[rw] + ch + 1);
-				add_var_end(h, i, _envrn[rw] + ch + 1, lval);
+				add_var_end(h, n, _envrn[rw] + ch + 1, lval);
 				return;
 			}
 
-			if (in[i] == _envrn[rw][ch])
-				i++;
+			if (in[n] == _envrn[rw][ch])
+				n++;
 			else
 				break;
 		}
 	}
-	for (i = 0; in[i]; i++)
+	for (n = 0; in[n]; n++)
 	{
-		if (in[i] == ' ' || in[i] == '\t' || in[i] == ';' || in[i] == '\n')
+		if (in[n] == ' ' || in[n] == '\t' || in[n] == ';' || in[n] == '\n')
 			break;
 	}
 
-	add_var_end(h, i, NULL, 0);
+	add_var_end(h, n, NULL, 0);
 }
 
 /**
@@ -138,7 +138,7 @@ char *replace_var(char *input, data_shell *datash)
 {
 	r_var *h, *ind;
 	char *st, *n_input;
-	int olen, nlen;
+	int mlen, nlen;
 
 	st = aux_itoa(datash->status);
 	h = NULL;
@@ -155,7 +155,7 @@ char *replace_var(char *input, data_shell *datash)
 		nlen += (ind->len_val - ind->len_var);
 		ind = ind->next;
 	}
-	nlen += olen;
+	nlen += mlen;
 	n_input = malloc(sizeof(char) * (nlen + 1));
 	n_input[nlen] = '\0';
 	n_input = var_input(&h, input, n_input, nlen);
