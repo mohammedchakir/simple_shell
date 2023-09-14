@@ -31,11 +31,11 @@ char *_strcat(char *dest, const char *src)
 char *_strcpy(char *dest, char *src)
 {
 
-	size_t i;
+	size_t n;
 
-	for (i = 0; src[i] != '\0'; i++)
-		dest[i] = src[i];
-	dest[i] = '\0';
+	for (n = 0; src[n] != '\0'; n++)
+		dest[n] = src[n];
+	dest[n] = '\0';
 	return (dest);
 }
 
@@ -66,13 +66,13 @@ int _strcmp(char *s1, char *s2)
  */
 char *_strchr(char *s, char c)
 {
-	unsigned int i = 0;
+	unsigned int n = 0;
 
-	for (; *(s + i) != '\0'; i++)
-		if (*(s + i) == c)
-			return (s + i);
-	if (*(s + i) == c)
-		return (s + i);
+	for (; *(s + n) != '\0'; n++)
+		if (*(s + n) == c)
+			return (s + n);
+	if (*(s + n) == c)
+		return (s + n);
 	return ('\0');
 }
 
@@ -84,20 +84,20 @@ char *_strchr(char *s, char c)
  */
 int _strspn(char *s, char *accept)
 {
-	int n, m, bool;
+	int n, m, l;
 
 	for (n = 0; *(s + n) != '\0'; n++)
 	{
-		bool = 1;
+		l = 1;
 		for (m = 0; *(accept + m) != '\0'; m++)
 		{
 			if (*(s + n) == *(accept + m))
 			{
-				bool = 0;
+				l = 0;
 				break;
 			}
 		}
-		if (bool == 1)
+		if (l == 1)
 			break;
 	}
 
