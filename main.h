@@ -119,10 +119,10 @@ int _isdigit(const char *s);
 
 void rev_string(char *s);
 
-int char_repeat(char *input, int i);
-int syntax_err_op(char *input, int i, char last);
-int fst_char(char *input, int *i);
-void syntax_err_printer(data_shell *datash, char *input, int i, int bool);
+int char_repeat(char *input, int n);
+int syntax_err_op(char *input, int n, char last);
+int fst_char(char *input, int *n);
+void syntax_err_printer(data_shell *datash, char *input, int , int m);
 int syntax_err_checker(data_shell *datash, char *input);
 
 char *remove_comment(char *in);
@@ -142,7 +142,7 @@ char *replace_var(char *input, data_shell *datash);
 
 int execute_line(data_shell *datash);
 
-int searchable_cdir(char *path, int *i);
+int searchable_cdir(char *path, int *p);
 char *locate_cmd(char *cmd, char **_environ);
 int check_executable(data_shell *datash);
 int check_cmd_err(char *dir, data_shell *datash);
