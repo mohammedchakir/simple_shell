@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * shell_exit - exits shel
- * @datash: shell info
- * Return: 0 or 1.
+ * shell_exit - Exits the shell.
+ * @datash: Shell information.
+ * Return: 0 for successful exit, 1 for an error.
  */
 int shell_exit(data_shell *datash)
 {
@@ -28,8 +28,8 @@ int shell_exit(data_shell *datash)
 }
 
 /**
- * _sigint - ctrl c functionality
- * @sig: handler
+ * _sigint - Handles the Ctrl+C functionality.
+ * @sig: The signal handler.
  */
 void _sigint(int sig)
 {
