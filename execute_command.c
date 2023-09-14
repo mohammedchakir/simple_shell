@@ -3,17 +3,17 @@
 /**
  * searchable_cdir - Checks if a path is searchable.
  * @path: The path to check.
- * @i: Pointer to an index.
+ * @p: Pointer to an index.
  * Return: 1 if searchable, 0 otherwise.
  */
-int searchable_cdir(char *path, int *i)
+int searchable_cdir(char *path, int *p)
 {
-	if (path[*i] == ':')
+	if (path[*p] == ':')
 		return (1);
-	while (path[*i] != ':' && path[*i])
-		*i += 1;
-	if (path[*i])
-		*i += 1;
+	while (path[*p] != ':' && path[*p])
+		*p += 1;
+	if (path[*p])
+		*p += 1;
 	return (0);
 }
 
@@ -26,7 +26,7 @@ int searchable_cdir(char *path, int *i)
 char *locate_cmd(char *cmd, char **_environ)
 {
 	char *_path, *path_ptr, *path_token, *dir;
-	int dir_len, cmd_len, i;
+	int dir_len, cmd_len, n;
 	struct stat st;
 
 	_path = _getenv("PATH", _environ);
@@ -35,10 +35,10 @@ char *locate_cmd(char *cmd, char **_environ)
 		path_ptr = _strdup(_path);
 		cmd_len = _strlen(cmd);
 		path_token = _strtok(path_ptr, ":");
-		i = 0;
+		n = 0;
 		while (path_token != NULL)
 		{
-			if (searchable_cdir(_path, &i))
+			if (searchable_cdir(_path, &n))
 				if (stat(cmd, &st) == 0)
 					return (cmd);
 			dir_len = _strlen(path_token);
@@ -74,38 +74,38 @@ char *locate_cmd(char *cmd, char **_environ)
 int check_executable(data_shell *datash)
 {
 	struct stat st;
-	int i;
+	int n;
 	char *inp;
 
 	inp = datash->args[0];
-	for (i = 0; inp[i]; i++)
+	for (n = 0; inp[n]; n++)
 	{
-		if (inp[i] == '.')
+		if (inp[n] == '.')
 		{
-			if (inp[i + 1] == '.')
+			if (inp[n + 1] == '.')
 				return (0);
-			if (inp[i + 1] == '/')
+			if (inp[n + 1] == '/')
 				continue;
 			else
 				break;
 		}
-		else if (inp[i] == '/' && i != 0)
+		else if (inp[n] == '/' && n != 0)
 		{
-			if (inp[i + 1] == '.')
+			if (inp[n + 1] == '.')
 				continue;
-			i++;
+			n++;
 			break;
 		}
 		else
 			break;
 	}
-	if (i == 0)
+	if (n == 0)
 	{
 		return (0);
 	}
-	if (stat(inp + i, &st) == 0)
+	if (stat(inp + n, &st) == 0)
 	{
-		return (i);
+		return (n);
 	}
 	err_get(datash, 127);
 	return (-1);
