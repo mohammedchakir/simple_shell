@@ -36,7 +36,7 @@ char *cd_strcat(data_shell *datash, char *msg, char *err, char *str_var)
 
 /**
  * get_cd_err - Retrieve a CD error message.
- * @datash: Data from the current shell.
+ * @datash: Currentt shell informations.
  * Return: The complete error message.
  */
 char *get_cd_err(data_shell *datash)
