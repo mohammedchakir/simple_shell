@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * remove_comment - Removes comments from the input.
+ * remove_comment - Removes all comments from the input.
  * @in: The input string.
  * Return: The input string with comments removed.
  */
