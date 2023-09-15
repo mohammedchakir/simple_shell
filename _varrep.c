@@ -131,7 +131,7 @@ char *var_input(r_var **head, char *input, char *new_input, int nlen)
 /**
  * replace_var - Replaces variables in the input string with their values.
  * @input: The input string to be processed.
- * @datash: Shell information.
+ * @datash: current Shell information.
  * Return: The input string with variables replaced.
  */
 char *replace_var(char *input, data_shell *datash)
