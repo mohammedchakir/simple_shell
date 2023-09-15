@@ -111,7 +111,7 @@ void cd_prev(data_shell *datash)
 
 /**
  * cd_home - Change to the home directory.
- * @datash: Shell information.
+ * @datash: Current Shell informations.
  * Return: None.
  */
 void cd_home(data_shell *datash)
