@@ -3,7 +3,7 @@
 /**
  * searchable_cdir - Checks if a path is searchable.
  * @path: The path to check.
- * @p: Pointer to an index.
+ * @p: Ptr to an index.
  * Return: 1 if searchable, 0 otherwise.
  */
 int searchable_cdir(char *path, int *p)
