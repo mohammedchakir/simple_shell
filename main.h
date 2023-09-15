@@ -18,7 +18,7 @@
 
 extern char **environ;
 /**
- * struct data - A shell structure containing relevant information.
+ * struct data - A shell structure containing relevant informations.
  * @av: Argument vector.
  * @input: User-input string.
  * @args: Tokens of commands.
