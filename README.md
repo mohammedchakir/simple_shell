@@ -289,6 +289,6 @@ Simple shell 1.0 +
 
 
 -----------------
-## Collaborators:
+## Collaborators in this project:
 
 [MOHAMMED CHAKIR](https://github.com/mohammedchakir) & [SALEH ELMOUINY](https://github.com/Elmouinysaleh)
