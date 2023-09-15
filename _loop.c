@@ -72,7 +72,7 @@ void loop_shell(data_shell *datash)
 }
 
 /**
- * _readline - Reads input from the user.
+ * _readline - Reads input line from the user.
  * @i_eof: Return value of the getline function.
  * Return: The user's input as a string.
  */
