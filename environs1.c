@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * comp_env_names - Compares en variable names.
+ * comp_env_names - Compares env variable names.
  * @nenv: The name of an environment variable.
  * @name: The name to compare against.
  * Return: 0 if the names match, otherwise a non-zero value.
