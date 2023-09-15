@@ -2,7 +2,7 @@
 
 /**
  * err_get - Execute error handle based on perm, syntax,or built-in cmd issues.
- * @datash: Shell information.
+ * @datash: Current Shell information.
  * @eval: Error code.
  * Return: Error information.
  */
