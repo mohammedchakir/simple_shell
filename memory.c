@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _memcpy - Copies data from one memory location to another.
+ * _memcpy - Copies data from one memory location to another location.
  * @newptr: Destination memory location.
  * @ptr: Source memory location.
  * @size: Size of the destination.
