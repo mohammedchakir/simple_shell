@@ -2,7 +2,7 @@
 
 /**
  * change_dir - Changes the current working directory.
- * @datash: Relevant data.
+ * @datash: Current shell informations.
  * Return: 1.
  */
 int change_dir(data_shell *datash)
