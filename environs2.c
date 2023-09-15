@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * info_cp - Copies information.
+ * info_cp - Copies informations.
  * @name: The name of the item to copy.
  * @value: The value of the item to copy.
  * Return: A new environment or alias containing the copied information.
