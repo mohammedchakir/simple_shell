@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_built_in - Retrieves pointer to corresponding built-in funct for given cmd.
+ * get_built_in - Retrieves pointer to corresponding built-in funct for cmd.
  * @cmd: The command for which to fetch the built-in function.
  * Return: A function pointer to the built-in command.
  */
