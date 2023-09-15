@@ -102,7 +102,7 @@ char *not_found_err(data_shell *datash)
 
 /**
  * exit_shell_err - Creates generic error msg for "exit" cmd in get_exit funct.
- * @datash: Data from the current shell.
+ * @datash: Current shell informations.
  * Return: The complete error message.
  */
 char *exit_shell_err(data_shell *datash)
