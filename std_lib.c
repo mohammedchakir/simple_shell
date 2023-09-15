@@ -25,7 +25,7 @@ int get_len(int i)
 	return (length);
 }
 /**
- * aux_itoa - Converts an integer to a str representation.
+ * aux_itoa - Converts an integer to a string representation.
  * @i: The integer to be converted.
  * Return: The resulting string.
  */
