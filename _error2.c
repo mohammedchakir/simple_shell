@@ -2,7 +2,7 @@
 
 /**
  * env_err - Generates an error message for environment-related issues.
- * @datash: Data from the current shell.
+ * @datash: current shell informations.
  * Return: The complete error message.
  */
 char *env_err(data_shell *datash)
