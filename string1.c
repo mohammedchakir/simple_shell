@@ -26,7 +26,7 @@ char *_strcat(char *dest, const char *src)
  * *_strcpy - Copies a string.
  * @dest: The destination string.
  * @src: The source string.
- * Return: A ptr to the destination string.
+ * Return: A pointer to the destination string.
  */
 char *_strcpy(char *dest, char *src)
 {
