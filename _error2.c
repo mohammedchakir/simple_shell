@@ -35,7 +35,7 @@ char *env_err(data_shell *datash)
 }
 /**
  * path_denied_err - Generat error msg for perm denied when accessing  path.
- * @datash: Data from the current shell.
+ * @datash: Current shel informations.
  * Return: The complete error message.
  */
 char *path_denied_err(data_shell *datash)
