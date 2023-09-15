@@ -17,7 +17,7 @@ void free_dt(data_shell *datash)
 
 /**
  * set_dt - Initializes data.
- * @datash: Shell information.
+ * @datash: current Shell information.
  * @av: Arguments.
  * Return: None.
  */
