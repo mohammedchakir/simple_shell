@@ -2,7 +2,7 @@
 
 /**
  * comp_env_names - Compares environment variable names.
- * @nenv: The name of an environment variable.
+ * @nenv: The name of an environment var.
  * @name: The name to compare against.
  * Return: 0 if the names match, otherwise a non-zero value.
  */
