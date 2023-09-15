@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _help_env - Displays information about the environment.
+ * _help_env - Displays information about current environment.
  * Return: None.
  */
 void _help_env(void)
