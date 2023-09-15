@@ -4,7 +4,7 @@
  * char_swap - Swaps the characters '|' and '&' in the input string text.
  * @input: The input string to perform the swap on.
  * @bool: The type of swap to perform.
- * Return: The input string with the specified characters swapped.
+ * Return: The input string text with the specified characters swapped.
  */
 char *char_swap(char *input, int bool)
 {
