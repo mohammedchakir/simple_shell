@@ -2,7 +2,7 @@
 
 /**
  * shell_exit - Exits the shell.
- * @datash: Shell information.
+ * @datash: Current Shell information.
  * Return: 0 for successful exit, 1 for an error.
  */
 int shell_exit(data_shell *datash)
