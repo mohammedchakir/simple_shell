@@ -2,7 +2,7 @@
 
 /**
  * get_len - Determines the length of an integer.
- * @i: The integer to measure.
+ * @i: The int to measure.
  * Return: The length of the integer.
  */
 int get_len(int i)
