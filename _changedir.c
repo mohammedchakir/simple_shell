@@ -2,7 +2,7 @@
 
 /**
  * par_cd - Change to the parent directory.
- * @datash: current Shell information.
+ * @datash: Current Shell informations.
  * Return: None.
  */
 void par_cd(data_shell *datash)
@@ -51,7 +51,7 @@ void par_cd(data_shell *datash)
 
 /**
  * cd_to - Change the current directory.
- * @datash: Shell information.
+ * @datash: Current Shell information.
  * Return: None.
  */
 void cd_to(data_shell *datash)
