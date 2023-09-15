@@ -24,7 +24,7 @@ void _memcpy(void *newptr, const void *ptr, unsigned int size)
  * @ptr: Initial memory block.
  * @old_size: Old size of the memory block.
  * @new_size: New size of the memory block.
- * Return: Pointer to the updated memory block.
+ * Return: ptr to the updated memory block.
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
