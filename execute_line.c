@@ -2,7 +2,7 @@
 
 /**
  * execute_line - Processes commands and built-ins.
- * @datash: Current Shell information.
+ * @datash: Current Shell informations.
  * Return: 1 upon successful execution.
  */
 int execute_line(data_shell *datash)
