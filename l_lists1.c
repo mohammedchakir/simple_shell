@@ -54,7 +54,7 @@ void sep_list_free(sep_list **head)
 }
 
 /**
- * add_line_end - Appends the current line to the end of the list.
+ * add_line_end - Appends the current line to the end of the given list.
  * @head: The head of the list.
  * @line: The current line to add.
  * Return: The address of the head.
