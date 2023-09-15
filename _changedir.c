@@ -51,7 +51,7 @@ void par_cd(data_shell *datash)
 
 /**
  * cd_to - Change the current directory.
- * @datash: Current Shell information.
+ * @datash: Current Shell informations.
  * Return: None.
  */
 void cd_to(data_shell *datash)
@@ -79,7 +79,7 @@ void cd_to(data_shell *datash)
 
 /**
  * cd_prev - Navigate to the previous directory.
- * @datash: Shell information.
+ * @datash: Current Shell informations.
  * Return: None.
  */
 void cd_prev(data_shell *datash)
