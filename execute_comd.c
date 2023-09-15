@@ -68,7 +68,7 @@ char *locate_cmd(char *cmd, char **_environ)
 
 /**
  * check_executable - Determines if a file is executable.
- * @datash: Shell information.
+ * @datash: Current Shell information.
  * Return: 0 if it's not executable, or a non-zero value if it is.
  */
 int check_executable(data_shell *datash)
