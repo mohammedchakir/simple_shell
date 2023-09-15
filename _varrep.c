@@ -4,7 +4,7 @@
  * env_checker - Verifies if a variable is an environment variable.
  * @h: Head of the list of environment variables.
  * @in: The input variable to check.
- * @data: Shell information.
+ * @data: current Shell information.
  * Return: None.
  */
 void env_checker(r_var **h, char *in, data_shell *data)
