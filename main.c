@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * free_dt - Frees allocated data.
+ * free_dt - Frees allocated data memory.
  * @datash: Shell information.
  * Return: None.
  */
