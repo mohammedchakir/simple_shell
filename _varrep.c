@@ -44,7 +44,7 @@ void env_checker(r_var **h, char *in, data_shell *data)
  * @h: Head of the list.
  * @in: The input string to check.
  * @st: The shell status.
- * @data: Shell information.
+ * @data: current Shell information.
  * Return: None.
  */
 int var_checker(r_var **h, char *in, char *st, data_shell *data)
