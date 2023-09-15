@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _help - Displays general help information.
+ * _help - Displays general help informations.
  * Return: None.
  */
 
@@ -17,7 +17,7 @@ void _help(void)
 }
 
 /**
- * _help_alias - Provides information about the alias command.
+ * _help_alias - Provides informations about the alias command.
  * Return: None.
  */
 void _help_alias(void)
