@@ -33,7 +33,7 @@ char *remove_comment(char *in)
 
 /**
  * loop_shell - The main shell loop.
- * @datash: Shell information.
+ * @datash: current shell informations.
  * Return: No return value.
  */
 void loop_shell(data_shell *datash)
