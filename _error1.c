@@ -71,7 +71,7 @@ char *get_cd_err(data_shell *datash)
 
 /**
  * not_found_err - Generates a generic error message for "command not found."
- * @datash: Data from the current shell.
+ * @datash: Current shell informations.
  * Return: The complete error message.
  */
 char *not_found_err(data_shell *datash)
