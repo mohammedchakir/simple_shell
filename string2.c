@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strdup - Duplicates a string.
+ * _strdup - Duplicates a given string.
  * @s: Pointer to the string to be duplicated.
  * Return: A pointer to the newly created duplicate string.
  */
