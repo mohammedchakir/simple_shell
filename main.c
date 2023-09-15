@@ -2,7 +2,7 @@
 
 /**
  * free_dt - Frees allocated data.
- * @datash: Shell information.
+ * @datash: current Shell information.
  * Return: None.
  */
 void free_dt(data_shell *datash)
