@@ -2,7 +2,7 @@
 
 /**
  * cd_strcat - Concatenates a CD error message.
- * @datash: Data from the current shell.
+ * @datash: current shell informations.
  * @msg: Message to print.
  * @err: Error message.
  * @str_var: Count.
