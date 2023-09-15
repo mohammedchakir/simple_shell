@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * add_var_end - Appends a variable node to the end of the list.
+ * add_var_end - Appends a variable node to the end of the given list.
  * @head: The head of the list.
  * @lvar: Length of the variable.
  * @val: Value of the variable.
