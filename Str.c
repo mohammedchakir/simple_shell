@@ -1,14 +1,7 @@
 #include "main.h"
 
 	
-/**
- * syntax_err_printer - Prints an error message when a syntax error is found.
- * @datash: Shell information.
- * @input: The input string.
- * @n: The position of the error.
- * @m: Controls whether to print the error message.
- * Return: None.
- */
+
 void syntax_err_printer(data_shell *datash, char *input, int n, int m)
 {
 	char *msg, *msg2, *msg3, *err, *count;
