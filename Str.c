@@ -1,7 +1,6 @@
 #include "main.h"
 
 	
-	_strcp(err, datash->av[0]);
 
 	_strconcat(err, ": ");
 
