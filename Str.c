@@ -3,16 +3,7 @@
 
 
 
-	if (*input == '|')
-	{
-		if (last == ';' || last == '&')
-			return (n);
-		if (last == '|')
-		{
-			ctr = char_repeat(input, 0);
-			if (ctr == 0 || ctr > 1)
-				return (n);
-		}
+	
 	}
 	if (*input == '&')
 	{
