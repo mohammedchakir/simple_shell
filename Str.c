@@ -2,7 +2,6 @@
 
 	
 
-	_strconcat(err, ": ");
 
 	_strcat(err, count);
 
