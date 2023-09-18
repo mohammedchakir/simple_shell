@@ -3,15 +3,6 @@
 
  
 
-
-/**
- * _strcmp - Compares two strings.
- * @s1: The first string.
- * @s2: The second string.
- * Return: 0 if equal, 1 if s1 is greater, -1 if s2 is greater.
- */
-
-
 /**
  * _strchr - Searches for a character in a string.
  * @s: The string to search in.
