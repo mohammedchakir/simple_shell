@@ -3,8 +3,6 @@
 	
 
 
-	
-
 
 	_strcat(err, msg);
 
