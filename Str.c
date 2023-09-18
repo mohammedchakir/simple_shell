@@ -2,13 +2,6 @@
 
 
 
-/**
- * syntax_err_op - Searches for syntax errors in the input.
- * @input: The input string.
- * @n: The current index in the string.
- * @last: The last character that was read.
- * Return: The index of the error position or 0 if no error is found.
- */
 int syntax_err_op(char *input, int n, char last)
 {
 	int ctr;
