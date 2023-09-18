@@ -2,10 +2,7 @@
 
 	
 
-	
-	
-	
-	
+		
 	_strcat(err, msg);
 
 	_strcat(err, msg3);
