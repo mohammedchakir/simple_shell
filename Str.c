@@ -6,9 +6,7 @@
 
 
 
- * @delim: The delimiter string.
- * Return: 1 if the strings match, 0 otherwise.
- */
+
 int cmp_chars(char str[], const char *delim)
 {
 	unsigned int n, m, l;
