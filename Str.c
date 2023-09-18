@@ -2,14 +2,6 @@
 
 
  
- 
-
-
-
- * @src: The source string.
- * Return: A pointer to the destination string.
- */
-char *_strcpy(char *dest, char *src)
 {
 
 	size_t n;
