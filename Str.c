@@ -16,6 +16,7 @@
 	_strcat(err, "\0");
 
 	write(STDERR_FILENO, err, lenght);
+
 	free(err);
 	free(count);
 
