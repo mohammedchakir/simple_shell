@@ -5,17 +5,6 @@
 
 
 
-char *_strchr(char *s, char c)
-{
-	unsigned int n = 0;
-
-	for (; *(s + n) != '\0'; n++)
-		if (*(s + n) == c)
-			return (s + n);
-	if (*(s + n) == c)
-		return (s + n);
-	return ('\0');
-}
 
 /**
  * _strspn - Computes the length of a substring.
