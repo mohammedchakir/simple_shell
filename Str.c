@@ -6,27 +6,7 @@
 
 
 
-int _strspn(char *s, char *accept)
-{
-	int n, m, l;
 
-	for (n = 0; *(s + n) != '\0'; n++)
-	{
-		l = 1;
-		for (m = 0; *(accept + m) != '\0'; m++)
-		{
-			if (*(s + n) == *(accept + m))
-			{
-				l = 0;
-				break;
-			}
-		}
-		if (l == 1)
-			break;
-	}
-
-	return (n);
-}
 
  * @s: Pointer to the string to be duplicated.
  * Return: A pointer to the newly created duplicate string.
