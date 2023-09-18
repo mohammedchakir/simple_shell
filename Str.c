@@ -4,13 +4,8 @@
 
 
 
-	for (n = 0; s[n]; n++)
-	{
-		if (s[n] < 48 || s[n] > 57)
-			return (0);
-	}
-	return (1);
-}
+	
+
 /**
  * rev_strin: function to reverse string
  * @s: The string to be reversed.
