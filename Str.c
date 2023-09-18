@@ -12,6 +12,7 @@
 	_strcat(err, msg);
 
 	_strcat(err, msg3);
+
 	_strcat(err, "\0");
 	write(STDERR_FILENO, err, lenght);
 	free(err);
