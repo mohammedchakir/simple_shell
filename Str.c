@@ -2,20 +2,6 @@
 
 
 
-int syntax_err_op(char *input, int n, char last)
-{
-	int ctr;
-
-	ctr = 0;
-	if (*input == '\0')
-		return (0);
-
-	if (*input == ' ' || *input == '\t')
-		return (syntax_err_op(input + 1, n + 1, last));
-
-	if (*input == ';')
-		if (last == '|' || last == '&' || last == ';')
-			return (n);
 
 	if (*input == '|')
 	{
