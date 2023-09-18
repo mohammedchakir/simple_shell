@@ -3,7 +3,7 @@
 	
 	_strcp(err, datash->av[0]);
 
-	_strcat(err, ": ");
+	_strconcat(err, ": ");
 
 	_strcat(err, count);
 
