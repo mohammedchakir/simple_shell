@@ -4,6 +4,7 @@
 	_strcpy(err, datash->av[0]);
 
 	_strcat(err, ": ");
+
 	_strcat(err, count);
 	_strcat(err, msg2);
 	_strcat(err, msg);
