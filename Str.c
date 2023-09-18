@@ -3,10 +3,7 @@
 
 
 
- * rev_strin: function to reverse string
- * @s: The string to be reversed.
- * Return: None.
- */
+ 
 void rev_string(char *s)
 {
 	int ctr = 0;
