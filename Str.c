@@ -1,6 +1,5 @@
 #include "main.h"
 
- 
 
 /**
  * char_repeat - Counts the repetitions of a character in a string.
