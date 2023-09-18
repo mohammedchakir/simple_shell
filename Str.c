@@ -10,18 +10,7 @@
  * @s2: The second string.
  * Return: 0 if equal, 1 if s1 is greater, -1 if s2 is greater.
  */
-int _strcmp(char *s1, char *s2)
-{
-	int n;
 
-	for (n = 0; s1[n] == s2[n] && s1[n]; n++)
-		;
-	if (s1[n] > s2[n])
-		return (1);
-	if (s1[n] < s2[n])
-		return (-1);
-	return (0);
-}
 
 /**
  * _strchr - Searches for a character in a string.
