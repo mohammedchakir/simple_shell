@@ -1,9 +1,5 @@
 #include "main.h"
 
-
-
-
-	
 	
 /**
  * fst_char - Finds the index of the first non-whitespace character.
