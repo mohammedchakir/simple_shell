@@ -8,12 +8,7 @@
 
 
 
-		for (m = 0; delim[m]; m++)
-		{
-			if (str[n] == delim[m])
-			{
-				l++;
-				break;
+		
 			}
 		}
 	}
