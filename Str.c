@@ -14,7 +14,7 @@ int _isdigit(const char *s)
 	return (1);
 }
 /**
- * rev_string - Reverses the characters in a string.
+ * rev_strin: function to reverse string
  * @s: The string to be reversed.
  * Return: None.
  */
