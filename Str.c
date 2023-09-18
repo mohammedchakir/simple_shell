@@ -2,19 +2,7 @@
 
 	
 
-int fst_char(char *input, int *n)
-{
 
-	for (*n = 0; input[*n]; *n += 1)
-	{
-		if (input[*n] == ' ' || input[*n] == '\t')
-			continue;
-		if (input[*n] == ';' || input[*n] == '|' || input[*n] == '&')
-			return (-1);
-		break;
-	}
-	return (0);
-}
 
 /**
  * syntax_err_printer - Prints an error message when a syntax error is found.
