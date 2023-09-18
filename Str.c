@@ -8,15 +8,6 @@
 
 
 
-		
-			}
-		}
-	}
-	if (n == l)
-		return (1);
-	return (0);
-}
-
 /**
  * _strtok - Splits a string into tokens using a delimiter.
  * @str: The input string.
