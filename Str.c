@@ -2,8 +2,6 @@
 
 
 
-
-
 /**
  * syntax_err_op - Searches for syntax errors in the input.
  * @input: The input string.
