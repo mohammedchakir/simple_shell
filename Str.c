@@ -1,7 +1,6 @@
 #include "main.h"
 
 	
-	
 	_strcpy(err, datash->av[0]);
 	_strcat(err, ": ");
 	_strcat(err, count);
