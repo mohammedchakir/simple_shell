@@ -3,12 +3,7 @@
 
  
  
-char *_strcat(char *dest, const char *src)
-{
-	
-	dest[n] = '\0';
-	return (dest);
-}
+
 
 /**
  * *_strcpy - Copies a string.
