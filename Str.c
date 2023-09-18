@@ -2,13 +2,6 @@
 
 
 
-
-
-/**
- * _isdigit - Checks if a string contains digits.
- * @s: The string to check.
- * Return: 1 if the string contains only digits, 0 otherwise.
- */
 int _isdigit(const char *s)
 {
 	unsigned int n;
