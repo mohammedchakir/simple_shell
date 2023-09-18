@@ -380,30 +380,5 @@ void syntax_err_printer(data_shell *datash, char *input, int n, int m)
 	free(count);
 }
 
-/**
- * syntax_err_checker - Identifies and reports syntax errors in the input.
- * @datash: Shell information.
- * @input: The input string.
- * Return: 1 if a syntax error is found, 0 otherwise.
- */
-int syntax_err_checker(data_shell *datash, char *input)
-{
-	int start = 0;
-	int first_char = 0;
-	int n = 0;
 
-	first_char = fst_char(input, &start);
-	if (first_char == -1)
-	{
-		syntax_err_printer(datash, input, start, 0);
-		return (1);
-	}
-	n = syntax_err_op(input + start, 0, *(input + start));
-	if (n != 0)
-	{
-		syntax_err_printer(datash, input, start + n, 1);
-		return (1);
-	}
-	return (0);
-}
 
