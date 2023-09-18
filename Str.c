@@ -1,12 +1,7 @@
 #include "main.h"
 
 	
-/**
- * fst_char - Finds the index of the first non-whitespace character.
- * @input: The input string.
- * @n: The starting index for the search.
- * Return: 1 if a non-whitespace character is found, 0 otherwise.
- */
+
 int fst_char(char *input, int *n)
 {
 
