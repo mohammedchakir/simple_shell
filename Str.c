@@ -8,9 +8,6 @@
  */
 char *_strcat(char *dest, const char *src)
 {
-	int n;
-	int m;
-
 	
 	dest[n] = '\0';
 	return (dest);
