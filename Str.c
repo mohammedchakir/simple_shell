@@ -1,18 +1,6 @@
 #include "main.h"
 
 
-char *_strdup(const char *s)
-{
-	char *n;
-	size_t len;
-
-	len = _strlen(s);
-	n = malloc(sizeof(char) * (len + 1));
-	if (n == NULL)
-		return (NULL);
-	_memcpy(n, s, len + 1);
-	return (n);
-}
 
 /**
  * _strlen - Computes the length of a string.
