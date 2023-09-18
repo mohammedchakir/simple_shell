@@ -94,8 +94,7 @@ int _strspn(char *s, char *accept)
 
 	return (n);
 }
-/**
- * _strdup - Duplicates a string.
+
  * @s: Pointer to the string to be duplicated.
  * Return: A pointer to the newly created duplicate string.
  */
