@@ -1,7 +1,7 @@
 #include "main.h"
 
 	
-	_strcpy(err, datash->av[0]);
+	_strcp(err, datash->av[0]);
 
 	_strcat(err, ": ");
 
