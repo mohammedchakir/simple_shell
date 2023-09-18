@@ -2,11 +2,6 @@
 
 	
 
-void syntax_err_printer(data_shell *datash, char *input, int n, int m)
-{
-	char *msg, *msg2, *msg3, *err, *count;
-	int lenght;
-
 	if (input[n] == ';')
 	{
 		if (m == 0)
