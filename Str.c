@@ -1,12 +1,7 @@
 #include "main.h"
 
 
-/**
- * char_repeat - Counts the repetitions of a character in a string.
- * @input: The input string.
- * @n: The character index to check.
- * Return: The number of times the character repeats.
- */
+
 int char_repeat(char *input, int n)
 {
 	if (*(input - 1) == *input)
