@@ -8,6 +8,7 @@
 	_strcat(err, count);
 
 	_strcat(err, msg2);
+
 	_strcat(err, msg);
 	_strcat(err, msg3);
 	_strcat(err, "\0");
