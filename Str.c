@@ -4,7 +4,6 @@
  
 
 
- * @s: The string to search in.
  * @c: The character to find.
  * Return: A pointer to first occurence of char in string or NULL if not found.
  */
