@@ -7,12 +7,7 @@
 
 
 
-int cmp_chars(char str[], const char *delim)
-{
-	unsigned int n, m, l;
 
-	for (n = 0, l = 0; str[n]; n++)
-	{
 		for (m = 0; delim[m]; m++)
 		{
 			if (str[n] == delim[m])
