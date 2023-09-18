@@ -6,6 +6,7 @@
 	_strcat(err, ": ");
 
 	_strcat(err, count);
+
 	_strcat(err, msg2);
 	_strcat(err, msg);
 	_strcat(err, msg3);
