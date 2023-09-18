@@ -4,21 +4,7 @@
 
 
 	
-	}
-	if (*input == '&')
-	{
-		if (last == ';' || last == '|')
-			return (n);
-		if (last == '&')
-		{
-			ctr = char_repeat(input, 0);
-			if (ctr == 0 || ctr > 1)
-				return (n);
-		}
-	}
-	return (syntax_err_op(input + 1, n + 1, *input));
-}
-
+	
 /**
  * fst_char - Finds the index of the first non-whitespace character.
  * @input: The input string.
