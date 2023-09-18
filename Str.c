@@ -5,9 +5,7 @@
  
 
 
-/**
- * *_strcpy - Copies a string.
- * @dest: The destination string.
+
  * @src: The source string.
  * Return: A pointer to the destination string.
  */
