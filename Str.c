@@ -3,7 +3,7 @@
 	
 
 
-	_strcat(err, count);
+	
 
 	_strcat(err, msg2);
 
