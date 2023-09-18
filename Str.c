@@ -5,8 +5,6 @@
 
 
 
- * Return: A pointer to first occurence of char in string or NULL if not found.
- */
 char *_strchr(char *s, char c)
 {
 	unsigned int n = 0;
