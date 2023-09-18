@@ -2,8 +2,7 @@
 
 
  
- * Return: The combined string.
- */
+ 
 char *_strcat(char *dest, const char *src)
 {
 	
