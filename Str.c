@@ -2,9 +2,7 @@
 
 
 
-int _isdigit(const char *s)
-{
-	unsigned int n;
+
 
 	for (n = 0; s[n]; n++)
 	{
