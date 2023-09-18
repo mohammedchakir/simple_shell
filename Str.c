@@ -6,12 +6,6 @@
 
 
 
-/**
- * _strspn - Computes the length of a substring.
- * @s: The initial segment.
- * @accept: The set of allowed bytes.
- * Return: The number of allowed bytes at the beginning of s.
- */
 int _strspn(char *s, char *accept)
 {
 	int n, m, l;
