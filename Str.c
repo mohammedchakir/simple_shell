@@ -1,7 +1,6 @@
 #include "main.h"
 
 	
-
 /**
  * syntax_err_printer - Prints an error message when a syntax error is found.
  * @datash: Shell information.
