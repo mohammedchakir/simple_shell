@@ -2,13 +2,7 @@
 
 
 
-int char_repeat(char *input, int n)
-{
-	if (*(input - 1) == *input)
-		return (char_repeat(input - 1, n + 1));
 
-	return (n);
-}
 
 /**
  * syntax_err_op - Searches for syntax errors in the input.
