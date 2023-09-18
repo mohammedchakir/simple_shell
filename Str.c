@@ -5,7 +5,6 @@
 
 	
 
-	_strcat(err, msg2);
 
 	_strcat(err, msg);
 
