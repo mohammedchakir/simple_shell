@@ -2,17 +2,6 @@
 
 	
 
-	if (input[n] == ';')
-	{
-		if (m == 0)
-			msg = (input[n + 1] == ';' ? ";;" : ";");
-		else
-			msg = (input[n - 1] == ';' ? ";;" : ";");
-	}
-	if (input[n] == '|')
-		msg = (input[n + 1] == '|' ? "||" : "|");
-	if (input[n] == '&')
-		msg = (input[n + 1] == '&' ? "&&" : "&");
 	msg2 = ": Syntax error: \"";
 	msg3 = "\" unexpected\n";
 	count = aux_itoa(datash->counter);
