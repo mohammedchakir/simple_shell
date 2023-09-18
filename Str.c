@@ -1,8 +1,7 @@
 #include "main.h"
 
 
- * @dest: The first string.
- * @src: The second string.
+ 
  * Return: The combined string.
  */
 char *_strcat(char *dest, const char *src)
