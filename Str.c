@@ -2,11 +2,6 @@
 
 
 
-
-
-	
-
-/**
  * rev_strin: function to reverse string
  * @s: The string to be reversed.
  * Return: None.
