@@ -4,56 +4,6 @@
 
 
 
-
-
-
-
-/**
- * _strtok - Splits a string into tokens using a delimiter.
- * @str: The input string.
- * @delim: The delimiter string.
- * Return: The next token from the input string, or NULL if no tokens found.
- */
-char *_strtok(char str[], const char *delim)
-{
-	static char *splitted, *str_end;
-	char *str_begin;
-	unsigned int n, m;
-
-	if (str != NULL)
-	{
-		if (cmp_chars(str, delim))
-			return (NULL);
-		splitted = str;
-		n = _strlen(str);
-		str_end = &str[n];
-	}
-	str_begin = splitted;
-	if (str_begin == str_end)
-		return (NULL);
-	for (m = 0; *splitted; splitted++)
-	{
-		if (splitted != str_begin)
-			if (*splitted && *(splitted - 1) == '\0')
-				break;
-		for (n = 0; delim[n]; n++)
-		{
-			if (*splitted == delim[n])
-			{
-				*splitted = '\0';
-				if (splitted == str_begin)
-					str_begin++;
-				break;
-			}
-		}
-		if (m == 0 && *splitted)
-			m = 1;
-	}
-	if (m == 0)
-		return (NULL);
-	return (str_begin);
-}
-
 /**
  * _isdigit - Checks if a string contains digits.
  * @s: The string to check.
