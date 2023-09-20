@@ -2,37 +2,6 @@
 
 
 
-/**
- * cd_prev - Navigate to the previous directory.
- * @datash: Current Shell informations.
- * Return: None.
- */
-void cd_prev(data_shell *datash)
-{
-	char _pwd[PATH_MAX];
-	char *p_c_pwd, *p_old_pwd, *cpy_pwd, *cpy_oldpwd;
-
-	getcwd(_pwd, sizeof(_pwd));
-	cpy_pwd = _strdup(_pwd);
-	p_old_pwd = _getenv("OLDPWD", datash->_environ);
-	if (p_old_pwd == NULL)
-		cpy_oldpwd = cpy_pwd;
-	else
-		cpy_oldpwd = _strdup(p_old_pwd);
-	environ_set("OLDPWD", cpy_pwd, datash);
-	if (chdir(cpy_oldpwd) == -1)
-		environ_set("PWD", cpy_pwd, datash);
-	else
-		environ_set("PWD", cpy_oldpwd, datash);
-	p_c_pwd = _getenv("PWD", datash->_environ);
-	write(STDOUT_FILENO, p_c_pwd, _strlen(p_c_pwd));
-	write(STDOUT_FILENO, "\n", 1);
-	free(cpy_pwd);
-	if (p_old_pwd)
-		free(cpy_oldpwd);
-	datash->status = 0;
-	chdir(p_c_pwd);
-}
 
 /**
  * cd_home - Change to the home directory.
