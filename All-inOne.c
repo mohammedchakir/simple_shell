@@ -3,7 +3,6 @@
 
 
 
- * Return: None.
  */
 void cd_home(data_shell *datash)
 {
