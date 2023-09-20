@@ -3,9 +3,7 @@
 
  
 
-char *get_cd_err(data_shell *datash)
-{
-	int len, l_id;
+
 	char *err, *str_var;
 	char *msg;
 
