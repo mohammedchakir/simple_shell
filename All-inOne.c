@@ -4,13 +4,7 @@
  
 
 	
-		msg = ": can't cd to ";
-		l_id = _strlen(datash->args[1]);
-	}
-	len = _strlen(datash->av[0]) + _strlen(datash->args[0]);
-	len += _strlen(str_var) + _strlen(msg) + l_id + 5;
-	err = malloc(sizeof(char) * (len + 1));
-	if (err == 0)
+		
 	{
 		free(str_var);
 		return (NULL);
