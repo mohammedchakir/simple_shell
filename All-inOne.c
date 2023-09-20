@@ -4,22 +4,7 @@
  
 
 	
-		
-	{
-		free(str_var);
-		return (NULL);
-	}
-	err = cd_strcat(datash, msg, err, str_var);
-	free(str_var);
-	return (err);
-}
-
-/**
- * not_found_err - Generates a generic error message for "command not found."
- * @datash: Current shell informations.
- * Return: The complete error message.
- */
-char *not_found_err(data_shell *datash)
+	
 {
 	int lenght;
 	char *err, *str_var;
