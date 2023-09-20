@@ -3,10 +3,6 @@
 
  
 
-
-	char *err, *str_var;
-	char *msg;
-
 	str_var = aux_itoa(datash->counter);
 	if (datash->args[1][0] == '-')
 	{
