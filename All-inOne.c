@@ -1,17 +1,6 @@
 #include "main.h"
 
 
-
-
-
-		free(p_c_pwd);
-		return;
-	}
-	environ_set("OLDPWD", p_c_pwd, datash);
-	environ_set("PWD", hom, datash);
-	free(p_c_pwd);
-	datash->status = 0;
-}
 /**
  * cd_strcat - Concatenates a CD error message.
  * @datash: Current shell informations.
