@@ -1,38 +1,7 @@
 #include "main.h"
 
 
-/**
- * aux_itoa - Converts an integer to a string representation.
- * @i: The integer to be converted.
- * Return: The resulting string.
- */
-char *aux_itoa(int i)
-{
-	unsigned int num;
-	int length = get_len(i);
-	char *buff;
 
-	buff = malloc(sizeof(char) * (length + 1));
-	if (buff == 0)
-		return (NULL);
-	*(buff + length) = '\0';
-	if (i < 0)
-	{
-		num = i * -1;
-		buff[0] = '-';
-	}
-	else
-		num = i;
-	length--;
-	do {
-		*(buff + length) = (num % 10) + '0';
-		num = num / 10;
-		length--;
-	}
-	while (num > 0)
-		;
-	return (buff);
-}
 /**
  * _atoi - Converts a string to an integer.
  * @s: The input string.
