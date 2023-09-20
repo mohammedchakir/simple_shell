@@ -1,33 +1,6 @@
 #include "main.h"
 
 
-/**
- * cd_to - Change the current directory.
- * @datash: Current Shell informations.
- * Return: None.
- */
-void cd_to(data_shell *datash)
-{
-	char _pwd[PATH_MAX];
-	char *dir, *cpy_pwd, *cpy_dir;
-
-	getcwd(_pwd, sizeof(_pwd));
-
-	dir = datash->args[1];
-	if (chdir(dir) == -1)
-	{
-		err_get(datash, 2);
-		return;
-	}
-	cpy_pwd = _strdup(_pwd);
-	environ_set("OLDPWD", cpy_pwd, datash);
-	cpy_dir = _strdup(dir);
-	environ_set("PWD", cpy_dir, datash);
-	free(cpy_pwd);
-	free(cpy_dir);
-	datash->status = 0;
-	chdir(dir);
-}
 
 /**
  * cd_prev - Navigate to the previous directory.
