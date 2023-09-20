@@ -2,54 +2,6 @@
 
 
 
-/**
- * par_cd - Change to the parent directory.
- * @datash: Current Shell informations.
- * Return: None.
- */
-void par_cd(data_shell *datash)
-{
-	char _pwd[PATH_MAX];
-	char *dir, *cpy_pwd, *cpy_strtok_pwd;
-
-	getcwd(_pwd, sizeof(_pwd));
-	cpy_pwd = _strdup(_pwd);
-	environ_set("OLDPWD", cpy_pwd, datash);
-	dir = datash->args[1];
-	if (_strcmp(".", dir) == 0)
-	{
-		environ_set("PWD", cpy_pwd, datash);
-		free(cpy_pwd);
-		return;
-	}
-	if (_strcmp("/", cpy_pwd) == 0)
-	{
-		free(cpy_pwd);
-		return;
-	}
-	cpy_strtok_pwd = cpy_pwd;
-	rev_string(cpy_strtok_pwd);
-	cpy_strtok_pwd = _strtok(cpy_strtok_pwd, "/");
-	if (cpy_strtok_pwd != NULL)
-	{
-		cpy_strtok_pwd = _strtok(NULL, "\0");
-
-		if (cpy_strtok_pwd != NULL)
-			rev_string(cpy_strtok_pwd);
-	}
-	if (cpy_strtok_pwd != NULL)
-	{
-		chdir(cpy_strtok_pwd);
-		environ_set("PWD", cpy_strtok_pwd, datash);
-	}
-	else
-	{
-		chdir("/");
-		environ_set("PWD", "/", datash);
-	}
-	datash->status = 0;
-	free(cpy_pwd);
-}
 
 /**
  * cd_to - Change the current directory.
