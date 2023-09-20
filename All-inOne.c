@@ -1,29 +1,6 @@
 #include "main.h"
 
-/**
- * get_len - Determines the length of an integer.
- * @i: The integer to measure.
- * Return: The length of the integer.
- */
-int get_len(int i)
-{
-	unsigned int num;
-	int length = 1;
 
-	if (i < 0)
-	{
-		length++;
-		num = i * -1;
-	}
-	else
-		num = i;
-	while (num > 9)
-	{
-		length++;
-		num = num / 10;
-	}
-	return (length);
-}
 /**
  * aux_itoa - Converts an integer to a string representation.
  * @i: The integer to be converted.
