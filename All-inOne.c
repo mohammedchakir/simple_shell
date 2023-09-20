@@ -1,15 +1,7 @@
 #include "main.h"
 
 
-
-		_strcat(err, datash->args[1]);
-	_strcat(err, "\n");
-	_strcat(err, "\0");
-	return (err);
-}
-
-/**
- * get_cd_err - Retrieve a CD error message.
+ error message.
  * @datash: Currentt shell informations.
  * Return: The complete error message.
  */
