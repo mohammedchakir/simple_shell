@@ -4,18 +4,6 @@
 
 
 
-	getcwd(_pwd, sizeof(_pwd));
-	p_c_pwd = _strdup(_pwd);
-	hom = _getenv("HOME", datash->_environ);
-	if (hom == NULL)
-	{
-		environ_set("OLDPWD", p_c_pwd, datash);
-		free(p_c_pwd);
-		return;
-	}
-	if (chdir(hom) == -1)
-	{
-		err_get(datash, 2);
 		free(p_c_pwd);
 		return;
 	}
