@@ -2,9 +2,7 @@
 
 
  
- * @datash: Currentt shell informations.
- * Return: The complete error message.
- */
+
 char *get_cd_err(data_shell *datash)
 {
 	int len, l_id;
