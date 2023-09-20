@@ -1,16 +1,7 @@
 #include "main.h"
 
 
-== '-')
-	{
-		illegal_f = malloc(3);
-		illegal_f[0] = '-';
-		illegal_f[1] = datash->args[1][1];
-		illegal_f[2] = '\0';
-		_strcat(err, illegal_f);
-		free(illegal_f);
-	}
-	else
+
 		_strcat(err, datash->args[1]);
 	_strcat(err, "\n");
 	_strcat(err, "\0");
