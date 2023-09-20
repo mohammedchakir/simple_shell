@@ -3,7 +3,6 @@
 
 
 
- * cd_home - Change to the home directory.
  * @datash: Current Shell informations.
  * Return: None.
  */
