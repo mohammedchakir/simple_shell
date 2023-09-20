@@ -3,14 +3,7 @@
 
  
 
-	str_var = aux_itoa(datash->counter);
-	if (datash->args[1][0] == '-')
-	{
-		msg = ": Illegal option ";
-		l_id = 2;
-	}
-	else
-	{
+	
 		msg = ": can't cd to ";
 		l_id = _strlen(datash->args[1]);
 	}
