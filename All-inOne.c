@@ -1,24 +1,7 @@
 #include "main.h"
 
 
-- Concatenates a CD error message.
- * @datash: Current shell informations.
- * @msg: Message to print.
- * @err: Error message.
- * @str_var: Count.
- * Return: The complete error message.
- */
-char *cd_strcat(data_shell *datash, char *msg, char *err, char *str_var)
-{
-	char *illegal_f;
-
-	_strcpy(err, datash->av[0]);
-	_strcat(err, ": ");
-	_strcat(err, str_var);
-	_strcat(err, ": ");
-	_strcat(err, datash->args[0]);
-	_strcat(err, msg);
-	if (datash->args[1][0] == '-')
+== '-')
 	{
 		illegal_f = malloc(3);
 		illegal_f[0] = '-';
