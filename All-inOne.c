@@ -1,8 +1,7 @@
 #include "main.h"
 
 
-/**
- * cd_strcat - Concatenates a CD error message.
+- Concatenates a CD error message.
  * @datash: Current shell informations.
  * @msg: Message to print.
  * @err: Error message.
