@@ -3,11 +3,6 @@
 
 
 
- */
-void cd_home(data_shell *datash)
-{
-	char *p_c_pwd, *hom;
-	char _pwd[PATH_MAX];
 
 	getcwd(_pwd, sizeof(_pwd));
 	p_c_pwd = _strdup(_pwd);
