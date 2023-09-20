@@ -6,7 +6,16 @@
  * @p: Pointer to an index.
  * Return: 1 if searchable, 0 otherwise.
  */
-
+int searchable_cdir(char *path, int *p)
+{
+	if (path[*p] == ':')
+		return (1);
+	while (path[*p] != ':' && path[*p])
+		*p += 1;
+	if (path[*p])
+		*p += 1;
+	return (0);
+}
 
 /**
  * locate_cmd - Searches for the location of a command.
