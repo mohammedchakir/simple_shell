@@ -1,7 +1,7 @@
 #include "main.h"
 
 
- error message.
+ 
  * @datash: Currentt shell informations.
  * Return: The complete error message.
  */
