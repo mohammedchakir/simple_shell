@@ -4,6 +4,8 @@
 
 by: Julien Barbier
 
+![image simple-shell](https://miro.medium.com/v2/resize:fit:1052/1*P1FKnYJTJxW87fe71611dg.png)
+
 ## *Concepts:*
 
 - [Everything you need to know to start coding your own shell](https://intranet.alxswe.com/concepts/64)
