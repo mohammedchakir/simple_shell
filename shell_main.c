@@ -1,18 +1,17 @@
 #include "main.h"
 
 /**
- * free_data - frees data structure
- *
- * @datash: data structure
- * Return: no return
+ * free_data - function frees the data structure.
+ * @datash: the data structure.
+ * Return: no return printed.
  */
 void free_data(data_shell *datash)
 {
-	unsigned int i;
+	unsigned int n;
 
-	for (i = 0; datash->_environ[i]; i++)
+	for (n = 0; datash->_environ[n]; n++)
 	{
-		free(datash->_environ[i]);
+		free(datash->_environ[n]);
 	}
 
 	free(datash->_environ);
@@ -20,7 +19,7 @@ void free_data(data_shell *datash)
 }
 
 /**
- * set_data - Initialize data structure
+ * set_data - function initialize the data structure.
  *
  * @datash: data structure
  * @av: argument vector
@@ -28,7 +27,7 @@ void free_data(data_shell *datash)
  */
 void set_data(data_shell *datash, char **av)
 {
-	unsigned int i;
+	unsigned int n;
 
 	datash->av = av;
 	datash->input = NULL;
@@ -36,26 +35,24 @@ void set_data(data_shell *datash, char **av)
 	datash->status = 0;
 	datash->counter = 1;
 
-	for (i = 0; environ[i]; i++)
+	for (n = 0; environ[n]; n++)
 		;
 
-	datash->_environ = malloc(sizeof(char *) * (i + 1));
+	datash->_environ = malloc(sizeof(char *) * (n + 1));
 
-	for (i = 0; environ[i]; i++)
+	for (n = 0; environ[i]; n++)
 	{
-		datash->_environ[i] = _strdup(environ[i]);
+		datash->_environ[n] = _strdup(environ[n]);
 	}
 
-	datash->_environ[i] = NULL;
+	datash->_environ[n] = NULL;
 	datash->pid = aux_itoa(getpid());
 }
 
 /**
- * main - Entry point
- *
- * @ac: argument count
- * @av: argument vector
- *
+ * main - the entry of point.
+ * @ac: the argument count.
+ * @av: the argument vector.
  * Return: 0 on success.
  */
 int main(int ac, char **av)
