@@ -1,45 +1,43 @@
 #include "main.h"
 
 /**
- * without_comment - deletes comments from the input
- *
- * @in: input string
- * Return: input without comments
+ * without_comment - function deletes comments from the input.
+ * @input: the input string.
+ * Return: the input without comments.
  */
-char *without_comment(char *in)
+char *without_comment(char *input)
 {
-	int i, up_to;
+	int n, up_to;
 
 	up_to = 0;
-	for (i = 0; in[i]; i++)
+	for (n = 0; input[n]; n++)
 	{
-		if (in[i] == '#')
+		if (input[n] == '#')
 		{
-			if (i == 0)
+			if (n == 0)
 			{
-				free(in);
+				free(input);
 				return (NULL);
 			}
 
-			if (in[i - 1] == ' ' || in[i - 1] == '\t' || in[i - 1] == ';')
-				up_to = i;
+			if (input[n - 1] == ' ' || input[n - 1] == '\t' || input[n - 1] == ';')
+				up_to = n;
 		}
 	}
 
 	if (up_to != 0)
 	{
-		in = _realloc(in, i, up_to + 1);
-		in[up_to] = '\0';
+		input = _realloc(input, n, up_to + 1);
+		input[up_to] = '\0';
 	}
 
-	return (in);
+	return (input);
 }
 
 /**
- * shell_loop - Loop of shell
- * @datash: data relevant (av, input, args)
- *
- * Return: no return.
+ * shell_loop - the loop function of shell.
+ * @datash: the data relevant.
+ * Return: no return printed.
  */
 void shell_loop(data_shell *datash)
 {
