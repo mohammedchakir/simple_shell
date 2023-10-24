@@ -1,38 +1,37 @@
 #include "main.h"
 
 /**
- * is_cdir - checks ":" if is in the current directory.
- * @path: type char pointer char.
- * @i: type int pointer of index.
+ * is_cdir - function checks ":" if is in the current directory.
+ * @path: the type char pointer character.
+ * @n: the type int pointer of index.
  * Return: 1 if the path is searchable in the cd, 0 otherwise.
  */
-int is_cdir(char *path, int *i)
+int is_cdir(char *path, int *n)
 {
-	if (path[*i] == ':')
+	if (path[*n] == ':')
 		return (1);
 
-	while (path[*i] != ':' && path[*i])
+	while (path[*n] != ':' && path[*n])
 	{
-		*i += 1;
+		*n += 1;
 	}
 
-	if (path[*i])
-		*i += 1;
+	if (path[*n])
+		*n += 1;
 
 	return (0);
 }
 
 /**
- * _which - locates a command
- *
- * @cmd: command name
- * @_environ: environment variable
- * Return: location of the command.
+ * _which - function locates a command.
+ * @cmd: the command identification.
+ * @_environ: the environment variable.
+ * Return: the location of the command.
  */
 char *_which(char *cmd, char **_environ)
 {
-	char *path, *ptr_path, *token_path, *dir;
-	int len_dir, len_cmd, i;
+	char *path, *ptr_path, *token_path, *directory;
+	int len_dir, len_cmd, n;
 	struct stat st;
 
 	path = _getenv("PATH", _environ);
@@ -41,24 +40,24 @@ char *_which(char *cmd, char **_environ)
 		ptr_path = _strdup(path);
 		len_cmd = _strlen(cmd);
 		token_path = _strtok(ptr_path, ":");
-		i = 0;
+		n = 0;
 		while (token_path != NULL)
 		{
 			if (is_cdir(path, &i))
 				if (stat(cmd, &st) == 0)
 					return (cmd);
 			len_dir = _strlen(token_path);
-			dir = malloc(len_dir + len_cmd + 2);
-			_strcpy(dir, token_path);
-			_strcat(dir, "/");
-			_strcat(dir, cmd);
-			_strcat(dir, "\0");
-			if (stat(dir, &st) == 0)
+			directory = malloc(len_dir + len_cmd + 2);
+			_strcpy(directory, token_path);
+			_strcat(directory, "/");
+			_strcat(directory, cmd);
+			_strcat(directory, "\0");
+			if (stat(directory, &st) == 0)
 			{
 				free(ptr_path);
-				return (dir);
+				return (directory);
 			}
-			free(dir);
+			free(directory);
 			token_path = _strtok(NULL, ":");
 		}
 		free(ptr_path);
@@ -73,56 +72,54 @@ char *_which(char *cmd, char **_environ)
 }
 
 /**
- * is_executable - determines if is an executable
- *
- * @datash: data structure
- * Return: 0 if is not an executable, other number if it does
+ * is_executable - function determines if is an executable.
+ * @datash: the data structure.
+ * Return: 0 if is not an executable, other number if it does.
  */
 int is_executable(data_shell *datash)
 {
 	struct stat st;
-	int i;
+	int n;
 	char *input;
 
 	input = datash->args[0];
-	for (i = 0; input[i]; i++)
+	for (n = 0; input[n]; n++)
 	{
-		if (input[i] == '.')
+		if (input[n] == '.')
 		{
-			if (input[i + 1] == '.')
+			if (input[n + 1] == '.')
 				return (0);
-			if (input[i + 1] == '/')
+			if (input[n + 1] == '/')
 				continue;
 			else
 				break;
 		}
-		else if (input[i] == '/' && i != 0)
+		else if (input[n] == '/' && n != 0)
 		{
-			if (input[i + 1] == '.')
+			if (input[n + 1] == '.')
 				continue;
-			i++;
+			n++;
 			break;
 		}
 		else
 			break;
 	}
-	if (i == 0)
+	if (n == 0)
 		return (0);
 
-	if (stat(input + i, &st) == 0)
+	if (stat(input + n, &st) == 0)
 	{
-		return (i);
+		return (n);
 	}
 	get_error(datash, 127);
 	return (-1);
 }
 
 /**
- * check_error_cmd - verifies if user has permissions to access
- *
- * @dir: destination directory
- * @datash: data structure
- * Return: 1 if there is an error, 0 if not
+ * check_error_cmd - function verifies if user has permissions to access.
+ * @dir: the destination directory.
+ * @datash: the data structure.
+ * Return: 1 if there is an error, 0 if not.
  */
 int check_error_cmd(char *dir, data_shell *datash)
 {
@@ -155,9 +152,8 @@ int check_error_cmd(char *dir, data_shell *datash)
 }
 
 /**
- * cmd_exec - executes command lines
- *
- * @datash: data relevant (args and input)
+ * cmd_exec - the executes command lines.
+ * @datash: the data relevant (args and input).
  * Return: 1 on success.
  */
 int cmd_exec(data_shell *datash)
