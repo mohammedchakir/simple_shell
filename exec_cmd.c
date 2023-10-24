@@ -43,7 +43,7 @@ char *_which(char *cmd, char **_environ)
 		n = 0;
 		while (token_path != NULL)
 		{
-			if (is_cdir(path, &i))
+			if (is_cdir(path, &n))
 				if (stat(cmd, &st) == 0)
 					return (cmd);
 			len_dir = _strlen(token_path);

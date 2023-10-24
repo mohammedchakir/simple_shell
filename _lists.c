@@ -100,7 +100,7 @@ void free_line_list(line_list **head)
 
 	if (head != NULL)
 	{
-		current= *head;
+		current = *head;
 		while ((tmp = current) != NULL)
 		{
 			current = current->next;

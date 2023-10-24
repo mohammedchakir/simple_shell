@@ -10,16 +10,16 @@ int cd_shell(data_shell *datash)
 	char *directory;
 	int ishome1, ishome2, isddash;
 
-	dir = datash->args[1];
+	directory = datash->args[1];
 
-	if (dir != NULL)
+	if (directory != NULL)
 	{
 		ishome1 = _strcmp("$HOME", directory);
 		ishome2 = _strcmp("~", directory);
 		isddash = _strcmp("--", directory);
 	}
 
-	if (dir == NULL || !ishome1 || !ishome2 || !isddash)
+	if (directory == NULL || !ishome1 || !ishome2 || !isddash)
 	{
 		cd_to_home(datash);
 		return (1);

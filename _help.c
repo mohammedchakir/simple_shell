@@ -43,7 +43,7 @@ void aux_help_unsetenv(void)
 
 
 /**
- * aux_help_general - the entry point for help information for the help builtin.
+ * aux_help_general - the entry point for help information for help builtin.
  * Return: no return printed.
  */
 void aux_help_general(void)

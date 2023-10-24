@@ -8,18 +8,18 @@
  */
 int get_error(data_shell *datash, int eval)
 {
-	char *err;
+	char *error;
 
 	switch (eval)
 	{
 	case -1:
-		err = error_env(datash);
+		error = error_env(datash);
 		break;
 	case 126:
-		err = error_path_126(datash);
+		error = error_path_126(datash);
 		break;
 	case 127:
-		err = error_not_found(datash);
+		error = error_not_found(datash);
 		break;
 	case 2:
 		if (_strcmp("exit", datash->args[0]) == 0)
@@ -29,10 +29,10 @@ int get_error(data_shell *datash, int eval)
 		break;
 	}
 
-	if (err)
+	if (error)
 	{
-		write(STDERR_FILENO, err, _strlen(err));
-		free(err);
+		write(STDERR_FILENO, error, _strlen(error));
+		free(error);
 	}
 
 	datash->status = eval;

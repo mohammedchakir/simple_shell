@@ -63,7 +63,8 @@ int _env(data_shell *datash)
 	for (n = 0; datash->_environ[n]; n++)
 	{
 
-		for (m = 0; datash->_environ[n][m]; m++);
+		for (m = 0; datash->_environ[n][m]; m++)
+			;
 
 		write(STDOUT_FILENO, datash->_environ[n], m);
 		write(STDOUT_FILENO, "\n", 1);
