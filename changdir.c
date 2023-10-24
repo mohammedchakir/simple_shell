@@ -1,22 +1,20 @@
 #include "main.h"
 
 /**
- * cd_dot - changes to the parent directory
- *
- * @datash: data relevant (environ)
- *
- * Return: no return
+ * cd_dot - function changes to the parent directory.
+ * @datash: the data relevant (environ).
+ * Return: no return printed.
  */
 void cd_dot(data_shell *datash)
 {
 	char pwd[PATH_MAX];
-	char *dir, *cp_pwd, *cp_strtok_pwd;
+	char *directory, *cp_pwd, *cp_strtok_pwd;
 
 	getcwd(pwd, sizeof(pwd));
 	cp_pwd = _strdup(pwd);
 	set_env("OLDPWD", cp_pwd, datash);
-	dir = datash->args[1];
-	if (_strcmp(".", dir) == 0)
+	directory = datash->args[1];
+	if (_strcmp(".", directory) == 0)
 	{
 		set_env("PWD", cp_pwd, datash);
 		free(cp_pwd);
@@ -52,21 +50,20 @@ void cd_dot(data_shell *datash)
 }
 
 /**
- * cd_to - changes to a directory given
- * by the user
- *
- * @datash: data relevant (directories)
- * Return: no return
+ * cd_to - function changes forward a directory given
+ * by the user.
+ * @datash: the data relevant (directories).
+ * Return: no return printed.
  */
 void cd_to(data_shell *datash)
 {
 	char pwd[PATH_MAX];
-	char *dir, *cp_pwd, *cp_dir;
+	char *directory, *cp_pwd, *cp_dir;
 
 	getcwd(pwd, sizeof(pwd));
 
-	dir = datash->args[1];
-	if (chdir(dir) == -1)
+	directory = datash->args[1];
+	if (chdir(directory) == -1)
 	{
 		get_error(datash, 2);
 		return;
@@ -75,7 +72,7 @@ void cd_to(data_shell *datash)
 	cp_pwd = _strdup(pwd);
 	set_env("OLDPWD", cp_pwd, datash);
 
-	cp_dir = _strdup(dir);
+	cp_dir = _strdup(directory);
 	set_env("PWD", cp_dir, datash);
 
 	free(cp_pwd);
@@ -83,14 +80,13 @@ void cd_to(data_shell *datash)
 
 	datash->status = 0;
 
-	chdir(dir);
+	chdir(directory);
 }
 
 /**
- * cd_previous - changes to the previous directory
- *
- * @datash: data relevant (environ)
- * Return: no return
+ * cd_previous - function changes to the previous directory.
+ * @datash: the data relevant (environ).
+ * Return: no return printed.
  */
 void cd_previous(data_shell *datash)
 {
@@ -129,10 +125,9 @@ void cd_previous(data_shell *datash)
 }
 
 /**
- * cd_to_home - changes to home directory
- *
- * @datash: data relevant (environ)
- * Return: no return
+ * cd_to_home - function changes to home directory.
+ * @datash: the data relevant (environ).
+ * Return: no return printed.
  */
 void cd_to_home(data_shell *datash)
 {
